@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class DisplaySkillsComponent {
 
+  public addSkills() {
+  console.log('add skills function');
+  }
+
 }
