@@ -11,6 +11,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +32,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatDialogModule
-
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

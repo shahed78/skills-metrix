@@ -17,7 +17,7 @@ export class DisplaySkillsComponent {
   dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);
   });
-  
+
   }
 
 }
