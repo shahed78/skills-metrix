@@ -11,7 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -29,11 +29,12 @@ import {MatNativeDateModule} from '@angular/material/core';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,
-    FormsModule,
     MatInputModule,
     MatGridListModule,
     MatDatepickerModule,

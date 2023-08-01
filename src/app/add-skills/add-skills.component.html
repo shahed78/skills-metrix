@@ -1,40 +1,46 @@
 <h2 mat-dialog-title>User Information</h2>
 <mat-dialog-content>
-  <form>
+  <form [formGroup]= "myForm" (ngSubmit)="onSubmit()">
     <div class="row">
         <mat-form-field class="full-width">
-            <input matInput placeholder="First Name">
+            <input matInput type="text" formControlName="firstname" placeholder="First Name">
         </mat-form-field>
     
         <mat-form-field class="full-width">
-            <input matInput placeholder="Last Name">
+            <input matInput type="text" formControlName="lastname" placeholder="Last Name">
         </mat-form-field>
     </div>
     
     <div class="row">
         <mat-form-field  class="full-width">
-            <input matInput type="email" placeholder="Email">
+            <input matInput type="email" formControlName="email" type="email" placeholder="Email">
         </mat-form-field>
     </div>
 
     <div class="row">
+
         <mat-form-field>
-            <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date">
-            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-            <mat-datepicker #startDatePicker></mat-datepicker>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <input matInput [matDatepicker]="completionDatePicker" placeholder="Completion Date" >
-            <mat-datepicker-toggle matSuffix [for]="completionDatePicker"></mat-datepicker-toggle>
-            <mat-datepicker #completionDatePicker></mat-datepicker>
-          </mat-form-field> 
+            <mat-label>Choose start date</mat-label>
+            <input matInput formControlName="startdate" [matDatepicker]="startdatepicker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="startdatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #startdatepicker></mat-datepicker>
+        </mat-form-field>
+        
+    
+        <mat-form-field>
+            <mat-label>Choose completion date</mat-label>
+            <input matInput formControlName="enddate" [matDatepicker]="enddatepicker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="enddatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #enddatepicker></mat-datepicker>
+        </mat-form-field>
 
     </div>
 
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button cdkFocusInitial>Add Skills</button>
+        <button mat-button cdkFocusInitial type="submit" [disabled]="myForm.invalid">Add Skills</button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>
