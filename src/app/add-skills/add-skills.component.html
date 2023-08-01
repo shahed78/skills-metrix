@@ -22,7 +22,7 @@
         <mat-form-field>
             <mat-label>Choose start date</mat-label>
             <input matInput formControlName="startdate" [matDatepicker]="startdatepicker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="startdatepicker"></mat-datepicker-toggle>
             <mat-datepicker #startdatepicker></mat-datepicker>
         </mat-form-field>
@@ -31,7 +31,7 @@
         <mat-form-field>
             <mat-label>Choose completion date</mat-label>
             <input matInput formControlName="enddate" [matDatepicker]="enddatepicker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="enddatepicker"></mat-datepicker-toggle>
             <mat-datepicker #enddatepicker></mat-datepicker>
         </mat-form-field>
