@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { DisplaySkillsComponent } from './display-skills/display-skills.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+
+import { HttpClientModule } from '@angular/common/http';
+import { AddskillsService } from './add-skills/addskills.service'
 
 
 @NgModule({
@@ -39,9 +42,10 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
     MatGridListModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [AddskillsService, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
