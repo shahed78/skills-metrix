@@ -16,12 +16,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AddskillsService } from './add-skills/addskills.service'
 import { DisplayskillsService } from './display-skills/services/displayskills.service';
-
 
 @NgModule({
   declarations: [
@@ -44,6 +44,7 @@ import { DisplayskillsService } from './display-skills/services/displayskills.se
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    MatTableModule,
     HttpClientModule
   ],
   providers: [AddskillsService, DisplayskillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
