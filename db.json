@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "skills": [
+    {
+      "firstname": "AICHA",
+      "lastname": "BELAITER",
+      "email": "d@y.com",
+      "startdate": "2023-07-31T23:00:00.000Z",
+      "enddate": "2023-08-30T23:00:00.000Z",
+      "id": 1
+    },
+    {
+      "firstname": "Shahed",
+      "lastname": "Iqbal",
+      "email": "sh@y.com",
+      "startdate": "2023-04-09T23:00:00.000Z",
+      "enddate": "2023-08-30T23:00:00.000Z",
+      "id": 2
+    },
+    {
+      "firstname": "Shahed",
+      "lastname": "Iqbal",
+      "email": "d@y.com",
+      "startdate": "2023-07-31T23:00:00.000Z",
+      "enddate": "2023-08-23T23:00:00.000Z",
+      "id": 3
+    },
+    {
+      "firstname": "Farah",
+      "lastname": "Deeba",
+      "email": "f@y.com",
+      "startdate": "2023-07-31T23:00:00.000Z",
+      "enddate": "2023-08-30T23:00:00.000Z",
+      "id": 4
+    }
+  ]
+}

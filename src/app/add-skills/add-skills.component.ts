@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AddskillsService } from './addskills.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogRef } from '@angular/cdk/dialog';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class AddSkillsComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor (private addSkillsService: AddskillsService){}
+  constructor (private addSkillsService: AddskillsService, private dialogRef: DialogRef<AddSkillsComponent>){}
 
   ngOnInit() {
     this.myForm = new FormGroup({
@@ -25,39 +27,21 @@ export class AddSkillsComponent implements OnInit {
 }
 
 onSubmit() {
-  if (this.myForm.invalid) {
-    // If the form is invalid, do not submit
-    return;
+    if (this.myForm.invalid) {
+      // If the form is invalid, do not submit
+      return;
+    }
+
+    this.addSkillsService.addSkills(this.myForm.value).subscribe({  
+      next: response => {
+        console.log('Successfully added: ', response);
+        this.dialogRef.close();
+      },  
+      error: err => console.error('An error occurred', err),  
+      complete: () => console.log('complete')  
+    });
+
+
   }
-
-  // console.log(this.myForm.value.firstname);
-  // console.log(this.myForm.value.lastname);
-  // console.log(this.myForm.value.email);
-  // console.log(this.myForm.value.startdate);
-  // console.log(this.myForm.value.enddate);
-
-   // Extract form data from the myForm
-  const userData = {
-    firstname: this.myForm.value.firstname,
-    lastname: this.myForm.value.lastname,
-    email: this.myForm.value.email,
-    startdate: new Date(this.myForm.value.startdate),
-    enddate: new Date (this.myForm.value.enddate)
-  }
-
- console.log(userData);
-this.addSkillsService.addSkills(userData);
-
-  // Send the form data to the backend server (Node.js)
-  // this.http.post<any>('http://your-node-server-url/api/formdata', formData).subscribe(
-  //   (response) => {
-  //     console.log(response); // Handle the response from the server (optional)
-  //     // Perform any additional actions you want after successful form submission
-  //   },
-  //   (error) => {
-  //     console.error(error); // Handle any errors that occur during the request (optional)
-  //   }
-  // );
-}
 
 }
