@@ -15,7 +15,7 @@ export class AddSkillsComponent implements OnInit {
   myForm: FormGroup;
 
   constructor (private addSkillsService: AddskillsService, private dialogRef: DialogRef<AddSkillsComponent>){}
-
+  // change fb.group
   ngOnInit() {
     this.myForm = new FormGroup({
       firstname: new FormControl('', [Validators.required]),
@@ -26,7 +26,7 @@ export class AddSkillsComponent implements OnInit {
     });
 }
 
-onSubmit() {
+onSubmit(): void {
     if (this.myForm.invalid) {
       // If the form is invalid, do not submit
       return;
