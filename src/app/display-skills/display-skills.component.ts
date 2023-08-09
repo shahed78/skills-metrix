@@ -12,6 +12,7 @@ export class DisplaySkillsComponent implements OnInit {
   constructor(public addSkillsDialog: MatDialog, private displayskills: DisplayskillsService ) {}
 
   ngOnInit(): void {
+    //unsubscribe
     let displaySkillsList = this.displayskills.getUsersSkills().subscribe({
       next: response =>{
         console.log(response);
