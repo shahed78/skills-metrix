@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserData } from '../shared/data.interface';
+import { IUser } from '../shared/data.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,9 +11,7 @@ export class AddskillsService {
 
   constructor(private http: HttpClient) { }
 
-  addSkills(data: UserData): Observable<any> {
-    console.log(data);
-    console.log(`addSkills result: ${data}`);
+  addSkills(data: IUser): Observable<any> {
     return this.http.post(this.apiUrl, data);
   }
 }
