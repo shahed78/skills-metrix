@@ -30,19 +30,25 @@ export class DisplaySkillsComponent implements OnInit {
   constructor(public addSkillsDialog: MatDialog, private displayskills: DisplayskillsService ) {}
 
   ngOnInit(): void {
-    //unsubscribe
-    let displaySkillsList = this.displayskills.getUsersSkills().subscribe({
-      next: userdata =>{
-        this.users = userdata;
-        this.dataSource = new MatTableDataSource(this.users);
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+    this.getSkills();
+  }
+
+  public getSkills(): void {
+  //unsubscribe
+  let displaySkillsList = this.displayskills.getUsersSkills().subscribe({
+    next: userdata =>{
+      this.users = userdata;
+      this.dataSource = new MatTableDataSource(this.users);
+    },
+    error: err => {
+      console.log(err);
+    }
+  });
   }
 
   public addSkills(): void {
     const dialogRef = this.addSkillsDialog.open(AddSkillsComponent);
+
+    dialogRef.afterClosed().subscribe(r=>this.getSkills());
   }
 }

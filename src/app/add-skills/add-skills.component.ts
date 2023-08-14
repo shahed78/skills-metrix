@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AddskillsService } from './addskills.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
@@ -14,15 +14,15 @@ export class AddSkillsComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor (private addSkillsService: AddskillsService, private dialogRef: DialogRef<AddSkillsComponent>){}
+  constructor (private addSkillsService: AddskillsService, private dialogRef: DialogRef<AddSkillsComponent>, private fb: FormBuilder){}
   // change fb.group
   ngOnInit() {
-    this.myForm = new FormGroup({
-      firstname: new FormControl('', [Validators.required]),
-      lastname: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      startdate: new FormControl('', [Validators.required]),
-      enddate: new FormControl('', [Validators.required]),
+    this.myForm = this.fb.group({
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      startdate: ['', Validators.required],
+      enddate: ['', Validators.required],
     });
 }
 
