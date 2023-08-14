@@ -1,4 +1,5 @@
 {
     "/skills/list": "/skills",
-    "/skills/add": "/skills"
+    "/skills/add": "/skills",
+    "/skills/delete/:id": "/skills/:id"
   }

@@ -8,10 +8,17 @@ import { IUser } from 'src/app/shared/data.interface';
 })
 export class DisplayskillsService {
 
-  private skillsList: string = 'http://localhost:7000/skills/list'; 
+  private skillsList: string = 'http://localhost:7000/skills'; 
   constructor( private http: HttpClient) { }
 
-  getUsersSkills(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.skillsList);
+  public getUsersSkills(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.skillsList}/list`);
   }
+
+  public deleteUser(id: number): Observable<any> { //here
+    return this.http.delete(`${this.skillsList}/delete/${id}`);
+    console.log(id);
+  }
+
+  
 }

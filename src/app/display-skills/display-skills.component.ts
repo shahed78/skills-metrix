@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DisplayskillsService } from './services/displayskills.service';
@@ -12,11 +12,12 @@ import { IUser } from '../shared/data.interface';
 })
 
 
-export class DisplaySkillsComponent implements OnInit {
+export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public users: IUser[] = [];
+  public userSkills: any;
 
-  displayedUserColumns = ['id', 'firstname', 'lastname', 'email'];
+  displayedUserColumns = ['id', 'firstname', 'lastname', 'email', 'startdate','enddate', 'butons'];
   dataSource: MatTableDataSource<IUser>;
   //
   
@@ -33,10 +34,15 @@ export class DisplaySkillsComponent implements OnInit {
     this.getSkills();
   }
 
+  ngOnDestroy(): void {
+    this.userSkills.unsubscribe();
+  }
+
   public getSkills(): void {
   //unsubscribe
-  let displaySkillsList = this.displayskills.getUsersSkills().subscribe({
+  this.userSkills= this.displayskills.getUsersSkills().subscribe({
     next: userdata =>{
+      console.log(userdata);
       this.users = userdata;
       this.dataSource = new MatTableDataSource(this.users);
     },
@@ -50,5 +56,17 @@ export class DisplaySkillsComponent implements OnInit {
     const dialogRef = this.addSkillsDialog.open(AddSkillsComponent);
 
     dialogRef.afterClosed().subscribe(r=>this.getSkills());
+  }
+
+  public deleteUserSkills(id: number): void {
+    console.log(id);
+    this.userSkills = this.displayskills.deleteUser(id).subscribe({
+      next: d => { 
+        this.getSkills();
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 }

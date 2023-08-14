@@ -18,14 +18,6 @@
   },
   "skills": [
     {
-      "firstname": "AICHA",
-      "lastname": "BELAITER",
-      "email": "d@y.com",
-      "startdate": "2023-07-31T23:00:00.000Z",
-      "enddate": "2023-08-30T23:00:00.000Z",
-      "id": 1
-    },
-    {
       "firstname": "Shahed",
       "lastname": "Iqbal",
       "email": "sh@y.com",
@@ -66,9 +58,9 @@
       "id": 6
     },
     {
-      "firstname": "lo",
-      "lastname": "na",
-      "email": "lona@y.com",
+      "firstname": "AICHA",
+      "lastname": "BELAITER",
+      "email": "s@y.com",
       "startdate": "2023-07-31T23:00:00.000Z",
       "enddate": "2023-08-30T23:00:00.000Z",
       "id": 7
