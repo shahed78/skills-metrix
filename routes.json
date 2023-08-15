@@ -1,5 +1,6 @@
 {
     "/skills/list": "/skills",
     "/skills/add": "/skills",
+    "/skills/edit/:id": "/skills/:id",
     "/skills/delete/:id": "/skills/:id"
   }

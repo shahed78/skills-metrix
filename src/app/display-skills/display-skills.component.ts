@@ -53,8 +53,18 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public addSkills(): void {
+    //name
     const dialogRef = this.addSkillsDialog.open(AddSkillsComponent);
+    // r
+    dialogRef.afterClosed().subscribe(r=>this.getSkills());
+  }
 
+  public editSkills(userSkills: any): void {
+    //name
+    const dialogRef = this.addSkillsDialog.open(AddSkillsComponent, {
+      data: userSkills,
+    });
+    //improve
     dialogRef.afterClosed().subscribe(r=>this.getSkills());
   }
 

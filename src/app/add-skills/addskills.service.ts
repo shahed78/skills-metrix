@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AddskillsService {
-  private apiUrl = 'http://localhost:7000/skills/add'; 
+  private apiUrl = 'http://localhost:7000/skills'; 
 
   constructor(private http: HttpClient) { }
 
   addSkills(data: IUser): Observable<any> {
-    return this.http.post(this.apiUrl, data);
+    return this.http.post(`${this.apiUrl}/add`, data);
+  }
+
+  editSkills(id: number, data: IUser): Observable<any> {
+    return this.http.put(`${this.apiUrl}/edit/${id}`, data);
   }
 }
