@@ -17,7 +17,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   public users: IUser[] = [];
   public userSkills: any;
 
-  displayedUserColumns = ['id', 'firstname', 'lastname', 'email', 'startdate','enddate', 'butons'];
+  displayeColumns = ['serial', 'firstname', 'lastname', 'email', 'startdate','enddate', 'butons'];
   dataSource: MatTableDataSource<IUser>;
   //
   
