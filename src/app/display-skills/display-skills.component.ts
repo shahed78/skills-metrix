@@ -3,7 +3,7 @@ import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DisplayskillsService } from './services/displayskills.service';
 import {MatTableDataSource} from '@angular/material/table';
-import { IUser } from '../shared/data.interface';
+import { IUser } from '../shared/interfaces/data.interface';
 
 @Component({
   selector: 'app-display-skills',
