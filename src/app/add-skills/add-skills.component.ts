@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AddskillsService } from './addskills.service';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
+import { SkillsService } from '../shared/services/skills.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AddSkillsComponent implements OnInit {
   myForm: FormGroup;
 
   constructor (
-    private addSkillsService: AddskillsService, 
+    private skillsService: SkillsService, 
     private dialogRef: DialogRef<AddSkillsComponent>, 
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -49,7 +49,7 @@ onSubmit(): void {
 
     if(this.data){
 
-      this.addSkillsService.editSkills(this.data.id, this.myForm.value).subscribe({  
+      this.skillsService.editSkills(this.data.id, this.myForm.value).subscribe({  
         next: response => {
           console.log('Successfully edited: ', response);
           this.dialogRef.close();
@@ -59,7 +59,7 @@ onSubmit(): void {
       });
 
     }else{
-      this.addSkillsService.addSkills(this.myForm.value).subscribe({  
+      this.skillsService.addSkills(this.myForm.value).subscribe({  
         next: response => {
           console.log('Successfully added: ', response);
           this.dialogRef.close();

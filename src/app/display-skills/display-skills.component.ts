@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DisplayskillsService } from './services/displayskills.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { IUser } from '../shared/interfaces/data.interface';
+import { SkillsService } from '../shared/services/skills.service';
 
 @Component({
   selector: 'app-display-skills',
@@ -28,7 +28,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     console.log(this.dataSource.filter);
   }
 
-  constructor(public addSkillsDialog: MatDialog, private displayskills: DisplayskillsService ) {}
+  constructor(public addSkillsDialog: MatDialog, private skillsService: SkillsService ) {}
 
   ngOnInit(): void {
     this.getSkills();
@@ -40,7 +40,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public getSkills(): void {
   //unsubscribe
-  this.userSkills= this.displayskills.getUsersSkills().subscribe({
+  this.userSkills= this.skillsService.getUsersSkills().subscribe({
     next: userdata =>{
       console.log(userdata);
       this.users = userdata;
@@ -70,7 +70,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public deleteUserSkills(id: number): void {
     console.log(id);
-    this.userSkills = this.displayskills.deleteUser(id).subscribe({
+    this.userSkills = this.skillsService.deleteUser(id).subscribe({
       next: d => { 
         this.getSkills();
       },
