@@ -20,8 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
-import { AddskillsService } from './add-skills/addskills.service'
-import { DisplayskillsService } from './display-skills/services/displayskills.service';
+import { SkillsService } from './shared/services/skills.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,7 @@ import { DisplayskillsService } from './display-skills/services/displayskills.se
     MatTableModule,
     HttpClientModule
   ],
-  providers: [AddskillsService, DisplayskillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
