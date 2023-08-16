@@ -17,6 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -44,6 +45,7 @@ import { SkillsService } from './shared/services/skills.service';
     MatFormFieldModule,
     MatNativeDateModule,
     MatTableModule,
+    MatSelectModule,
     HttpClientModule
   ],
   providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],

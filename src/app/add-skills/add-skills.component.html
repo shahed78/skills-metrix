@@ -37,6 +37,14 @@
         </mat-form-field>
 
     </div>
+    <div class="row">
+        <mat-form-field>
+        <mat-label>Skills</mat-label>
+        <mat-select formControlName="skills" multiple>
+            <mat-option *ngFor="let skill of skillsList" [value]="skill">{{skill}}</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </div>
 
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Cancel</button>

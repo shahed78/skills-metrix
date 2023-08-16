@@ -13,6 +13,8 @@ import { SkillsService } from '../shared/services/skills.service';
 export class AddSkillsComponent implements OnInit {
 
   myForm: FormGroup;
+  
+  skillsList: string[] = ['skill1', 'Skill2', 'Skill3', 'Skill4', 'skill5', 'skill5'];
 
   constructor (
     private skillsService: SkillsService, 
@@ -26,6 +28,7 @@ export class AddSkillsComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         startdate: ['', Validators.required],
         enddate: ['', Validators.required],
+        skills: ['']
       });
     }
 

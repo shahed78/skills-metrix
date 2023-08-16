@@ -23,6 +23,11 @@
       "email": "sh@y.com",
       "startdate": "2023-04-09T23:00:00.000Z",
       "enddate": "2023-08-30T23:00:00.000Z",
+      "skills": [
+        "skill1",
+        "Skill2",
+        "Skill4"
+      ],
       "id": 2
     },
     {
