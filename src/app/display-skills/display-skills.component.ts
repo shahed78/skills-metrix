@@ -40,7 +40,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public getSkills(): void {
   //unsubscribe
-  this.userSkills= this.skillsService.getUsersSkills().subscribe({
+  this.userSkills= this.skillsService.getUsers().subscribe({
     next: userdata =>{
       console.log(userdata);
       this.users = userdata;

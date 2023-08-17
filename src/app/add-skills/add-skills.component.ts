@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSelectChange } from '@angular/material/select';
+import { ISkill } from '../shared/interfaces/data.interface';
 
 
 @Component({
@@ -14,13 +15,7 @@ import { MatSelectChange } from '@angular/material/select';
 export class AddSkillsComponent implements OnInit {
 
   myForm: FormGroup;
-  skills: any[] = [
-    { name: 'TypeScript', type: 'Language' },
-    { name: 'JavaScript', type: 'Language' },
-    { name: 'Angular', type: 'Framework' },
-    { name: 'jQuery', type: 'Framework' },
-    { name: 'AWS', type: 'Cloud' },
-  ];
+  skills: ISkill[] = [];
   
   
   skillsList: string[] = ['skill1', 'Skill2', 'Skill3', 'Skill4', 'skill5', 'skill5'];
@@ -37,19 +32,19 @@ export class AddSkillsComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         startdate: ['', Validators.required],
         enddate: ['', Validators.required],
-        skills: [''],
         selectedSkills: [[]],
       });
     }
 
   ngOnInit() {
-    // this.myForm = this.fb.group({
-    //   firstname: ['', Validators.required],
-    //   lastname: ['', Validators.required],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   startdate: ['', Validators.required],
-    //   enddate: ['', Validators.required],
-    // });
+    this.skillsService.getSkills().subscribe({  
+      next: skills => {
+        console.log('Successfully get skills: ', skills);
+        console.log(skills);
+        this.skills = skills;
+      },  
+      error: err => console.error('An error occurred', err)
+    });
 
     this.myForm.patchValue(this.data);
 }
@@ -64,7 +59,7 @@ onSubmit(): void {
 
       this.skillsService.editSkills(this.data.id, this.myForm.value).subscribe({  
         next: response => {
-          console.log('Successfully edited: ', response);
+          // console.log('Successfully edited: ', response);
           this.dialogRef.close();
         },  
         error: err => console.error('An error occurred', err),  
@@ -85,7 +80,7 @@ onSubmit(): void {
   }
 
   onSkillSelectionChange(event: MatSelectChange) {
-    console.log(event);
+    // console.log(event);
     // this.myForm.controls['selectedSkills'].setValue(event.value);
   }
 
