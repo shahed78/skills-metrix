@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
-import { MatSelectChange } from '@angular/material/select';
 import { ISkill } from '../shared/interfaces/data.interface';
 
 
@@ -18,8 +17,6 @@ export class AddSkillsComponent implements OnInit {
   skills: ISkill[] = [];
   
   
-  skillsList: string[] = ['skill1', 'Skill2', 'Skill3', 'Skill4', 'skill5', 'skill5'];
-
   constructor (
     private skillsService: SkillsService, 
     private dialogRef: DialogRef<AddSkillsComponent>, 
@@ -79,9 +76,8 @@ onSubmit(): void {
 
   }
 
-  onSkillSelectionChange(event: MatSelectChange) {
-    // console.log(event);
-    // this.myForm.controls['selectedSkills'].setValue(event.value);
+  compareSkills(skill1: any, skill2: any): boolean {
+    return skill1 && skill2 ? skill1.name === skill2.name : skill1 === skill2;
   }
 
 }
