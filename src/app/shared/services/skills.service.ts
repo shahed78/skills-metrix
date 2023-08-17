@@ -8,7 +8,7 @@ import { IUser } from 'src/app/shared/interfaces/data.interface';
 })
 export class SkillsService {
 
-  private apiUrl: string = 'http://localhost:7000/skills'; 
+  private apiUrl: string = 'http://localhost:7000/users'; 
   constructor( private http: HttpClient) { }
 
   public getUsersSkills(): Observable<IUser[]> {

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
+import { MatSelectChange } from '@angular/material/select';
 
 
 @Component({
@@ -13,6 +14,14 @@ import { SkillsService } from '../shared/services/skills.service';
 export class AddSkillsComponent implements OnInit {
 
   myForm: FormGroup;
+  skills: any[] = [
+    { name: 'TypeScript', type: 'Language' },
+    { name: 'JavaScript', type: 'Language' },
+    { name: 'Angular', type: 'Framework' },
+    { name: 'jQuery', type: 'Framework' },
+    { name: 'AWS', type: 'Cloud' },
+  ];
+  
   
   skillsList: string[] = ['skill1', 'Skill2', 'Skill3', 'Skill4', 'skill5', 'skill5'];
 
@@ -28,7 +37,8 @@ export class AddSkillsComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         startdate: ['', Validators.required],
         enddate: ['', Validators.required],
-        skills: ['']
+        skills: [''],
+        selectedSkills: [[]],
       });
     }
 
@@ -72,6 +82,11 @@ onSubmit(): void {
       });
     }
 
+  }
+
+  onSkillSelectionChange(event: MatSelectChange) {
+    console.log(event);
+    // this.myForm.controls['selectedSkills'].setValue(event.value);
   }
 
 }

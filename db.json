@@ -16,7 +16,7 @@
   "profile": {
     "name": "typicode"
   },
-  "skills": [
+  "users": [
     {
       "firstname": "Shahed",
       "lastname": "Iqbal",
@@ -27,6 +27,11 @@
         "skill1",
         "Skill2",
         "Skill4"
+      ],
+      "selectedSkills": [
+        "TypeScript",
+        "Angular",
+        "AWS"
       ],
       "id": 2
     },
@@ -52,6 +57,11 @@
       "email": "s@y.co",
       "startdate": "2023-07-31T23:00:00.000Z",
       "enddate": "2023-12-28T00:00:00.000Z",
+      "skills": "",
+      "selectedSkills": [
+        "TypeScript",
+        "AWS"
+      ],
       "id": 7
     }
   ]

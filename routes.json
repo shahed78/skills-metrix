@@ -1,6 +1,6 @@
 {
-    "/skills/list": "/skills",
-    "/skills/add": "/skills",
-    "/skills/edit/:id": "/skills/:id",
-    "/skills/delete/:id": "/skills/:id"
+    "/users/list": "/users",
+    "/users/add": "/users",
+    "/users/edit/:id": "/users/:id",
+    "/users/delete/:id": "/users/:id"
   }
