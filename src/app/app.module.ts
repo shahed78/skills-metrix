@@ -22,7 +22,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
-import { MiltiSelectComponent } from './partials/milti-select/milti-select.component';
+import { MiltiSelectComponent } from './shared/partials/milti-select/milti-select.component';
 
 @NgModule({
   declarations: [
