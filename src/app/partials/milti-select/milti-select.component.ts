@@ -63,19 +63,21 @@ export class MiltiSelectComponent {
  */
 
 
-  selectionChange(event: any) {
-    console.log('selectionChange');
-    if (event.isUserInput && event.source.selected === false) {
-      const value = event.source.value;
-      console.log(value);
-      // console.log(this.selectedValues);
-      const index = this.selectedValues.indexOf(value);
-      if (index !== -1) {
-        this.selectedValues.splice(index, 1);
-      }
-    }
-    console.log(this.selectedValues);
-  }
+  // selectionChange(event: any) {
+  //   console.log('selectionChange');
+  //   if (event.isUserInput && event.source.selected === false) {
+  //     const value = event.source.value;
+  //     console.log(value);
+  //     // console.log(this.selectedValues);
+  //     const index = this.selectedValues.indexOf(value);
+  //     if (index !== -1) {
+  //       this.selectedValues.splice(index, 1);
+  //     }
+  //   }
+  //   console.log(this.selectedValues);
+
+  //   //always null
+  // }
 
   openedChange(e: any) {
     console.log('openedChange');
@@ -110,23 +112,23 @@ export class MiltiSelectComponent {
   //   }
   // }
 
-  setSelectedValues() {
-    console.log('setSelectedValues');
-    const selectedValueArray = this.selectFormControl.value;
+  // setSelectedValues() {
+  //   console.log('setSelectedValues');
+  //   const selectedValueArray = this.selectFormControl.value;
   
-    if (Array.isArray(selectedValueArray)) {
-      selectedValueArray.forEach((e: string) => {
-        if (!this.selectedValues.includes(e)) {
-          this.selectedValues.push(e);
-        }
-      });
+  //   if (Array.isArray(selectedValueArray)) {
+  //     selectedValueArray.forEach((e: string) => {
+  //       if (!this.selectedValues.includes(e)) {
+  //         this.selectedValues.push(e);
+  //       }
+  //     });
 
-      console.log(selectedValueArray);
+  //     console.log(selectedValueArray);
   
-      // If you want to use a Set for unique values, you can do this:
-      // this.selectedValues = new Set([...this.selectedValues, ...selectedValueArray]);
-    }
-  }
+  //     // If you want to use a Set for unique values, you can do this:
+  //     // this.selectedValues = new Set([...this.selectedValues, ...selectedValueArray]);
+  //   }
+  // }
   
 }
 /**  Copyright 2018 Google Inc. All Rights Reserved.
