@@ -25,6 +25,7 @@ export class SkillsService {
   }
 
   public editSkills(id: number, data: IUser): Observable<any> {
+    console.log(data);
     return this.http.put(`${this.usersUrl}/edit/${id}`, data);
   }
 

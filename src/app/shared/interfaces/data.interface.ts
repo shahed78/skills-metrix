@@ -5,6 +5,7 @@ export interface IUser {
     startdate: Date;
     enddate: Date;
     selectedSkills: ISkill,
+    otherSelectedSkills: []
   }
 
 export  interface ISkill {

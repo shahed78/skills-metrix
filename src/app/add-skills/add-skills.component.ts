@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
 import { ISkill } from '../shared/interfaces/data.interface';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,8 +14,10 @@ import { ISkill } from '../shared/interfaces/data.interface';
 })
 export class AddSkillsComponent implements OnInit {
 
-  myForm: FormGroup;
+  skillsForm: FormGroup;
   skills: ISkill[] = [];
+  selectedSkillsValue: any;
+  filteredOptions: Observable<any[]>;
   
   
   constructor (
@@ -23,13 +26,14 @@ export class AddSkillsComponent implements OnInit {
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any
     ){
-      this.myForm = this.fb.group({
+      this.skillsForm = this.fb.group({
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         startdate: ['', Validators.required],
         enddate: ['', Validators.required],
         selectedSkills: [[]],
+        otherSelectedSkills: [[]]
       });
     }
 
@@ -43,18 +47,18 @@ export class AddSkillsComponent implements OnInit {
       error: err => console.error('An error occurred', err)
     });
 
-    this.myForm.patchValue(this.data);
+    this.skillsForm.patchValue(this.data);
 }
 
 onSubmit(): void {
-    if (this.myForm.invalid) {
+    if (this.skillsForm.invalid) {
       // If the form is invalid, do not submit
       return;
     }
 
     if(this.data){
 
-      this.skillsService.editSkills(this.data.id, this.myForm.value).subscribe({  
+      this.skillsService.editSkills(this.data.id, this.skillsForm.value).subscribe({  
         next: response => {
           // console.log('Successfully edited: ', response);
           this.dialogRef.close();
@@ -64,7 +68,7 @@ onSubmit(): void {
       });
 
     }else{
-      this.skillsService.addSkills(this.myForm.value).subscribe({  
+      this.skillsService.addSkills(this.skillsForm.value).subscribe({  
         next: response => {
           console.log('Successfully added: ', response);
           this.dialogRef.close();
@@ -76,6 +80,7 @@ onSubmit(): void {
 
   }
 
+  // may not need later
   compareSkills(skill1: any, skill2: any): boolean {
     return skill1 && skill2 ? skill1.name === skill2.name : skill1 === skill2;
   }

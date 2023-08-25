@@ -1,16 +1,18 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input, OnInit, OnChanges, SimpleChanges  } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { ISkill } from '../../interfaces/data.interface';
 
 @Component({
   selector: 'app-milti-select',
   templateUrl: './milti-select.component.html',
   styleUrls: ['./milti-select.component.scss']
 })
-export class MiltiSelectComponent {
+export class MiltiSelectComponent implements OnInit, OnChanges {
 
   @ViewChild('search') searchTextBox: ElementRef;
+  @Input() dataSkills: ISkill[] = [];
 
   selectFormControl = new FormControl();
   searchTextboxControl = new FormControl();
@@ -31,6 +33,9 @@ export class MiltiSelectComponent {
   filteredOptions: Observable<any[]>;
 
   ngOnInit() {
+    // console.log('miltiselect==');
+    // console.log(this.dataSkils);
+    // console.log('miltiselect==end');
     /**
      * Set filter event based on value changes 
      */
@@ -39,6 +44,14 @@ export class MiltiSelectComponent {
         startWith<string>(''),
         map(name => this._filter(name))
       );
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    if (changes['dataSkills'] && changes['dataSkills'].currentValue as ISkill[]) {
+      console.log('Data skills updated:', this.dataSkills);
+      console.log(changes['dataSkills'].currentValue)
+    }
   }
 
   /**
@@ -131,6 +144,3 @@ export class MiltiSelectComponent {
   // }
   
 }
-/**  Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */

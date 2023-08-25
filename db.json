@@ -33,6 +33,12 @@
           "type": "Framework"
         }
       ],
+      "otherSelectedSkills": [
+        {
+          "name": "jQuery",
+          "type": "Framework"
+        }
+      ],
       "id": 2
     },
     {
@@ -61,6 +67,10 @@
       "selectedSkills": [
         {
           "name": "TypeScript",
+          "type": "Language"
+        },
+        {
+          "name": "JavaScript",
           "type": "Language"
         },
         {
