@@ -23,13 +23,15 @@ import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 import { MiltiSelectComponent } from './shared/partials/milti-select/milti-select.component';
+import { MiltiSelectFormBuilderComponent } from './shared/partials/milti-select-form-builder/milti-select-form-builder.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplaySkillsComponent,
     AddSkillsComponent,
-    MiltiSelectComponent
+    MiltiSelectComponent,
+    MiltiSelectFormBuilderComponent
   ],
   imports: [
     BrowserModule,
