@@ -37,8 +37,23 @@
         </mat-form-field>
 
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <app-milti-select-form-builder></app-milti-select-form-builder>
+    </div> -->
+    <div class="row">
+        <p>
+        <mat-form-field>
+            <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
+                <mat-option>
+                    <ngx-mat-select-search formControlName="skillsMultiFilterCtrl"></ngx-mat-select-search>
+                </mat-option>
+                
+                <mat-option *ngFor="let skill of filteredSkillsMulti | async" [value]="skill">
+                {{skill.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </p>
     </div>
    
 

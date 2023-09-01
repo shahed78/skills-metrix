@@ -64,43 +64,52 @@
       "email": "dgonto@yahoo.com",
       "startdate": "2016-01-03T00:00:00.000Z",
       "enddate": "2023-08-17T23:00:00.000Z",
-      "selectedSkills": [
-        {
-          "name": "TypeScript",
-          "type": "Language"
-        },
+      "skillsMultiCtrl": [
         {
           "name": "JavaScript",
-          "type": "Language"
+          "type": "Language",
+          "id": 2
         },
         {
-          "name": "Angular",
-          "type": "Framework"
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 5
+        },
+        {
+          "name": "TypeScript",
+          "type": "Language",
+          "id": 1
         }
       ],
+      "skillsMultiFilterCtrl": "",
       "id": 7
     }
   ],
   "skills": [
     {
       "name": "TypeScript",
-      "type": "Language"
+      "type": "Language",
+      "id": 1
     },
     {
       "name": "JavaScript",
-      "type": "Language"
+      "type": "Language",
+      "id": 2
     },
     {
       "name": "Angular",
-      "type": "Framework"
+      "type": "Framework",
+      "id": 3
     },
     {
       "name": "jQuery",
-      "type": "Framework"
+      "type": "Framework",
+      "id": 4
     },
     {
       "name": "AWS",
-      "type": "Cloud"
+      "type": "Cloud",
+      "id": 5
     }
   ]
 }

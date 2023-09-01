@@ -11,4 +11,5 @@ export interface IUser {
 export  interface ISkill {
     name: string;
     type: string;
+    id: number;
   }
