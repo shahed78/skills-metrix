@@ -16,15 +16,13 @@ export class AddSkillsComponent implements OnInit {
 
   skillsForm: FormGroup;
   skills: ISkill[] = [];
-  selectedSkillsValue: any;
-  filteredOptions: Observable<any[]>;
   
   
   constructor (
     private skillsService: SkillsService, 
     private dialogRef: DialogRef<AddSkillsComponent>, 
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public dialogdata: any
     ){
       this.skillsForm = this.fb.group({
         firstname: ['', Validators.required],
@@ -32,8 +30,6 @@ export class AddSkillsComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         startdate: ['', Validators.required],
         enddate: ['', Validators.required],
-        selectedSkills: [[]],
-        otherSelectedSkills: [[]]
       });
     }
 
@@ -41,13 +37,12 @@ export class AddSkillsComponent implements OnInit {
     this.skillsService.getSkills().subscribe({  
       next: skills => {
         console.log('Successfully get skills: ', skills);
-        console.log(skills);
         this.skills = skills;
       },  
       error: err => console.error('An error occurred', err)
     });
 
-    this.skillsForm.patchValue(this.data);
+    this.skillsForm.patchValue(this.dialogdata);
 }
 
 onSubmit(): void {
@@ -56,9 +51,9 @@ onSubmit(): void {
       return;
     }
 
-    if(this.data){
+    if(this.dialogdata){
 
-      this.skillsService.editSkills(this.data.id, this.skillsForm.value).subscribe({  
+      this.skillsService.editSkills(this.dialogdata.id, this.skillsForm.value).subscribe({  
         next: response => {
           // console.log('Successfully edited: ', response);
           this.dialogRef.close();
@@ -80,9 +75,5 @@ onSubmit(): void {
 
   }
 
-  // may not need later
-  compareSkills(skill1: any, skill2: any): boolean {
-    return skill1 && skill2 ? skill1.name === skill2.name : skill1 === skill2;
-  }
 
 }

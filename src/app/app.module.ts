@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 import { MiltiSelectComponent } from './shared/partials/milti-select/milti-select.component';
 import { MiltiSelectFormBuilderComponent } from './shared/partials/milti-select-form-builder/milti-select-form-builder.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MiltiSelectFormBuilderComponent } from './shared/partials/milti-select-
     MatNativeDateModule,
     MatTableModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMatSelectSearchModule
   ],
   providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
