@@ -98,8 +98,7 @@ protected setInitialValue() {
     .subscribe(() => {
       // setting the compareWith property to a comparison function
       // triggers initializing the selection according to the initial value of
-      // the form control (i.e. _initializeSelection())
-      // this needs to be done after the filteredBanks are loaded initially
+      // this needs to be done after the filteredskills are loaded initially
       // and after the mat-option elements are available
       this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
     });
