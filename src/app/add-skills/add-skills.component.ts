@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
 import { ISkill } from '../shared/interfaces/data.interface';
-import { Observable, ReplaySubject, Subject, take, takeUntil } from 'rxjs';
+import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { MatSelect } from '@angular/material/select';
 
 
@@ -16,10 +16,7 @@ import { MatSelect } from '@angular/material/select';
 export class AddSkillsComponent implements OnInit {
 
   skillsForm: FormGroup;
-  skills: ISkill[] = []; //banks
-  selectedSkills: ISkill[] = [];
-  // skillsSelected: any;
-  // multiSelectForm: any;
+  skills: ISkill[] = []; 
   public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
   @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
   protected _onDestroy = new Subject<void>();
@@ -47,14 +44,9 @@ export class AddSkillsComponent implements OnInit {
       next: skills => {
         console.log('Successfully get skills: ', skills);
         this.skills = skills;
-        console.log( this.skillsForm.get('skillsMultiFilterCtrl')?.value);
-        this.selectedSkills = this.skillsForm.get('skillsMultiFilterCtrl')?.value
 
         // multi select
-        // console.log('Successfully get skills2: ', this.skills);
         this.filteredSkillsMulti.next(this.skills.slice());
-
-        // Access the form control using this.bankMultiForm.get
         this.skillsForm.get('skillsMultiFilterCtrl')?.valueChanges
           .pipe(takeUntil(this._onDestroy))
           .subscribe(() => {
@@ -65,23 +57,10 @@ export class AddSkillsComponent implements OnInit {
       error: err => console.error('An error occurred', err)
     });
 
-    // this.skillsForm.get('skillsMultiCtrl')?.valueChanges.subscribe((selectedSkills: ISkill[]) => {
-    //   // this.selectedSkills = selectedSkills;
-    //   console.log(selectedSkills);
-    // });
-// console.log('patch value');
-// console.log(this.dialogdata);
     this.skillsForm.patchValue(this.dialogdata);
-
-    
 }
 
-// receiveData(data: any) {
-//   // this.skillsSelected = data;
-//   console.log(data);
-//   this.skillsForm.get('skillsMultiFilterCtrl')?.setValue(data)
-// }
-// // multi select
+// multi select
 protected filterSkillsMulti() {
   console.log('filterBanksMulti', this.skills);
   if (!this.skills) {
@@ -112,10 +91,6 @@ protected setInitialValue() {
   this.filteredSkillsMulti
     .pipe(take(1), takeUntil(this._onDestroy))
     .subscribe(() => {
-      // setting the compareWith property to a comparison function
-      // triggers initializing the selection according to the initial value of
-      // this needs to be done after the filteredskills are loaded initially
-      // and after the mat-option elements are available
       this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
     });
 }
@@ -132,7 +107,6 @@ onSubmit(): void {
 
       this.skillsService.editSkills(this.dialogdata.id, this.skillsForm.value).subscribe({  
         next: response => {
-          // console.log('Successfully edited: ', response);
           this.dialogRef.close();
         },  
         error: err => console.error('An error occurred', err),  
