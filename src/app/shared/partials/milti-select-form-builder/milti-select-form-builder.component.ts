@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ReplaySubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { MatSelect } from '@angular/material/select';
 
 
 import { Bank, BANKS } from '../../data/demo-data';
+import { ISkill } from '../../interfaces/data.interface';
 
 @Component({
   selector: 'app-milti-select-form-builder',
@@ -22,6 +23,8 @@ export class MiltiSelectFormBuilderComponent implements OnInit, AfterViewInit, O
  
   //  @ViewChild('multiSelect') multiSelect: MatSelect | undefined;
    @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
+
+   @Input() skills: ISkill[] = [];
  
    /** Subject that emits when the component has been destroyed. */
    protected _onDestroy = new Subject<void>();
@@ -39,9 +42,10 @@ export class MiltiSelectFormBuilderComponent implements OnInit, AfterViewInit, O
    }
 
   ngOnInit() {
-    console.log(this.banks);
-    console.log(this.banks.slice());
-    console.log(this.filteredBanksMulti.next(this.banks.slice()));
+    // console.log(this.banks);
+    // console.log(this.banks.slice());
+    // console.log(this.filteredBanksMulti.next(this.banks.slice()));
+    // console.log('skills', this.skills);
 
     this.filteredBanksMulti.next(this.banks.slice());
 
@@ -54,9 +58,16 @@ export class MiltiSelectFormBuilderComponent implements OnInit, AfterViewInit, O
 
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['skills'] && !changes['skills'].firstChange) {
+      // Skills input has changed, update filtering logic or anything else
+      console.log('onchanges', this.skills);
+    }
+  }
+
   ngAfterViewInit() {
     this.setInitialValue();
-  }
+ }
 
   
   /**

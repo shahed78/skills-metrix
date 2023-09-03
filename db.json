@@ -81,7 +81,13 @@
           "id": 1
         }
       ],
-      "skillsMultiFilterCtrl": "",
+      "skillsMultiFilterCtrl": [
+        {
+          "name": "TypeScript",
+          "type": "Language",
+          "id": 1
+        }
+      ],
       "id": 7
     }
   ],

@@ -1,146 +1,113 @@
-import { Component, ViewChild, ElementRef, Input, OnInit, OnChanges, SimpleChanges  } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { Component, ViewChild, ElementRef, Input, OnInit, OnChanges, SimpleChanges, EventEmitter, Output  } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { map, startWith, take, takeUntil } from 'rxjs/operators';
 import { ISkill } from '../../interfaces/data.interface';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-milti-select',
   templateUrl: './milti-select.component.html',
   styleUrls: ['./milti-select.component.scss']
 })
-export class MiltiSelectComponent implements OnInit, OnChanges {
+export class MiltiSelectComponent implements OnChanges {
 
-  @ViewChild('search') searchTextBox: ElementRef;
-  @Input() dataSkills: ISkill[] = [];
+  public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
+  protected _onDestroy = new Subject<void>();
+  @Input() skills: ISkill[] = [];
+  @Input() selectedSkills: ISkill[] = [];
+  @Output() skillsSelected = new EventEmitter<any[]>();
+  @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
+  multiSelectForm: FormGroup;
+  skillsMultiFilterCtrlName: string = 'skillsMultiFilterCtrl';
 
-  selectFormControl = new FormControl();
-  searchTextboxControl = new FormControl();
-  // selectedValues = [];
-  selectedValues: string[] = [];
-  data: string[] = [
-    'A1',
-    'A2',
-    'A3',
-    'B1',
-    'B2',
-    'B3',
-    'C1',
-    'C2',
-    'C3'
-  ]
+  constructor(private fb: FormBuilder) {
+    this.multiSelectForm = this.fb.group({
+      skillsMultiCtrl: [],
+      skillsMultiFilterCtrl: ['']
+    });
 
-  filteredOptions: Observable<any[]>;
+   }
 
-  ngOnInit() {
-    // console.log('miltiselect==');
-    // console.log(this.dataSkils);
-    // console.log('miltiselect==end');
-    /**
-     * Set filter event based on value changes 
-     */
-    this.filteredOptions = this.searchTextboxControl.valueChanges
-      .pipe(
-        startWith<string>(''),
-        map(name => this._filter(name))
-      );
+   ngOnInit() {
+    // Existing code...
+  
+    // Subscribe to the form control value changes
+    this.multiSelectForm.get('skillsMultiCtrl')?.valueChanges.subscribe((selectedSkills) => {
+      console.log('asdasd');
+      console.log(selectedSkills);
+      // this.selectedSkills = selectedSkills;
+      this.emitSelectedSkills(selectedSkills);
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    if (changes['dataSkills'] && changes['dataSkills'].currentValue as ISkill[]) {
-      console.log('Data skills updated:', this.dataSkills);
-      console.log(changes['dataSkills'].currentValue)
+  emitSelectedSkills(selectedSkills: any) { //any
+    // const selectedSkills = this.multiSelectForm.get('skillsMultiCtrl')?.value;
+    console.log(selectedSkills);
+    this.skillsSelected.emit(selectedSkills);
+  }
+ 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['skills'] && !changes['skills'].firstChange) {
+      // Skills input has changed, update filtering logic or anything else
+      console.log('onchanges', this.skills);
+      console.log(this.selectedSkills);
+      this.multiSelectForm.get('skillsMultiCtrl')?.setValue(this.selectedSkills);
+           // multi select
+        console.log('Successfully get skills2: ', this.skills);
+        this.filteredSkillsMulti.next(this.skills.slice());
+
+        // Access the form control using this.bankMultiForm.get
+        this.multiSelectForm.get('skillsMultiFilterCtrl')?.valueChanges
+          .pipe(takeUntil(this._onDestroy))
+          .subscribe(() => {
+            this.filterSkillsMulti();
+          });
     }
   }
 
-  /**
-   * Used to filter data based on search input 
-   */
-  
-  private _filter(name: string): string[] {
-    console.log('_filter');
-    const filterValue = name.toLowerCase();
-
-    // Instead of setting selected values and patching, directly update selectedValues
-    this.selectedValues = this.selectFormControl.value;
-
-    let filteredList = this.data.filter(
-      (option) => option.toLowerCase().indexOf(filterValue) === 0
-    );
-    return filteredList;
+  // multi select
+protected filterSkillsMulti() {
+  console.log('filterSkilsMulti', this.skills);
+  if (!this.skills) {
+    return;
   }
-
-/**
- * Remove from selected values based on uncheck
- */
-
-
-  // selectionChange(event: any) {
-  //   console.log('selectionChange');
-  //   if (event.isUserInput && event.source.selected === false) {
-  //     const value = event.source.value;
-  //     console.log(value);
-  //     // console.log(this.selectedValues);
-  //     const index = this.selectedValues.indexOf(value);
-  //     if (index !== -1) {
-  //       this.selectedValues.splice(index, 1);
-  //     }
-  //   }
-  //   console.log(this.selectedValues);
-
-  //   //always null
-  // }
-
-  openedChange(e: any) {
-    console.log('openedChange');
-    // Set search textbox value as empty while opening selectbox 
-    this.searchTextboxControl.patchValue('');
-    // Focus to search textbox while clicking on selectbox
-    if (e == true) {
-      this.searchTextBox.nativeElement.focus();
-    }
+  let search = this.multiSelectForm.get('skillsMultiFilterCtrl')?.value;
+  if (!search) {
+    this.filteredSkillsMulti.next(this.skills.slice());
+    return;
+  } else {
+    search = search.toLowerCase();
   }
+  this.filteredSkillsMulti.next(
+    this.skills.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+  );
 
-  /**
-   * Clearing search textbox value 
-   */
-  clearSearch(event: any) {
-    console.log('clearSearch');
-    event.stopPropagation();
-    this.searchTextboxControl.patchValue('');
-  }
+  const selectedSkills = this.multiSelectForm.get('skillsMultiCtrl')?.value;
+  console.log(selectedSkills);
+}
 
-  /**
-   * Set selected values to retain the state 
-   */
-  // setSelectedValues() {
-  //   console.log('selectFormControl', this.selectFormControl.value);
-  //   if (this.selectFormControl.value && this.selectFormControl.value.length > 0) {
-  //     this.selectFormControl.value.forEach((e) => {
-  //       if (this.selectedValues.indexOf(e) == -1) {
-  //         this.selectedValues.push(e);
-  //       }
-  //     });
-  //   }
-  // }
+ngOnDestroy() {
+  this._onDestroy.next();
+  this._onDestroy.complete();
+}
 
-  // setSelectedValues() {
-  //   console.log('setSelectedValues');
-  //   const selectedValueArray = this.selectFormControl.value;
-  
-  //   if (Array.isArray(selectedValueArray)) {
-  //     selectedValueArray.forEach((e: string) => {
-  //       if (!this.selectedValues.includes(e)) {
-  //         this.selectedValues.push(e);
-  //       }
-  //     });
+ngAfterViewInit() {
+  this.setInitialValue();
+}
 
-  //     console.log(selectedValueArray);
-  
-  //     // If you want to use a Set for unique values, you can do this:
-  //     // this.selectedValues = new Set([...this.selectedValues, ...selectedValueArray]);
-  //   }
-  // }
-  
+protected setInitialValue() {
+  console.log('setInitialValue');
+  // this.multiSelectForm.get('skillsMultiCtrl')?.setValue(this.selectedSkills);
+  console.log(this.selectedSkills);
+  this.filteredSkillsMulti
+    .pipe(take(1), takeUntil(this._onDestroy))
+    .subscribe(() => {
+      // setting the compareWith property to a comparison function
+      // triggers initializing the selection according to the initial value of
+      // this needs to be done after the filteredskills are loaded initially
+      // and after the mat-option elements are available
+      this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
+    });
+}
 }
