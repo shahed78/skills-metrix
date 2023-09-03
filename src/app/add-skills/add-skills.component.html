@@ -43,7 +43,8 @@
         <mat-form-field>
             <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
                 <mat-option>
-                    <ngx-mat-select-search formControlName="skillsMultiFilterCtrl"></ngx-mat-select-search>
+                    <ngx-mat-select-search formControlName="skillsMultiFilterCtrl" placeholderLabel="Choose skills..."
+                    noEntriesFoundLabel="No match found"></ngx-mat-select-search>
                 </mat-option>             
                 <mat-option *ngFor="let skill of filteredSkillsMulti | async" [value]="skill">
                 {{skill.name}}
