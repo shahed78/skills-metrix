@@ -55,7 +55,14 @@
       "email": "shiq@y.com",
       "startdate": "2023-08-13T23:00:00.000Z",
       "enddate": "2023-12-15T00:00:00.000Z",
-      "selectedSkills": [],
+      "skillsMultiCtrl": [
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 5
+        }
+      ],
+      "skillsMultiFilterCtrl": "",
       "id": 6
     },
     {
