@@ -37,11 +37,11 @@
         </mat-form-field>
 
     </div>
-    <div class="row">
-        <app-milti-select  [skills]="skills" [selectedSkills] = "selectedSkills" (skillsSelected)="receiveData($event)"></app-milti-select>
-    </div>
-
     <!-- <div class="row">
+        <app-milti-select  [skills]="skills" [selectedSkills] = "selectedSkills" (skillsSelected)="receiveData($event)"></app-milti-select>
+    </div> -->
+
+    <div class="row">
         <p>
         <mat-form-field>
             <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
@@ -55,7 +55,7 @@
             </mat-select>
         </mat-form-field>
         </p>
-    </div> -->
+    </div>
    
 
     <mat-dialog-actions align="end">
