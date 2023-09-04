@@ -21,6 +21,7 @@ export class AddSkillsComponent implements OnInit {
   @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
   protected _onDestroy = new Subject<void>();
   skillsMultiFilterCtrlName: string = 'skillsMultiFilterCtrl';
+  selectedSkills: ISkill[] = [];
 
   constructor(
     private skillsService: SkillsService,
@@ -42,9 +43,7 @@ export class AddSkillsComponent implements OnInit {
   ngOnInit() {
     this.skillsService.getSkills().subscribe({
       next: skills => {
-        console.log('Successfully get skills: ', skills);
         this.skills = skills;
-
         // multi select
         this.filteredSkillsMulti.next(this.skills.slice());
         this.skillsForm.get('skillsMultiFilterCtrl')?.valueChanges
@@ -52,6 +51,10 @@ export class AddSkillsComponent implements OnInit {
           .subscribe(() => {
             this.filterSkillsMulti();
           });
+
+        this.skillsForm.get('skillsMultiCtrl')?.valueChanges.subscribe((selectedSkills: ISkill[]) => {
+          this.selectedSkills = selectedSkills;
+        });
 
       },
       error: err => console.error('An error occurred', err)
@@ -62,7 +65,6 @@ export class AddSkillsComponent implements OnInit {
 
   // multi select
   protected filterSkillsMulti() {
-    console.log('filterBanksMulti', this.skills);
     if (!this.skills) {
       return;
     }
@@ -91,6 +93,7 @@ export class AddSkillsComponent implements OnInit {
     this.filteredSkillsMulti
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
+        this.selectedSkills = this.skillsForm.get('skillsMultiCtrl')?.value;
         this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
       });
   }
@@ -109,18 +112,15 @@ export class AddSkillsComponent implements OnInit {
         next: response => {
           this.dialogRef.close();
         },
-        error: err => console.error('An error occurred', err),
-        complete: () => console.log('complete')
+        error: err => console.error('An error occurred', err)
       });
 
     } else {
       this.skillsService.addSkills(this.skillsForm.value).subscribe({
         next: response => {
-          console.log('Successfully added: ', response);
           this.dialogRef.close();
         },
-        error: err => console.error('An error occurred', err),
-        complete: () => console.log('complete')
+        error: err => console.error('An error occurred', err)
       });
     }
 

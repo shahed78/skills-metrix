@@ -22,10 +22,8 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   //
   
   applyFilter(event: Event) {
-    console.log( (event.target as HTMLInputElement).value);
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.dataSource.filter);
   }
 
   constructor(public addSkillsDialog: MatDialog, private skillsService: SkillsService ) {}
@@ -42,7 +40,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   //unsubscribe
   this.userSkills= this.skillsService.getUsers().subscribe({
     next: userdata =>{
-      console.log(userdata);
       this.users = userdata;
       this.dataSource = new MatTableDataSource(this.users);
     },
@@ -60,8 +57,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public editSkills(userSkills: any): void {
-    // console.log('editSkills');
-    console.log(userSkills);
     //name
     const dialogRef = this.addSkillsDialog.open(AddSkillsComponent, {
       data: userSkills,
@@ -71,7 +66,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public deleteUserSkills(id: number): void {
-    console.log(id);
     this.userSkills = this.skillsService.deleteUser(id).subscribe({
       next: d => { 
         this.getSkills();

@@ -25,13 +25,11 @@ export class SkillsService {
   }
 
   public editSkills(id: number, data: IUser): Observable<any> {
-    console.log(data);
     return this.http.put(`${this.usersUrl}/edit/${id}`, data);
   }
 
   public deleteUser(id: number): Observable<any> { //here
     return this.http.delete(`${this.usersUrl}/delete/${id}`);
-    console.log(id);
   }
 
 }

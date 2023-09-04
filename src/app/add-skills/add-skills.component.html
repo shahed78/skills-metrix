@@ -5,7 +5,6 @@
             <mat-form-field class="full-width">
                 <input matInput type="text" formControlName="firstname" placeholder="First Name">
             </mat-form-field>
-
             <mat-form-field class="full-width">
                 <input matInput type="text" formControlName="lastname" placeholder="Last Name">
             </mat-form-field>
@@ -42,6 +41,18 @@
             <p>
                 <mat-form-field>
                     <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
+                        <!-- <mat-select-trigger>
+                            {{toppings.value?.[0] || ''}}
+                            <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                            </span>
+                          </mat-select-trigger> -->
+                          <mat-select-trigger>
+                            {{ selectedSkills.length > 0 ? selectedSkills[0].name : '' }}
+                            <span *ngIf="(selectedSkills.length || 0) > 1" class="example-additional-selection">
+                              (+{{selectedSkills.length - 1}} {{selectedSkills.length === 2 ? 'other' : 'others'}})
+                            </span>
+                          </mat-select-trigger>
                         <mat-option>
                             <ngx-mat-select-search formControlName="skillsMultiFilterCtrl"
                                 placeholderLabel="Choose skills..."
