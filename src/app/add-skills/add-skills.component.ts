@@ -20,7 +20,7 @@ export class AddSkillsComponent implements OnInit {
   public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
   @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
   protected _onDestroy = new Subject<void>();
-  skillsMultiFilterCtrlName: string = 'skillsMultiFilterCtrl';
+  skillsMultiFilterCtrlName = 'skillsMultiFilterCtrl';
   selectedSkills: ISkill[] = [];
 
   constructor(
