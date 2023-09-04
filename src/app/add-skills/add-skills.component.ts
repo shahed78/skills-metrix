@@ -98,8 +98,6 @@ export class AddSkillsComponent implements OnInit {
       });
   }
 
-
-
   onSubmit(): void {
     if (this.skillsForm.invalid) {
       // If the form is invalid, do not submit
@@ -125,6 +123,4 @@ export class AddSkillsComponent implements OnInit {
     }
 
   }
-
-
 }
