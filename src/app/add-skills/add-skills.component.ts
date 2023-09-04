@@ -15,20 +15,34 @@ import { MatSelect } from '@angular/material/select';
 })
 export class AddSkillsComponent implements OnInit {
 
-  skillsForm: FormGroup;
-  skills: ISkill[] = [];
-  public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
-  @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
-  protected _onDestroy = new Subject<void>();
-  skillsMultiFilterCtrlName = 'skillsMultiFilterCtrl';
-  selectedSkills: ISkill[] = [];
+   // Form group for handling skill information
+  public skillsForm: FormGroup;
+  
+  // Name for the skills multi-select filter control
+  public skillsMultiFilterCtrlName = 'skillsMultiFilterCtrl';
+  
+  // Array to hold available skill options
+  public skills: ISkill[] = [];
 
+  // Array to store selected skills
+  public selectedSkills: ISkill[] = [];
+
+  // Observable to manage filtered skill options in the multi-select
+  public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
+
+  // Subject to manage component destruction and subscription cleanup
+  protected _onDestroy = new Subject<void>();
+
+  // Reference to the multi-select dropdown
+  @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
+ 
   constructor(
     private skillsService: SkillsService,
     private dialogRef: DialogRef<AddSkillsComponent>,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public dialogdata: any
   ) {
+     // Initialize the skillsForm FormGroup with necessary form controls
     this.skillsForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -41,6 +55,7 @@ export class AddSkillsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Fetch available skills from the service and set up form controls
     this.skillsService.getSkills().subscribe({
       next: skills => {
         this.skills = skills;
@@ -52,6 +67,7 @@ export class AddSkillsComponent implements OnInit {
             this.filterSkillsMulti();
           });
 
+        // Subscribe to value changes in the skillsMultiFilterCtrl for dynamic filtering
         this.skillsForm.get('skillsMultiCtrl')?.valueChanges.subscribe((selectedSkills: ISkill[]) => {
           this.selectedSkills = selectedSkills;
         });
@@ -60,11 +76,27 @@ export class AddSkillsComponent implements OnInit {
       error: err => console.error('An error occurred', err)
     });
 
+    // Populate the form with data for editing if available
     this.skillsForm.patchValue(this.dialogdata);
   }
 
-  // multi select
+  ngAfterViewInit() {
+     // Set up initial value for the multi-select and define a compare function
+    this.setInitialValue();
+  }
+
+  protected setInitialValue() {
+    // Set initial selectedSkills and compareWith function for multi-select
+    this.filteredSkillsMulti
+      .pipe(take(1), takeUntil(this._onDestroy))
+      .subscribe(() => {
+        this.selectedSkills = this.skillsForm.get('skillsMultiCtrl')?.value;
+        this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
+      });
+  }
+
   protected filterSkillsMulti() {
+     // Filter available skills based on user input in the multi-select filter
     if (!this.skills) {
       return;
     }
@@ -80,47 +112,37 @@ export class AddSkillsComponent implements OnInit {
     );
   }
 
-  ngOnDestroy() {
-    this._onDestroy.next();
-    this._onDestroy.complete();
-  }
-
-  ngAfterViewInit() {
-    this.setInitialValue();
-  }
-
-  protected setInitialValue() {
-    this.filteredSkillsMulti
-      .pipe(take(1), takeUntil(this._onDestroy))
-      .subscribe(() => {
-        this.selectedSkills = this.skillsForm.get('skillsMultiCtrl')?.value;
-        this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
-      });
-  }
-
-  onSubmit(): void {
+  public onSubmit(): void {
+     // Handle form submission for adding or editing skills
     if (this.skillsForm.invalid) {
       // If the form is invalid, do not submit
       return;
     }
 
     if (this.dialogdata) {
-
+      // Edit existing skills using the skillsService
       this.skillsService.editSkills(this.dialogdata.id, this.skillsForm.value).subscribe({
-        next: response => {
+        next: () => {
           this.dialogRef.close();
         },
         error: err => console.error('An error occurred', err)
       });
 
     } else {
+      // Add new skills using the skillsService
       this.skillsService.addSkills(this.skillsForm.value).subscribe({
-        next: response => {
+        next: () => {
+          // Close the dialog upon successful addition
           this.dialogRef.close();
         },
         error: err => console.error('An error occurred', err)
       });
     }
+  }
 
+  ngOnDestroy() {
+    // Clean up subscriptions to prevent memory leaks
+    this._onDestroy.next();
+    this._onDestroy.complete();
   }
 }

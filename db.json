@@ -73,11 +73,6 @@
       "enddate": "2023-08-17T23:00:00.000Z",
       "skillsMultiCtrl": [
         {
-          "name": "AWS",
-          "type": "Cloud",
-          "id": 5
-        },
-        {
           "name": "TypeScript",
           "type": "Language",
           "id": 1
@@ -86,6 +81,16 @@
           "name": "Angular",
           "type": "Framework",
           "id": 3
+        },
+        {
+          "name": "jQuery",
+          "type": "Framework",
+          "id": 4
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 5
         }
       ],
       "skillsMultiFilterCtrl": "",
