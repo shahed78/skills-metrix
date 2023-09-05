@@ -85,48 +85,6 @@
       ],
       "skillsMultiFilterCtrl": "",
       "id": 7
-    },
-    {
-      "firstname": "Farah",
-      "lastname": "Dee",
-      "email": "farah.dee@gmail.com",
-      "startdate": "2016-01-04T00:00:00.000Z",
-      "enddate": "2023-09-04T23:00:00.000Z",
-      "skillsMultiCtrl": [
-        {
-          "name": "jQuery",
-          "type": "Framework",
-          "id": 4
-        },
-        {
-          "name": "AWS",
-          "type": "Cloud",
-          "id": 5
-        }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 8
-    },
-    {
-      "firstname": "Javed",
-      "lastname": "AB",
-      "email": "javeda@hotmail.com",
-      "startdate": "2017-09-04T23:00:00.000Z",
-      "enddate": "2023-09-04T23:00:00.000Z",
-      "skillsMultiCtrl": [
-        {
-          "name": "TypeScript",
-          "type": "Language",
-          "id": 1
-        },
-        {
-          "name": "Angular",
-          "type": "Framework",
-          "id": 3
-        }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 9
     }
   ],
   "skills": [

@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import { IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-display-skills',
@@ -26,7 +27,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(public addSkillsDialog: MatDialog, private skillsService: SkillsService ) {}
+  constructor(public addSkillsDialog: MatDialog, private skillsService: SkillsService, private _notification: MatSnackBar, ) {}
 
   ngOnInit(): void {
     this.getSkills();
@@ -69,9 +70,11 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     this.userSkills = this.skillsService.deleteUser(id).subscribe({
       next: d => { 
         this.getSkills();
+        this.skillsService.notification('Skill removed successfully');
       },
       error: err => {
         console.log(err);
+        this.skillsService.notification('Failed to remove skill. Please try again later.');
       }
     });
   }

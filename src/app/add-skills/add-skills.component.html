@@ -62,7 +62,7 @@
 
         <mat-dialog-actions align="end">
             <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button cdkFocusInitial type="submit" [disabled]="skillsForm.invalid">{{dialogdata ? 'Edit ':
+            <button mat-button cdkFocusInitial type="submit" [disabled]="skillsForm.invalid || !skillsForm.dirty">{{dialogdata ? 'Edit ':
                 'Add'}} Skills</button>
         </mat-dialog-actions>
     </form>

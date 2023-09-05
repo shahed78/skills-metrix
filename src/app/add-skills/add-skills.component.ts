@@ -6,7 +6,6 @@ import { SkillsService } from '../shared/services/skills.service';
 import { ISkill } from '../shared/interfaces/data.interface';
 import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { MatSelect } from '@angular/material/select';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -41,7 +40,6 @@ export class AddSkillsComponent implements OnInit {
     private skillsService: SkillsService,
     private dialogRef: DialogRef<AddSkillsComponent>,
     private fb: FormBuilder,
-    private _notification: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public dialogdata: any
   ) {
      // Initialize the skillsForm FormGroup with necessary form controls
@@ -126,11 +124,11 @@ export class AddSkillsComponent implements OnInit {
       this.skillsService.editSkills(this.dialogdata.id, this.skillsForm.value).subscribe({
         next: () => {
           this.dialogRef.close();
-          this.notification('Skill updated successfully');
+          this.skillsService.notification('Skill updated successfully');
         },
         error: err => {
           console.error('An error occurred', err);
-          this.notification('Failed to update skill. Please try again later.');
+          this.skillsService.notification('Failed to update skill. Please try again later.');
         }
       });
 
@@ -140,21 +138,17 @@ export class AddSkillsComponent implements OnInit {
         next: () => {
           // Close the dialog upon successful addition
           this.dialogRef.close();
-          this.notification('Skill added successfully!');
+          this.skillsService.notification('Skill added successfully!');
         },
         error: err => {
           console.error('An error occurred', err);
-          this.notification('Failed to add skill. Please try again later.');
+          this.skillsService.notification('Failed to add skill. Please try again later.');
         }
       });
     }
   }
 
-  protected notification(msg: string) {
-    this._notification.open(msg, '', {
-      duration: 2000,
-    });
-  }
+ 
 
   ngOnDestroy() {
     // Clean up subscriptions to prevent memory leaks
