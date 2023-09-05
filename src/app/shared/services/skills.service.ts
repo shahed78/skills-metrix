@@ -34,7 +34,7 @@ export class SkillsService {
   }
 
   public notification(msg: string) {
-    // Notification for add or edit skills
+    // Notification for add, edit or delete actions
     this._notification.open(msg, '', {
       duration: 2000,
     });
