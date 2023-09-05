@@ -23,6 +23,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatTableModule,
     MatSelectModule,
     HttpClientModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    MatSnackBarModule
   ],
   providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
