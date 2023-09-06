@@ -64,27 +64,6 @@
       ],
       "skillsMultiFilterCtrl": "",
       "id": 6
-    },
-    {
-      "firstname": "Shahed",
-      "lastname": "Iqbal",
-      "email": "dgonto@yahoo.com",
-      "startdate": "2016-01-03T00:00:00.000Z",
-      "enddate": "2023-08-17T23:00:00.000Z",
-      "skillsMultiCtrl": [
-        {
-          "name": "jQuery",
-          "type": "Framework",
-          "id": 4
-        },
-        {
-          "name": "AWS",
-          "type": "Cloud",
-          "id": 5
-        }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 7
     }
   ],
   "skills": [

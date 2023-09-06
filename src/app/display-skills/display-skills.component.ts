@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @Component({
   selector: 'app-display-skills',
@@ -26,7 +27,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(public addSkillsDialog: MatDialog, private skillsService: SkillsService, private _notification: MatSnackBar, ) {}
+  constructor(public dialog: MatDialog, private skillsService: SkillsService, private _notification: MatSnackBar, ) {}
 
   ngOnInit(): void {
     this.getSkills();
@@ -47,14 +48,14 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public addSkills(): void {
     //name
-    const dialogRef = this.addSkillsDialog.open(AddSkillsComponent);
+    const dialogRef = this.dialog.open(AddSkillsComponent);
     // r
     dialogRef.afterClosed().subscribe(r=>this.getSkills());
   }
 
   public editSkills(userSkills: any): void {
     //name
-    const dialogRef = this.addSkillsDialog.open(AddSkillsComponent, {
+    const dialogRef = this.dialog.open(AddSkillsComponent, {
       data: userSkills,
     });
     //improve
@@ -62,14 +63,26 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public deleteUserSkills(id: number): void {
-    this.userSkills = this.skillsService.deleteUser(id).subscribe({
-      next: d => { 
-        this.getSkills();
-        this.skillsService.notification('Skill removed successfully');
+
+    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+      data: {
+        user: this.users.filter(t=> t.id===id)[0] // Pass the userSkills object to the dialog
       },
-      error: err => {
-        console.log(err);
-        this.skillsService.notification('Failed to remove skill. Please try again later.');
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        // User confirmed deletion, perform the delete action
+        this.skillsService.deleteUser(id).subscribe({
+          next: (d) => {
+            this.getSkills();
+            this.skillsService.notification('Skill removed successfully');
+          },
+          error: (err) => {
+            console.log(err);
+            this.skillsService.notification('Failed to remove skill. Please try again later.');
+          },
+        });
       }
     });
   }

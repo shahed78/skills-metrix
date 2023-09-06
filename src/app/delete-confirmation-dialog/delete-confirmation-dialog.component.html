@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Confirm Deletion</h2>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete the record with email {{ data.user.email }}?</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="cancelDelete()">Cancel</button>
+  <button mat-button color="warn" (click)="confirmDelete()">Delete</button>
+</div>
+

@@ -24,12 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplaySkillsComponent,
-    AddSkillsComponent
+    AddSkillsComponent,
+    DeleteConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
