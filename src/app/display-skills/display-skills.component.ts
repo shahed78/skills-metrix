@@ -6,6 +6,7 @@ import { IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
+import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
 
 @Component({
   selector: 'app-display-skills',
@@ -84,6 +85,12 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
           },
         });
       }
+    });
+  }
+
+  public openUploadDialog(): void {
+    const dialogRef = this.dialog.open(UploadSkillsComponent, {
+      width: '400px',
     });
   }
 

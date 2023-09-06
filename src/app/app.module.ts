@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DisplaySkillsComponent } from './display-skills/display-skills.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { UploadSkillsComponent } from './upload-skills/upload-skills.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -29,12 +30,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     DisplaySkillsComponent,
     AddSkillsComponent,
-    DeleteConfirmationComponent
+    DeleteConfirmationComponent,
+    UploadSkillsComponent
   ],
   imports: [
     BrowserModule,

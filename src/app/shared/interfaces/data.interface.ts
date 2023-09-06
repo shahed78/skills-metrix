@@ -14,3 +14,12 @@ export  interface ISkill {
     type: string;
     id: number;
   }
+
+  export interface ExcelData {
+    ID: number;
+    "Start time": number;
+    "Completion time": number;
+    Email: string;
+    Name: string;
+    [key: string]: string | number; // Allow any additional string or number properties
+  }
