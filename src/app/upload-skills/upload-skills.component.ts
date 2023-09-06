@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
 import { ExcelData, ISkill } from '../shared/interfaces/data.interface';
+import { SkillsService } from '../shared/services/skills.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-upload-skills',
@@ -12,7 +14,7 @@ export class UploadSkillsComponent {
 
   private importedUserData: any;
 
-  constructor(private dialogRef: MatDialogRef<UploadSkillsComponent>){}
+  constructor(private dialogRef: MatDialogRef<UploadSkillsComponent>, private skillsService: SkillsService ){}
 
   public onFileSelected(event: any) {
     let file = event.target.files[0];
@@ -62,9 +64,20 @@ export class UploadSkillsComponent {
   });
   }
 
-  public uploadExcel(): void {
+  public onUploadExcel(): void {
     console.log(this.formatChange(this.importedUserData));
-    this.dialogRef.close();
+    const convertedData = this.formatChange(this.importedUserData);
+    // this.skillsService.uploadSkills(this.importedUserData).subscribe({
+    //   next: () => {
+    //     this.dialogRef.close();
+    //     this.skillsService.notification('Skill added successfully!');
+    //   },
+    //   error: err => {
+    //     console.error('An error occurred', err);
+    //     this.skillsService.notification('Failed to add skill. Please try again later.');
+    //   }
+    // });
+    // this.dialogRef.close();
   }
 
 }
