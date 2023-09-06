@@ -2,8 +2,10 @@
     <mat-toolbar color="primary">
       <span>Skill Matrix</span>
       <span class="toolbar-space"></span>
-      
-      <button mat-raised-button color="primary" (click)="addSkills()">Add Skills</button>
+      <!-- <button mat-raised-button color="primary" (click)="addSkills()">Add Skills</button> -->
+      <button mat-icon-button (click)="addSkills()" matTooltip="Add skills">
+        <mat-icon aria-hidden="false" fontIcon="my_library_add"></mat-icon>
+      </button>
     </mat-toolbar>
 </p>
 
