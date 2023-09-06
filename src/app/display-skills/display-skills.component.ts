@@ -20,7 +20,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   displayeColumns = ['serial', 'firstname', 'lastname', 'email', 'startdate','enddate', 'butons'];
   dataSource: MatTableDataSource<IUser>;
-  //
   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -31,10 +30,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getSkills();
-  }
-
-  ngOnDestroy(): void {
-    this.userSkills.unsubscribe();
   }
 
   public getSkills(): void {
@@ -77,5 +72,9 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
         this.skillsService.notification('Failed to remove skill. Please try again later.');
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userSkills.unsubscribe();
   }
 }
