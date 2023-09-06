@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-display-skills',
@@ -64,7 +64,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public deleteUserSkills(id: number): void {
 
-    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
       data: {
         user: this.users.filter(t=> t.id===id)[0] // Pass the userSkills object to the dialog
       },

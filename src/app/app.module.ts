@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplaySkillsComponent } from './display-skills/display-skills.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
-import { DeleteConfirmationDialogComponent } from './delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -34,7 +34,7 @@ import { SkillsService } from './shared/services/skills.service';
     AppComponent,
     DisplaySkillsComponent,
     AddSkillsComponent,
-    DeleteConfirmationDialogComponent
+    DeleteConfirmationComponent
   ],
   imports: [
     BrowserModule,

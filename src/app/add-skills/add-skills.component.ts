@@ -148,8 +148,6 @@ export class AddSkillsComponent implements OnInit {
     }
   }
 
- 
-
   ngOnDestroy() {
     // Clean up subscriptions to prevent memory leaks
     this._onDestroy.next();
