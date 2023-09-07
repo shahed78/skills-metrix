@@ -18,79 +18,5129 @@
   },
   "users": [
     {
-      "firstname": "Shahed",
-      "lastname": "Iqbal",
-      "email": "sh@y.com",
-      "startdate": "2023-04-09T23:00:00.000Z",
-      "enddate": "2023-08-30T23:00:00.000Z",
-      "selectedSkills": [
-        {
-          "name": "TypeScript",
-          "type": "Language"
-        },
-        {
-          "name": "Angular",
-          "type": "Framework"
-        }
-      ],
-      "otherSelectedSkills": [
-        {
-          "name": "jQuery",
-          "type": "Framework"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "firstname": "Farah",
-      "lastname": "Deeba",
-      "email": "f@y.com",
-      "startdate": "2023-07-31T23:00:00.000Z",
-      "enddate": "2023-08-30T23:00:00.000Z",
-      "id": 4
-    },
-    {
-      "firstname": "sha",
-      "lastname": "iqal",
-      "email": "shiq@y.com",
-      "startdate": "2023-08-13T23:00:00.000Z",
-      "enddate": "2023-12-15T00:00:00.000Z",
+      "name": "Shahed Iqbal",
+      "email": "shahed.iqbal@leighton.com",
+      "start_time": "2023-04-25T20:52:14.999Z",
+      "completion_time": "2023-04-25T20:54:52.999Z",
       "skillsMultiCtrl": [
         {
-          "name": "AWS",
-          "type": "Cloud",
-          "id": 5
+          "name": "JavaScript",
+          "type": "Languages",
+          "id": 1
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages",
+          "id": 2
+        },
+        {
+          "name": "CSS",
+          "type": "Languages",
+          "id": 3
         }
       ],
       "skillsMultiFilterCtrl": "",
-      "id": 6
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "Richard Ridley",
+      "email": "Richard.Ridley@leighton.com",
+      "start_time": "2023-04-26T06:54:04.999Z",
+      "completion_time": "2023-04-26T06:54:43.999Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Joshua Allan",
+      "email": "Joshua.Allan@leighton.com",
+      "start_time": "2023-04-26T07:10:39.000Z",
+      "completion_time": "2023-04-26T07:12:40.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "react native",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Lindsey Humble",
+      "email": "Lindsey.Humble@leighton.com",
+      "start_time": "2023-04-26T07:17:01.999Z",
+      "completion_time": "2023-04-26T07:20:53.999Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Kyle Hepple",
+      "email": "Kyle.Hepple@leighton.com",
+      "start_time": "2023-04-26T07:28:39.000Z",
+      "completion_time": "2023-04-26T07:38:26.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "IBMi RPGLE. (Note for Java - experience may be out of date)",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Babel",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Ext JS (Note for Spring - experience may be out of date)",
+          "type": "Frameworks"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DB2",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        },
+        {
+          "name": "React Native/Expo (Note for all mobile skills - Basic understanding/used in personal projects)",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Karl Stewart",
+      "email": "Karl.Stewart@leighton.com",
+      "start_time": "2023-04-26T07:37:57.000Z",
+      "completion_time": "2023-04-26T07:44:32.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Tailwind",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Redis",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DynamoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Viktoria Daneva",
+      "email": "Viktoria.Daneva@leighton.com",
+      "start_time": "2023-04-26T08:00:58.000Z",
+      "completion_time": "2023-04-26T08:01:29.000Z",
+      "selectedSkills": []
+    },
+    {
+      "id": 8,
+      "name": "Kennedy Bonsu",
+      "email": "kennedy.bonsu@leighton.com",
+      "start_time": "2023-04-26T08:20:01.000Z",
+      "completion_time": "2023-04-26T08:25:48.999Z",
+      "selectedSkills": [
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Git, GitHub",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Test Rail",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Katalon",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "TestNG",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Windows App",
+          "type": "APP Development"
+        },
+        {
+          "name": "MacOS App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Graham Reed",
+      "email": "Graham.Reed@leighton.com",
+      "start_time": "2023-04-26T08:32:14.000Z",
+      "completion_time": "2023-04-26T08:34:06.000Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Babel",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "SalesForce",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Greg North",
+      "email": "greg.north@leighton.com",
+      "start_time": "2023-04-26T09:08:06.999Z",
+      "completion_time": "2023-04-26T09:09:24.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": ".NET",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Test Rail",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Katalon",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Team Foundation Server",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Michael Heighway",
+      "email": "michael.heighway@leighton.com",
+      "start_time": "2023-04-26T09:05:17.999Z",
+      "completion_time": "2023-04-26T09:17:41.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jsPDF",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Express, RxJS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Docker, Terraform",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Mongoose",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Ionic w/Angular",
+          "type": "APP Development"
+        },
+        {
+          "name": "Websockets",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Jayaprasad Viswanathan",
+      "email": "jayaprasad.viswanathan@leighton.com",
+      "start_time": "2023-04-26T08:56:59.000Z",
+      "completion_time": "2023-04-26T09:24:53.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Kubernetes",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Rest Assured",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Spring Test",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Arquillian , Performance testing (Jmeter)",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Log Monitoring (Datadog, Log Analytics, Splunk).",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Topaji Nagloori",
+      "email": "topaji.nagloori@leighton.com",
+      "start_time": "2023-04-26T09:26:30.999Z",
+      "completion_time": "2023-04-26T09:29:05.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Katalon",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Sindhu Kumar",
+      "email": "sindhu.kumar@leighton.com",
+      "start_time": "2023-04-26T09:32:41.999Z",
+      "completion_time": "2023-04-26T09:33:10.000Z",
+      "selectedSkills": [
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Bugzilla",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Test Rail",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Adam Hails",
+      "email": "adam.hails@leighton.com",
+      "start_time": "2023-04-26T12:18:35.000Z",
+      "completion_time": "2023-04-26T12:20:03.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": ".NET",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Team Foundation Server",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Tanvi Kandpal",
+      "email": "tanvi.kandpal@leighton.com",
+      "start_time": "2023-04-26T13:07:30.999Z",
+      "completion_time": "2023-04-26T13:07:45.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Windows App",
+          "type": "APP Development"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Andrew Royal",
+      "email": "Andrew.Royal@leighton.com",
+      "start_time": "2023-04-26T13:17:12.000Z",
+      "completion_time": "2023-04-26T13:30:39.000Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Team Foundation Server",
+          "type": "Version Control"
+        },
+        {
+          "name": "PWA",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Christian Leovido",
+      "email": "christian.leovido@leighton.com",
+      "start_time": "2023-04-26T13:28:17.999Z",
+      "completion_time": "2023-04-26T13:33:28.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Swift",
+          "type": "Languages"
+        },
+        {
+          "name": "React Native, Combine, SwiftUI",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "XCTest, XCUITest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "MacOS App",
+          "type": "APP Development"
+        },
+        {
+          "name": "GitHub Actions, Travis CI, Bitrise",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Marc Davison",
+      "email": "marc.davison@leighton.com",
+      "start_time": "2023-04-26T15:19:24.000Z",
+      "completion_time": "2023-04-26T15:25:12.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "ASP",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "SalesForce",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "PWA",
+          "type": "APP Development"
+        },
+        {
+          "name": "Ionic",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Tom Shanan",
+      "email": "tom.shanan@leighton.com",
+      "start_time": "2023-04-28T08:25:20.000Z",
+      "completion_time": "2023-04-28T08:26:22.000Z",
+      "selectedSkills": [
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Hayley Wood",
+      "email": "hayley.wood@leighton.com",
+      "start_time": "2023-04-28T08:28:19.999Z",
+      "completion_time": "2023-04-28T08:28:31.999Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "James Evans",
+      "email": "james.evans@leighton.com",
+      "start_time": "2023-04-28T08:27:06.999Z",
+      "completion_time": "2023-04-28T08:28:34.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "MacOS App",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Ben Hunt-Vincent",
+      "email": "Ben.Hunt-Vincent@leighton.com",
+      "start_time": "2023-04-28T08:29:58.000Z",
+      "completion_time": "2023-04-28T08:31:39.000Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Chris Spiers",
+      "email": "Chris.Spiers@leighton.com",
+      "start_time": "2023-04-28T08:27:49.999Z",
+      "completion_time": "2023-04-28T08:32:07.999Z",
+      "selectedSkills": [
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Added this as a note instead of ticking the others as I am not proficient in these languages/techs but have exposure to delivering requirements of JS, HTML, CSS",
+          "type": "Other technologies"
+        },
+        {
+          "name": " as well as Angular App delivery, and exposure to cypress tests",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Chris McGreevy",
+      "email": "Chris.McGreevy@leighton.com",
+      "start_time": "2023-04-28T08:30:02.000Z",
+      "completion_time": "2023-04-28T08:33:19.000Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Liam Blakeley",
+      "email": "Liam.Blakeley@leighton.com",
+      "start_time": "2023-04-28T08:31:55.999Z",
+      "completion_time": "2023-04-28T08:33:28.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Jon Mears",
+      "email": "jon.mears@leighton.com",
+      "start_time": "2023-04-28T08:35:11.999Z",
+      "completion_time": "2023-04-28T08:45:13.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "React Native",
+          "type": "APP Development"
+        },
+        {
+          "name": "Drupal CMS, Contentstack, Redux, Apollo, MeteorJS, RealmDB, ",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Daniel Benmore",
+      "email": "daniel.benmore@leighton.com",
+      "start_time": "2023-04-26T13:16:34.000Z",
+      "completion_time": "2023-04-28T08:54:40.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "PostCSS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Web Components (Vanilla, Lit & StencilJS), Static websites 11ty",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Mocha, chai",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Hannah Olujekun",
+      "email": "hannah.olujekun@leighton.com",
+      "start_time": "2023-04-28T09:03:44.000Z",
+      "completion_time": "2023-04-28T09:05:04.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "SalesForce",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Team Foundation Server",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Nick Thompson",
+      "email": "nick.thompson@leighton.com",
+      "start_time": "2023-04-28T10:45:48.000Z",
+      "completion_time": "2023-04-28T10:51:32.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Django (Python Framework)",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DynamoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "pyTest (Python Unit testing)",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Robert Hearn",
+      "email": "robert.hearn@leighton.com",
+      "start_time": "2023-04-28T11:16:59.000Z",
+      "completion_time": "2023-04-28T11:19:29.000Z",
+      "selectedSkills": [
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "ORACLE APPLICATION TESTER",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "CISCO CONTACT CENTRE (UCCE & UCCX0",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Matthew Topping",
+      "email": "matthew.topping@leighton.com",
+      "start_time": "2023-04-28T11:23:15.999Z",
+      "completion_time": "2023-04-28T11:27:13.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Ben Segni",
+      "email": "ben.segni@leighton.com",
+      "start_time": "2023-04-28T12:43:36.999Z",
+      "completion_time": "2023-04-28T12:45:12.999Z",
+      "selectedSkills": [
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Digital Ocean",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        },
+        {
+          "name": "PWA",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Jake Bazin",
+      "email": "Jake.Bazin@leighton.com",
+      "start_time": "2023-04-28T13:13:09.000Z",
+      "completion_time": "2023-04-28T13:19:35.000Z",
+      "selectedSkills": [
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": "NextJS, Serverless Framework",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DynamoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Playwright",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Simon Poet",
+      "email": "simon.poet@leighton.com",
+      "start_time": "2023-04-28T13:23:11.000Z",
+      "completion_time": "2023-04-28T13:30:35.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Spring Test",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Windows App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Linux App",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Graham Wedderman",
+      "email": "Graham.Wedderman@leighton.com",
+      "start_time": "2023-04-28T14:41:24.000Z",
+      "completion_time": "2023-04-28T14:42:59.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Victoria Hurley",
+      "email": "victoria.hurley@leighton.com",
+      "start_time": "2023-04-28T15:19:34.999Z",
+      "completion_time": "2023-04-28T15:22:26.000Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Edward Wheldon",
+      "email": "edward.wheldon@leighton.com",
+      "start_time": "2023-05-02T07:51:55.999Z",
+      "completion_time": "2023-05-02T07:59:00.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Foundation",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Teodor Mosteanu",
+      "email": "teodor.mosteanu@leighton.com",
+      "start_time": "2023-05-02T08:12:53.999Z",
+      "completion_time": "2023-05-02T08:17:19.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": ".NET",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Julie Spedding",
+      "email": "julie.spedding@leighton.com",
+      "start_time": "2023-05-02T09:11:27.000Z",
+      "completion_time": "2023-05-02T09:12:32.000Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Aparna Chirakkal",
+      "email": "aparna.chirakkal@leighton.com",
+      "start_time": "2023-05-02T09:00:11.000Z",
+      "completion_time": "2023-05-02T09:29:41.000Z",
+      "selectedSkills": [
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Malini Raj",
+      "email": "malini.raj@leighton.com",
+      "start_time": "2023-05-02T11:11:54.000Z",
+      "completion_time": "2023-05-02T11:15:31.000Z",
+      "selectedSkills": [
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "Machine learning,Data Analytics",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Vamshi Gandla",
+      "email": "vamshi.gandla@leighton.com",
+      "start_time": "2023-05-02T14:46:34.000Z",
+      "completion_time": "2023-05-02T14:50:36.000Z",
+      "selectedSkills": [
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Spring Test",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Phillip Teasdale",
+      "email": "phillip.teasdale@leighton.com",
+      "start_time": "2023-05-02T16:02:59.000Z",
+      "completion_time": "2023-05-02T16:04:41.999Z",
+      "selectedSkills": [
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Kubernetes",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Christopher Handley",
+      "email": "christopher.handley@leighton.com",
+      "start_time": "2023-05-03T07:32:11.000Z",
+      "completion_time": "2023-05-03T07:39:23.999Z",
+      "selectedSkills": [
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "Fortran with CUDA, OpenACL, OpenMP, MPI (these are all for parallel programming of Fortran or C++)",
+          "type": "Languages"
+        },
+        {
+          "name": "Flask, Dash",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DynamoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Unittest (python), PyTest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Linux App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Windows App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Linux HPC using SLURM, Jupyter Notebook, Neural Networks, Gaussian Processes, Genetic Algorithms, Support Vector Machines, Principle Component Analysis, Pareto Front Analysis, Adobe Suite (Photoshop, Indesign, Illustrator, Acrobat, Premier Pro), Audacity, Bash Scripting, Docker",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Jack Wallace",
+      "email": "jack.wallace@leighton.com",
+      "start_time": "2023-05-03T10:07:02.000Z",
+      "completion_time": "2023-05-03T10:12:44.999Z",
+      "selectedSkills": [
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "BASH, Powershell, Go",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Kubernetes",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Terraform, Jenkins, CircleCI, Jira, datadog + nagios ",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Julian James",
+      "email": "julian.james@leighton.com",
+      "start_time": "2023-05-03T13:26:47.000Z",
+      "completion_time": "2023-05-03T13:32:23.999Z",
+      "selectedSkills": [
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "C++",
+          "type": "Languages"
+        },
+        {
+          "name": "Swift, Objective-C",
+          "type": "Languages"
+        },
+        {
+          "name": "AppKit, UIKit, SwiftUI",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "CoreData",
+          "type": "Databases"
+        },
+        {
+          "name": "XCTest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "MacOS App",
+          "type": "APP Development"
+        },
+        {
+          "name": "iPadOS, WatchOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "OpenGL, Metal",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Evgeny Tihomirov",
+      "email": "evgeny.tihomirov@leighton.com",
+      "start_time": "2023-05-03T13:35:50.000Z",
+      "completion_time": "2023-05-03T13:46:51.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Kev Stewart",
+      "email": "kev.stewart@leighton.com",
+      "start_time": "2023-05-03T13:47:37.999Z",
+      "completion_time": "2023-05-03T13:52:38.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Next.js",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Terraform",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Alpa Patel",
+      "email": "Alpa.Patel@leighton.com",
+      "start_time": "2023-05-03T13:26:39.999Z",
+      "completion_time": "2023-05-03T13:58:10.999Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "have completed SAFE and SCRUM Master training but never used",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Shaukat Aron",
+      "email": "shaukat.aron@leighton.com",
+      "start_time": "2023-05-03T14:03:26.000Z",
+      "completion_time": "2023-05-03T14:04:08.000Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "David Sa",
+      "email": "david.sa@leighton.com",
+      "start_time": "2023-05-03T14:50:45.000Z",
+      "completion_time": "2023-05-03T14:52:06.999Z",
+      "selectedSkills": [
+        {
+          "name": "Very Basic Python",
+          "type": "Languages"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "I am not from a technical background",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Steve Morland",
+      "email": "Steve.Morland@leighton.com",
+      "start_time": "2023-05-03T15:13:54.999Z",
+      "completion_time": "2023-05-03T15:17:26.999Z",
+      "selectedSkills": [
+        {
+          "name": "XSLT",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "DynamoDb, Reddis, DocumentDB, OpenSearch, Elasticache",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Karma",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Gail Phillips",
+      "email": "gail.phillips@leighton.com",
+      "start_time": "2023-05-03T19:37:58.000Z",
+      "completion_time": "2023-05-03T19:39:09.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Cucumber",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "IOS",
+          "type": "APP Development"
+        },
+        {
+          "name": "Android",
+          "type": "APP Development"
+        },
+        {
+          "name": "Kotlin",
+          "type": "APP Development"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Tom Preval",
+      "email": "tom.preval@leighton.com",
+      "start_time": "2023-05-04T08:10:31.999Z",
+      "completion_time": "2023-05-04T08:16:39.000Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Sunil Bagga",
+      "email": "sunil.bagga@leighton.com",
+      "start_time": "2023-05-04T12:23:44.999Z",
+      "completion_time": "2023-05-04T12:25:20.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Aleta Lovelace",
+      "email": "aleta.lovelace@leighton.com",
+      "start_time": "2023-05-10T12:29:56.000Z",
+      "completion_time": "2023-05-10T12:52:54.000Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "PHP",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": ".NET",
+          "type": "Languages"
+        },
+        {
+          "name": "C#, Pascal/Delphi, RegEx",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "React",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks"
+        },
+        {
+          "name": ".NET, Godot, VCL",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Cypress",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "Windows App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Linux App",
+          "type": "APP Development"
+        },
+        {
+          "name": "Apache, discord.js, Webpack",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Deepak Jaikumar",
+      "email": "deepak.jaikumar@leighton.com",
+      "start_time": "2023-05-10T14:42:35.000Z",
+      "completion_time": "2023-05-10T14:44:31.999Z",
+      "selectedSkills": [
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Redis",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "TSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "GraphQL",
+          "type": "Databases"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "SVN",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "Solution Architecture, Penetration testing, application and network architecture, telecoms Operational and business support systems, Cyber security tools, application and platform development",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Gabriel Ottah",
+      "email": "gabriel.ottah@leighton.com",
+      "start_time": "2023-05-15T08:40:50.000Z",
+      "completion_time": "2023-05-15T08:42:23.999Z",
+      "selectedSkills": [
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "XP, Pair programming",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Samantha Dunnett",
+      "email": "Samantha.Dunnett@leighton.com",
+      "start_time": "2023-05-17T09:26:46.999Z",
+      "completion_time": "2023-05-17T10:10:52.999Z",
+      "selectedSkills": [
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "I know a little bit about AWS but not confident. I've previously done Azure related activity but this was a long time ago so again, wouldn't actually feel confident in this.",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Safe",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Most confident in waterfall",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": " have previously worked in Agile environments but this was a long time ago so not confident",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": " I'm aware of Safe and have been doing self-led reading/learning but not put anything into practice or worked in a Safe env",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": " completed Scrum Master training in 2021 but not had opportunity to put into practice",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": " have dabbled in small bits of Kanban. Not heard of Spiral.",
+          "type": "Delivery Methodologies"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Qamar Chaudhry",
+      "email": "qamar.chaudhry@leighton.com",
+      "start_time": "2023-06-13T12:40:10.000Z",
+      "completion_time": "2023-06-13T12:44:36.000Z",
+      "selectedSkills": [
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "PowerShell",
+          "type": "Languages"
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Kubernetes",
+          "type": "Cloud"
+        },
+        {
+          "name": "GCP",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Microsoft SQl",
+          "type": "Databases"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "TSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Oracle",
+          "type": "Databases"
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases"
+        },
+        {
+          "name": "AWS RDS- AWS Aurora -AWS Dynamo DB",
+          "type": "Databases"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Snyk",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "DataDog",
+          "type": "Other technologies"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "Tarek El Hojeiri",
+      "email": "tarek.el.hojeiri@leighton.com",
+      "start_time": "2023-06-13T14:03:19.999Z",
+      "completion_time": "2023-06-13T14:04:12.999Z",
+      "selectedSkills": [
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Toby Cook",
+      "email": "toby.cook@leighton.com",
+      "start_time": "2023-06-13T14:06:50.999Z",
+      "completion_time": "2023-06-13T14:11:48.999Z",
+      "selectedSkills": [
+        {
+          "name": "JavaScript",
+          "type": "Languages"
+        },
+        {
+          "name": "TypeScript",
+          "type": "Languages"
+        },
+        {
+          "name": "CSS",
+          "type": "Languages"
+        },
+        {
+          "name": "HTML",
+          "type": "Languages"
+        },
+        {
+          "name": "Java",
+          "type": "Languages"
+        },
+        {
+          "name": "SASS/LESS",
+          "type": "Languages"
+        },
+        {
+          "name": "Python",
+          "type": "Languages"
+        },
+        {
+          "name": "Angular",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Node.JS",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Spring",
+          "type": "Frameworks"
+        },
+        {
+          "name": "jQuery",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Bootstrap",
+          "type": "Frameworks"
+        },
+        {
+          "name": "Azure",
+          "type": "Cloud"
+        },
+        {
+          "name": "Digital Ocean",
+          "type": "Cloud"
+        },
+        {
+          "name": "Agile",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Scrum",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "Kanban",
+          "type": "Delivery Methodologies"
+        },
+        {
+          "name": "MySQL",
+          "type": "Databases"
+        },
+        {
+          "name": "PostGreSQL",
+          "type": "Databases"
+        },
+        {
+          "name": "Jest",
+          "type": "Test Tools"
+        },
+        {
+          "name": "JUnit",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Jasmine",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Postman",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Spring Test",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Selenium",
+          "type": "Test Tools"
+        },
+        {
+          "name": "Git",
+          "type": "Version Control"
+        },
+        {
+          "name": "Maven",
+          "type": "Version Control"
+        },
+        {
+          "name": "NPM",
+          "type": "Version Control"
+        },
+        {
+          "name": "PWA",
+          "type": "APP Development"
+        },
+        {
+          "name": "Hibernate, MyBatis",
+          "type": "Other technologies"
+        }
+      ]
     }
   ],
   "skills": [
     {
-      "name": "TypeScript",
-      "type": "Language",
+      "name": "JavaScript",
+      "type": "Languages",
       "id": 1
     },
     {
-      "name": "JavaScript",
-      "type": "Language",
+      "name": "TypeScript",
+      "type": "Languages",
       "id": 2
     },
     {
-      "name": "Angular",
-      "type": "Framework",
+      "name": "CSS",
+      "type": "Languages",
       "id": 3
     },
     {
-      "name": "jQuery",
-      "type": "Framework",
+      "name": "HTML",
+      "type": "Languages",
       "id": 4
     },
     {
-      "name": "AWS",
-      "type": "Cloud",
+      "name": "Java",
+      "type": "Languages",
       "id": 5
+    },
+    {
+      "name": "SASS/LESS",
+      "type": "Languages",
+      "id": 6
+    },
+    {
+      "name": "Python",
+      "type": "Languages",
+      "id": 7
+    },
+    {
+      "name": "Angular",
+      "type": "Frameworks",
+      "id": 8
+    },
+    {
+      "name": "Node.JS",
+      "type": "Frameworks"
+    },
+    {
+      "name": "Spring",
+      "type": "Frameworks",
+      "id": 9
+    },
+    {
+      "name": "jQuery",
+      "type": "Frameworks",
+      "id": 10
+    },
+    {
+      "name": "Bootstrap",
+      "type": "Frameworks",
+      "id": 11
+    },
+    {
+      "name": "Azure",
+      "type": "Cloud",
+      "id": 12
+    },
+    {
+      "name": "Digital Ocean",
+      "type": "Cloud",
+      "id": 13
+    },
+    {
+      "name": "Agile",
+      "type": "Delivery Methodologies",
+      "id": 14
+    },
+    {
+      "name": "Scrum",
+      "type": "Delivery Methodologies",
+      "id": 15
+    },
+    {
+      "name": "Kanban",
+      "type": "Delivery Methodologies",
+      "id": 16
+    },
+    {
+      "name": "MySQL",
+      "type": "Databases",
+      "id": 17
+    },
+    {
+      "name": "PostGreSQL",
+      "type": "Databases",
+      "id": 18
+    },
+    {
+      "name": "Jest",
+      "type": "Test Tools",
+      "id": 19
+    },
+    {
+      "name": "JUnit",
+      "type": "Test Tools",
+      "id": 20
+    },
+    {
+      "name": "Jasmine",
+      "type": "Test Tools",
+      "id": 21
+    },
+    {
+      "name": "Postman",
+      "type": "Test Tools",
+      "id": 22
+    },
+    {
+      "name": "Spring Test",
+      "type": "Test Tools",
+      "id": 23
+    },
+    {
+      "name": "Selenium",
+      "type": "Test Tools",
+      "id": 24
+    },
+    {
+      "name": "Git",
+      "type": "Version Control",
+      "id": 25
+    },
+    {
+      "name": "Maven",
+      "type": "Version Control",
+      "id": 26
+    },
+    {
+      "name": "NPM",
+      "type": "Version Control",
+      "id": 27
+    },
+    {
+      "name": "PWA",
+      "type": "APP Development",
+      "id": 28
+    },
+    {
+      "name": "Hibernate, MyBatis",
+      "type": "Other technologies",
+      "id": 29
     }
   ]
 }

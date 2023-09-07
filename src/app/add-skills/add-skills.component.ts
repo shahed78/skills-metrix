@@ -44,11 +44,10 @@ export class AddSkillsComponent implements OnInit {
   ) {
      // Initialize the skillsForm FormGroup with necessary form controls
     this.skillsForm = this.fb.group({
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      startdate: ['', Validators.required],
-      enddate: ['', Validators.required],
+      start_time: ['', Validators.required],
+      completion_time: ['', Validators.required],
       skillsMultiCtrl: [],
       skillsMultiFilterCtrl: ['']
     });

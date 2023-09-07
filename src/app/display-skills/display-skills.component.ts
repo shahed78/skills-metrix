@@ -20,7 +20,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   public users: IUser[] = [];
   public userSkills: any;
 
-  displayeColumns = ['serial', 'firstname', 'lastname', 'email', 'startdate','enddate', 'butons'];
+  displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
   dataSource: MatTableDataSource<IUser>;
   
   applyFilter(event: Event) {
@@ -28,7 +28,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(public dialog: MatDialog, private skillsService: SkillsService, private _notification: MatSnackBar, ) {}
+  constructor(public dialog: MatDialog, private skillsService: SkillsService ) {}
 
   ngOnInit(): void {
     this.getSkills();
@@ -38,6 +38,8 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   //unsubscribe
   this.userSkills= this.skillsService.getUsers().subscribe({
     next: userdata =>{
+      // console.log(userdata.skillsMultiCtrl);
+      console.log(userdata);
       this.users = userdata;
       this.dataSource = new MatTableDataSource(this.users);
     },
@@ -64,7 +66,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public deleteUserSkills(id: number): void {
-
     const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
       data: {
         user: this.users.filter(t=> t.id===id)[0] // Pass the userSkills object to the dialog
@@ -92,6 +93,8 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(UploadSkillsComponent, {
       width: '400px',
     });
+
+    dialogRef.afterClosed().subscribe(r=>this.getSkills());
   }
 
   ngOnDestroy(): void {

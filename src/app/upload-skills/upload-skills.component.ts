@@ -14,6 +14,7 @@ export class UploadSkillsComponent {
 
   private importedUserData: any;
 
+
   constructor(private dialogRef: MatDialogRef<UploadSkillsComponent>, private skillsService: SkillsService ){}
 
   public onFileSelected(event: any) {
@@ -24,9 +25,11 @@ export class UploadSkillsComponent {
     fileReader.readAsBinaryString(file);
 
     fileReader.onload = (e) => {
-      let workbook = XLSX.read(fileReader.result, { type: 'binary' });
+      let workbook = XLSX.read(fileReader.result, { type: 'binary', cellDates: true });
       let sheetNames = workbook.SheetNames; // all sheet array
       this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]);
+      // console.log(this.importedUserData);
+      console.log(this.formatChange(this.importedUserData));
     };
   }
 
@@ -34,6 +37,7 @@ export class UploadSkillsComponent {
     return excelData.map(item => {
 
       const skillsMultiCtrl: { name: string; type: string; }[] = []; // refactor with ISkill
+      const skillsDropDpwn: { name: string; type: string; }[] = [];
 
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
       for (const key in item) {
@@ -42,22 +46,33 @@ export class UploadSkillsComponent {
             const values = (item[key] as string).split(';').filter(value => value.trim() !== '');
            
             values.map(skills => {
-                 skillsMultiCtrl.push({
+              skillsMultiCtrl.push({
                   name: skills,
                   type: key,
               });
+
+              console.log(skills);
+              const skillExists = skillsDropDpwn.some(skill => skill.name === skills && skill.type === key);
+              if (!skillExists) {
+                // Push the new skill into the array if it doesn't exist
+                skillsDropDpwn.push({
+                  name: skills,
+                  type: key,
+                });
+              }
+
             });
 
           }
          
       }
-
+console.log(skillsDropDpwn);
       return {
-          u_id: item.ID,
+          id: item.ID,
           name: item.Name,
           email: item.Email,
-          startdate: item["Start time"],
-          completionTime: item["Completion time"],
+          start_time: item["Start time"],
+          completion_time:  item["Completion time"],
           skillsMultiCtrl: skillsMultiCtrl,
       };
 
@@ -66,18 +81,18 @@ export class UploadSkillsComponent {
 
   public onUploadExcel(): void {
     console.log(this.formatChange(this.importedUserData));
-    const convertedData = this.formatChange(this.importedUserData);
-    // this.skillsService.uploadSkills(this.importedUserData).subscribe({
-    //   next: () => {
-    //     this.dialogRef.close();
-    //     this.skillsService.notification('Skill added successfully!');
-    //   },
-    //   error: err => {
-    //     console.error('An error occurred', err);
-    //     this.skillsService.notification('Failed to add skill. Please try again later.');
-    //   }
-    // });
-    // this.dialogRef.close();
+    const convertedData: any = this.formatChange(this.importedUserData); // interface
+    this.skillsService.uploadSkills(convertedData).subscribe({
+      next: () => {
+        this.dialogRef.close();
+        this.skillsService.notification('Skill added successfully!');
+      },
+      error: err => {
+        console.error('An error occurred', err);
+        this.skillsService.notification('Failed to add skill. Please try again later.');
+      }
+    });
+    this.dialogRef.close();
   }
 
 }

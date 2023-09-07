@@ -25,9 +25,9 @@ export class SkillsService {
     return this.http.post(`${this.usersUrl}/add`, data);
   }
 
-  public uploadSkills(data: IUser[]): Observable<any> {
+  public uploadSkills(data: IUser): Observable<any> {
     console.log(data);
-    return this.http.post(`${this.usersUrl}/upload/test`, data);
+    return this.http.post(`${this.usersUrl}/upload`, data);
   }
 
   public editSkills(id: number, data: IUser): Observable<any> {

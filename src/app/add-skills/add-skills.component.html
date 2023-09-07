@@ -3,10 +3,7 @@
     <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <mat-form-field class="full-width">
-                <input matInput type="text" formControlName="firstname" placeholder="First Name">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input matInput type="text" formControlName="lastname" placeholder="Last Name">
+                <input matInput type="text" formControlName="name" placeholder="Full Name">
             </mat-form-field>
         </div>
 
@@ -20,7 +17,7 @@
 
             <mat-form-field>
                 <mat-label>Choose start date</mat-label>
-                <input matInput formControlName="startdate" [matDatepicker]="startdatepicker">
+                <input matInput formControlName="start_time" [matDatepicker]="startdatepicker">
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="startdatepicker"></mat-datepicker-toggle>
                 <mat-datepicker #startdatepicker></mat-datepicker>
@@ -29,7 +26,7 @@
 
             <mat-form-field>
                 <mat-label>Choose completion date</mat-label>
-                <input matInput formControlName="enddate" [matDatepicker]="enddatepicker">
+                <input matInput formControlName="completion_time" [matDatepicker]="enddatepicker">
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="enddatepicker"></mat-datepicker-toggle>
                 <mat-datepicker #enddatepicker></mat-datepicker>
