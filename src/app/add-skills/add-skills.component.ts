@@ -58,6 +58,7 @@ export class AddSkillsComponent implements OnInit {
     this.skillsService.getSkills().subscribe({
       next: skills => {
         this.skills = skills;
+        console.log(skills);
         // multi select
         this.filteredSkillsMulti.next(this.skills.slice());
         this.skillsForm.get('skillsMultiFilterCtrl')?.valueChanges
