@@ -20,6 +20,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -59,7 +60,9 @@ import { SkillsService } from './shared/services/skills.service';
     HttpClientModule,
     NgxMatSelectSearchModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule,
+    
   ],
   providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]

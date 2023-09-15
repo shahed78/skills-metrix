@@ -1,9 +1,28 @@
 /* Structure */
-table {
-    width: 100%;
-  }
   
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+#content {
+  width: 80%;
+  margin: 0 auto;   
+
+}
+
+/* Allow column resizing */
+.mat-table {
+  display: block;
+  overflow: auto;
+  max-width: 100%;
+  border-collapse: separate;
+}
+
+.mat-header-cell,
+.mat-cell {
+  flex: 1;
+  min-width: 100px; /* Set a minimum width for columns */
+  padding: 10px;
+  text-align: left;
+}

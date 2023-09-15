@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit} from '@angular/core';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,13 +16,21 @@ import { UploadSkillsComponent } from '../upload-skills/upload-skills.component'
 })
 
 
-export class DisplaySkillsComponent implements OnInit, OnDestroy {
+export class DisplaySkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public users: IUser[] = [];
   public userSkills: any;
 
   displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
   dataSource: MatTableDataSource<IUser>;
+  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  @ViewChild(MatPaginator) paginator : MatPaginator;
+
+  ngAfterViewInit() {
+    // no ned to set the paginator here as its not available
+    // this.dataSource.paginator = this.paginator;
+  }
   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -34,14 +43,18 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
     this.getSkills();
   }
 
+  public formatSkills(skillsMultiCtrl: any[]): string { // type
+    return skillsMultiCtrl.map(skill => skill.name).join(', ');
+  }
+
   public getSkills(): void {
   //unsubscribe
   this.userSkills= this.skillsService.getUsers().subscribe({
     next: userdata =>{
-      // console.log(userdata.skillsMultiCtrl);
-      console.log(userdata);
       this.users = userdata;
       this.dataSource = new MatTableDataSource(this.users);
+      this.dataSource.paginator = this.paginator; // Set the paginator
+      this.paginator.length = this.users.length; // Set the length property
     },
     error: err => {
       console.log(err);
