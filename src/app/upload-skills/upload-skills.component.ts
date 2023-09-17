@@ -15,8 +15,8 @@ export class UploadSkillsComponent implements OnInit{
 
   private importedUserData: any;
   // public skills: ISkill[] = [];
-  public skills: any= [];
-  public currentusers: any=[];
+  public skills: ISkill[] = [];
+  public currentusers: IUser[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
