@@ -3,7 +3,7 @@ import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { IUser } from '../shared/interfaces/data.interface';
+import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
@@ -20,6 +20,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public users: IUser[] = [];
   public userInfo: any;
+  public skills: ISkill[] = [];
 
   displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
   dataSource: MatTableDataSource<IUser>;
@@ -38,14 +39,14 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getUsers();
 
-    // get skills
-    // this.skillsService.getSkills().subscribe({
-    //   next: skills => {
-    //     this.skills = skills;
+    // get skills // pass skills to add - edit // think
+    this.skillsService.getSkills().subscribe({
+      next: skills => {
+        this.skills = skills;
 
-    //   },
-    //   error: err => console.error('An error occurred', err)
-    // });
+      },
+      error: err => console.error('An error occurred', err)
+    });
 
   }
 
@@ -112,7 +113,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   public openUploadDialog(): void {
     const dialogRef = this.dialog.open(UploadSkillsComponent, {
       width: '400px',
-      data: { users: this.users, },
+      data: { users: this.users, skills: this.skills},
     });
 
     dialogRef.afterClosed().subscribe(r=>this.getUsers());

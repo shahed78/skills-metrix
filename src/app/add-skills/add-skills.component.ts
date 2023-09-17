@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
 import { SkillsService } from '../shared/services/skills.service';
-import { ISkill } from '../shared/interfaces/data.interface';
+import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { MatSelect } from '@angular/material/select';
 
@@ -40,7 +40,7 @@ export class AddSkillsComponent implements OnInit {
     private skillsService: SkillsService,
     private dialogRef: DialogRef<AddSkillsComponent>,
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public dialogdata: any
+    @Inject(MAT_DIALOG_DATA) public dialogdata: IUser
   ) {
      // Initialize the skillsForm FormGroup with necessary form controls
     this.skillsForm = this.fb.group({
