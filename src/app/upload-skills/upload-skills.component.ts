@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
-import { ExcelData, ISkill, IUser } from '../shared/interfaces/data.interface';
+import { ExcelData, ISkill, IUser, UserInfo } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, firstValueFrom, switchMap, throwError } from 'rxjs';
@@ -21,7 +21,7 @@ export class UploadSkillsComponent implements OnInit{
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
     private skillsService: SkillsService,
-    @Inject(MAT_DIALOG_DATA) public dialogUserData: any ){}
+    @Inject(MAT_DIALOG_DATA) public dialogUserData: UserInfo ){}
 
   ngOnInit(): void {
     this.currentusers = this.dialogUserData.users;
@@ -46,7 +46,7 @@ export class UploadSkillsComponent implements OnInit{
   protected formatChange(excelData: ExcelData[]) {
     const formattedData = excelData.map(item => {
     
-      const skillsMultiCtrl: { name: string; type: string; id: number }[] = []; // refactor with ISkill
+      const skillsMultiCtrl: ISkill[] = []; 
       const skillsDropDpwn: { name: string; type: string; }[] = []; // check use of this
 
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
@@ -77,7 +77,7 @@ export class UploadSkillsComponent implements OnInit{
           name: item.Name,
           email: item.Email,
           start_time: item["Start time"],
-          completion_time:  item["Completion time"],
+          completion_time: item["Completion time"],
           skillsMultiCtrl: skillsMultiCtrl,
       };
 
@@ -87,11 +87,12 @@ export class UploadSkillsComponent implements OnInit{
   }
 
   public async onUploadExcel(): Promise<void> {
-    const converteExceldData: any = this.formatChange(this.importedUserData); // interface
+    
+    const converteExceldData: IUser[] = this.formatChange(this.importedUserData); // interface
 
     try {
       if (this.currentusers.length > 0) {
-        await this.processUsersInSequence(converteExceldData, this.deleteUser.bind(this));
+        await this.processUsersInSequence(this.currentusers, this.deleteUser.bind(this));
         console.log('Removal task completed');
       }
   
@@ -106,7 +107,6 @@ export class UploadSkillsComponent implements OnInit{
       // Handle any errors that may occur during removal or addition
     }
 
-    
   }
 
   private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ) {
