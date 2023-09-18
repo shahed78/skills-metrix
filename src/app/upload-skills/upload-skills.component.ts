@@ -3,8 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
 import { ExcelData, ISkill, IUser, UserInfo } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, firstValueFrom, switchMap, throwError } from 'rxjs';
+// import { MatSnackBar } from '@angular/material/snack-bar';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-upload-skills',
@@ -13,10 +13,9 @@ import { catchError, firstValueFrom, switchMap, throwError } from 'rxjs';
 })
 export class UploadSkillsComponent implements OnInit{
 
-  private importedUserData: any;
-  // public skills: ISkill[] = [];
-  public skills: ISkill[] = [];
-  public currentusers: IUser[] = [];
+  private importedUserData: ExcelData[];
+  private skills: ISkill[] = [];
+  private currentusers: IUser[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
@@ -29,25 +28,27 @@ export class UploadSkillsComponent implements OnInit{
   }
 
 
-  public onFileSelected(event: any) {
-    let file = event.target.files[0];
+  public onFileSelected(event: Event) {
 
-    let fileReader = new FileReader();
+    const file = event.target as HTMLInputElement;
+    
+    if (file.files && file.files[0]) {
+      const fileReader = new FileReader();
 
-    fileReader.readAsBinaryString(file);
+      fileReader.readAsBinaryString(file.files[0]);
 
-    fileReader.onload = (e) => {
-      let workbook = XLSX.read(fileReader.result, { type: 'binary', cellDates: true });
-      let sheetNames = workbook.SheetNames; // all sheet array
-      this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]);
-    };
+      fileReader.onload = () => {
+        const workbook = XLSX.read(fileReader.result, { type: 'binary', cellDates: true });
+        const sheetNames = workbook.SheetNames; // all sheet array
+        this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]);
+      };
+    }
   }
 
   protected formatChange(excelData: ExcelData[]) {
     const formattedData = excelData.map(item => {
     
       const skillsMultiCtrl: ISkill[] = []; 
-      const skillsDropDpwn: { name: string; type: string; }[] = []; // check use of this
 
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
       for (const key in item) {
@@ -58,7 +59,7 @@ export class UploadSkillsComponent implements OnInit{
             values.map(skills => {
               //type of this.skills implement later
               const foundSkills = this.skills.filter((items: { name: string; type: string; id: number })=> items.name === skills && items.type === key);
-              if (foundSkills.length > 0 && foundSkills[0].hasOwnProperty("id")) {
+              if (foundSkills.length > 0 && foundSkills[0].id !== undefined) {
                 skillsMultiCtrl.push({
                   name: skills,
                   type: key,
@@ -87,8 +88,8 @@ export class UploadSkillsComponent implements OnInit{
   }
 
   public async onUploadExcel(): Promise<void> {
-    
-    const converteExceldData: IUser[] = this.formatChange(this.importedUserData); // interface
+
+    const convertedExceldData: IUser[] = this.formatChange(this.importedUserData); // interface
 
     try {
       if (this.currentusers.length > 0) {
@@ -96,8 +97,8 @@ export class UploadSkillsComponent implements OnInit{
         console.log('Removal task completed');
       }
   
-      if(converteExceldData.length > 0){
-        await this.processUsersInSequence(converteExceldData, this.addUser.bind(this));
+      if(convertedExceldData.length > 0){
+        await this.processUsersInSequence(convertedExceldData, this.addUser.bind(this));
         console.log('Addition task completed');
       }
       
@@ -110,6 +111,7 @@ export class UploadSkillsComponent implements OnInit{
   }
 
   private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ) {
+    //Remove magic numbers and strings from your code. 
     const batchSize = 5; // Adjust the batch size as needed
     const delayBetweenBatches = 2000; // Adjust the delay (in milliseconds) between batches as needed
 
