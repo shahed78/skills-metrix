@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
 import { ExcelData, ISkill, IUser, UserInfo } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
-// import { MatSnackBar } from '@angular/material/snack-bar';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -11,19 +10,19 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './upload-skills.component.html',
   styleUrls: ['./upload-skills.component.scss']
 })
-export class UploadSkillsComponent implements OnInit{
+export class UploadSkillsComponent implements OnInit {
 
   private importedUserData: ExcelData[];
   private skills: ISkill[] = [];
-  private currentusers: IUser[] = [];
+  private currentUsers: IUser[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
     private skillsService: SkillsService,
-    @Inject(MAT_DIALOG_DATA) public dialogUserData: UserInfo ){}
+    @Inject(MAT_DIALOG_DATA) public dialogUserData: UserInfo ){ }
 
   ngOnInit(): void {
-    this.currentusers = this.dialogUserData.users;
+    this.currentUsers = this.dialogUserData.users;
     this.skills = this.dialogUserData.skills;
   }
 
@@ -38,32 +37,32 @@ export class UploadSkillsComponent implements OnInit{
       fileReader.readAsBinaryString(file.files[0]);
 
       fileReader.onload = () => {
-        const workbook = XLSX.read(fileReader.result, { type: 'binary', cellDates: true });
-        const sheetNames = workbook.SheetNames; // all sheet array
-        this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]);
+        const workbook = XLSX.read(fileReader.result as string, { type: 'binary', cellDates: true });
+        const sheetNames = workbook.SheetNames as string[]; // all sheet array
+        this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]) as ExcelData[];
       };
     }
   }
 
-  protected formatChange(excelData: ExcelData[]) {
-    const formattedData = excelData.map(item => {
-    
-      const skillsMultiCtrl: ISkill[] = []; 
+  private formatChange(excelData: ExcelData[]): IUser[] {
+    const formattedData = excelData.map((item: ExcelData) => {
+    const skillsMultiCtrl: ISkill[] = []; 
 
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
       for (const key in item) {
         
           if (key !== "ID" && key !== "Start time" && key !== "Completion time" && key !== "Email" && key !== "Name") {
-            const values = (item[key] as string).split(';').filter(value => value.trim() !== '');
+            const values = (item[key] as string).split(';').filter((value: string) => value.trim() !== '');
 
-            values.map(skills => {
+            values.map(skill => {
               //type of this.skills implement later
-              const foundSkills = this.skills.filter((items: { name: string; type: string; id: number })=> items.name === skills && items.type === key);
+              const foundSkills = this.skills.filter((items: { name: string; type: string; id: number })=> items.name === skill && items.type === key);
+              // const foundSkills = this.skills.filter((skill: ISkill) => skill.name === skills && skill.type === key); //check later
               if (foundSkills.length > 0 && foundSkills[0].id !== undefined) {
                 skillsMultiCtrl.push({
-                  name: skills,
-                  type: key,
-                  id: foundSkills[0].id
+                  name: skill as string,
+                  type: key as string,
+                  id: foundSkills[0].id as number 
               });
             } else {
                 console.log("Object or 'id' property not found.");
@@ -74,12 +73,12 @@ export class UploadSkillsComponent implements OnInit{
          
       }
       return {
-          id: item.ID,
-          name: item.Name,
-          email: item.Email,
-          start_time: item["Start time"],
-          completion_time: item["Completion time"],
-          skillsMultiCtrl: skillsMultiCtrl,
+          id: item.ID as number,
+          name: item.Name as string,
+          email: item.Email as string,
+          start_time: item["Start time"] as string,
+          completion_time: item["Completion time"] as string,
+          skillsMultiCtrl: skillsMultiCtrl as ISkill[]
       };
 
   });
@@ -89,16 +88,16 @@ export class UploadSkillsComponent implements OnInit{
 
   public async onUploadExcel(): Promise<void> {
 
-    const convertedExceldData: IUser[] = this.formatChange(this.importedUserData); // interface
+    const convertedExcelData: IUser[] = this.formatChange(this.importedUserData) as IUser[]; 
 
     try {
-      if (this.currentusers.length > 0) {
-        await this.processUsersInSequence(this.currentusers, this.deleteUser.bind(this));
+      if (this.currentUsers.length > 0) {
+        await this.processUsersInSequence(this.currentUsers, this.deleteUser.bind(this));
         console.log('Removal task completed');
       }
   
-      if(convertedExceldData.length > 0){
-        await this.processUsersInSequence(convertedExceldData, this.addUser.bind(this));
+      if(convertedExcelData.length > 0){
+        await this.processUsersInSequence(convertedExcelData, this.addUser.bind(this));
         console.log('Addition task completed');
       }
       
@@ -110,19 +109,19 @@ export class UploadSkillsComponent implements OnInit{
 
   }
 
-  private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ) {
+  private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ): Promise<void> {
     //Remove magic numbers and strings from your code. 
-    const batchSize = 5; // Adjust the batch size as needed
-    const delayBetweenBatches = 2000; // Adjust the delay (in milliseconds) between batches as needed
+    const BATCH_SIZE = 5; // Adjust the batch size as needed
+    const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
 
-    for (let i = 0; i < users.length; i += batchSize) {
-      const userBatch = users.slice(i, i + batchSize);
+    for (let i = 0; i < users.length; i += BATCH_SIZE) {
+      const userBatch = users.slice(i, i + BATCH_SIZE);
       
       for (const eachUser of userBatch) {
         await actionFunction(eachUser);     
       }
 
-      await new Promise(resolve => setTimeout(resolve, delayBetweenBatches));
+      await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
     }
 
   }

@@ -9,8 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SkillsService {
 
-  private usersUrl = 'http://localhost:7000/users'; 
-  private skillsUrl = 'http://localhost:7000/skills'; 
+  private usersUrl = 'http://localhost:7001/users'; 
+  private skillsUrl = 'http://localhost:7001/skills'; 
   constructor( private http: HttpClient, private _notification: MatSnackBar) { }
 
   public getUsers(): Observable<IUser[]> {
