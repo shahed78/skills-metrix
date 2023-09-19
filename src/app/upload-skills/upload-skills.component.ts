@@ -119,14 +119,16 @@ export class UploadSkillsComponent implements OnInit {
 
     for (let i = 0; i < users.length; i += BATCH_SIZE) {
       const userBatch = users.slice(i, i + BATCH_SIZE);
-      
-      for (const eachUser of userBatch) {
-        await actionFunction(eachUser);     
-      }
-
+      await this.processBatch(userBatch, actionFunction);
       await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
     }
 
+  }
+
+  private async processBatch(users: IUser[], actionFunction: (user: IUser) => Promise<void>): Promise<void> {
+    for (const user of users) {
+      await actionFunction(user);
+    }
   }
 
   private async addUser(user: IUser): Promise<void> {
