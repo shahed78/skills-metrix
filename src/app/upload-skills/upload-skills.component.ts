@@ -102,41 +102,68 @@ export class UploadSkillsComponent implements OnInit {
       if(convertedExcelData.length > 0){
         await this.processUsersInSequence(convertedExcelData, this.addUser.bind(this));
         console.log('Addition task completed');
+      } else {
+        throw new Error('No data to upload.'); // Handle the case when no data is selected.
       }
       
       this.dialogRef.close();
     } catch (error) {
       console.error('Error:', error);
       // Handle any errors that may occur during removal or addition
+      throw error;
     }
 
   }
 
   private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ): Promise<void> {
-    //Remove magic numbers and strings from your code. 
-    const BATCH_SIZE = 5; // Adjust the batch size as needed
-    const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
 
-    for (let i = 0; i < users.length; i += BATCH_SIZE) {
-      const userBatch = users.slice(i, i + BATCH_SIZE);
-      await this.processBatch(userBatch, actionFunction);
-      await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
+    try {
+
+      const BATCH_SIZE = 5; // Adjust the batch size as needed
+      const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
+
+      for (let i = 0; i < users.length; i += BATCH_SIZE) {
+        const userBatch = users.slice(i, i + BATCH_SIZE);
+        await this.processBatch(userBatch, actionFunction);
+        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
+      }
+      
+    } catch (error) {
+      console.log('error in processing sequence')
     }
 
+    
   }
 
   private async processBatch(users: IUser[], actionFunction: (user: IUser) => Promise<void>): Promise<void> {
-    for (const user of users) {
-      await actionFunction(user);
+    try {
+
+      for (const user of users) {
+        await actionFunction(user);
+      }
+      
+    } catch (error) {
+     console.log('error in processing batch')
     }
+    
   }
 
   private async addUser(user: IUser): Promise<void> {
-    await firstValueFrom(this.skillsService.addSkills(user));
+    try {
+      await firstValueFrom(this.skillsService.addSkills(user));
+    } catch (error) {
+      console.log('problem in adding user');
+    }
+    
   }
 
   private async deleteUser(user: IUser): Promise<void> {
-    await firstValueFrom(this.skillsService.deleteUser(user.id));
+    try {
+      await firstValueFrom(this.skillsService.deleteUser(user.id));
+    } catch (error) {
+      console.log('problem in deleting user');
+    }
+    
   }
 
 }
