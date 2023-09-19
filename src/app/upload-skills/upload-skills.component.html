@@ -1,10 +1,9 @@
 <h2 mat-dialog-title>Upload Excel File</h2>
 <mat-dialog-content>
-  <!-- Add your file input here -->
   <input type="file" (change)="onFileSelected($event)" accept=".xlsx">
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions align="end" >
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="onUploadExcel()">Upload</button>
+  <button mat-button (click)="onUploadExcel()"  [disabled]="!isFileSelected">Upload</button>
 </mat-dialog-actions>
 

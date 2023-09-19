@@ -15,6 +15,7 @@ export class UploadSkillsComponent implements OnInit {
   private importedUserData: ExcelData[];
   private skills: ISkill[] = [];
   private currentUsers: IUser[] = [];
+  public isFileSelected: boolean = false;
 
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
@@ -41,6 +42,8 @@ export class UploadSkillsComponent implements OnInit {
         const sheetNames = workbook.SheetNames as string[]; // all sheet array
         this.importedUserData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetNames[0]]) as ExcelData[];
       };
+
+      this.isFileSelected = true;
     }
   }
 
