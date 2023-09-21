@@ -1,14 +1,12 @@
-import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-display-skills',
@@ -17,10 +15,9 @@ import { filter } from 'rxjs';
 })
 
 
-export class DisplaySkillsComponent implements OnInit, OnDestroy {
+export class DisplaySkillsComponent implements OnInit {
 
   public users: IUser[] = [];
-  public userInfo: any;
   public skills: ISkill[] = [];
   public displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
   public dataSource: MatTableDataSource<IUser>;
@@ -49,13 +46,13 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
 
-  public formatSkills(skillsMultiCtrl: any[]): string { // type
+  public formatSkills(skillsMultiCtrl: ISkill[]): string { // type
     return skillsMultiCtrl.map(skill => skill.name).join(', ');
   }
 
   public getUsers(): void {
 
-    this.userInfo= this.skillsService.getUsers()
+    this.skillsService.getUsers()
     .subscribe({
       next: userdata =>{
         this.users = userdata;
@@ -74,11 +71,10 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   public addUser(): void {
     //name
     const dialogRef = this.dialog.open(AddSkillsComponent);
-    // r
     dialogRef.afterClosed().subscribe(()=>this.getUsers());
   }
 
-  public editUser(user: any): void {
+  public editUser(user: IUser): void {
     //name
     const dialogRef = this.dialog.open(AddSkillsComponent, {
       data: user
@@ -89,16 +85,14 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   public deleteUser(id: number): void {
     const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
-      data: {
-        user: this.users.filter(t=> t.id===id)[0] // Pass the userSkills object to the dialog
-      },
+      data: this.users.filter(t=> t.id===id)[0]
     });
   
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
         // User confirmed deletion, perform the delete action
         this.skillsService.deleteUser(id).subscribe({
-          next: (d) => {
+          next: () => {
             this.getUsers();
             this.skillsService.notification('Skill removed successfully');
           },
@@ -112,14 +106,10 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   }
 
   public openUploadDialog(): void {
-    const dialogRef = this.dialog.open(UploadSkillsComponent, {
+    this.dialog.open(UploadSkillsComponent, {
       width: '400px',
       data: { users: this.users, skills: this.skills},
     });
 
-  }
-
-  ngOnDestroy(): void {
-    this.userInfo.unsubscribe();
   }
 }

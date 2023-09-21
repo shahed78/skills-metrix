@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogRef } from '@angular/cdk/dialog';
@@ -13,7 +13,7 @@ import { MatSelect } from '@angular/material/select';
   templateUrl: './add-skills.component.html',
   styleUrls: ['./add-skills.component.scss']
 })
-export class AddSkillsComponent implements OnInit {
+export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
    // Form group for handling skill information
   public skillsForm: FormGroup;
@@ -31,7 +31,7 @@ export class AddSkillsComponent implements OnInit {
   public filteredSkillsMulti: ReplaySubject<ISkill[]> = new ReplaySubject<ISkill[]>(1);
 
   // Subject to manage component destruction and subscription cleanup
-  protected _onDestroy = new Subject<void>();
+  private onDestroy = new Subject<void>();
 
   // Reference to the multi-select dropdown
   @ViewChild('multiSelect', { static: false }) multiSelect!: MatSelect;
@@ -62,7 +62,7 @@ export class AddSkillsComponent implements OnInit {
         // multi select
         this.filteredSkillsMulti.next(this.skills.slice());
         this.skillsForm.get('skillsMultiFilterCtrl')?.valueChanges
-          .pipe(takeUntil(this._onDestroy))
+          .pipe(takeUntil(this.onDestroy))
           .subscribe(() => {
             this.filterSkillsMulti();
           });
@@ -88,7 +88,7 @@ export class AddSkillsComponent implements OnInit {
   protected setInitialValue() {
     // Set initial selectedSkills and compareWith function for multi-select
     this.filteredSkillsMulti
-      .pipe(take(1), takeUntil(this._onDestroy))
+      .pipe(take(1), takeUntil(this.onDestroy))
       .subscribe(() => {
         this.selectedSkills = this.skillsForm.get('skillsMultiCtrl')?.value || this.skills;
         this.multiSelect.compareWith = (a: ISkill, b: ISkill) => a && b && a.id === b.id;
@@ -150,7 +150,7 @@ export class AddSkillsComponent implements OnInit {
 
   ngOnDestroy() {
     // Clean up subscriptions to prevent memory leaks
-    this._onDestroy.next();
-    this._onDestroy.complete();
+    this.onDestroy.next();
+    this.onDestroy.complete();
   }
 }

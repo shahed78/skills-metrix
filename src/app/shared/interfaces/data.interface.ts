@@ -32,3 +32,9 @@ export interface UserInfo {
   users: IUser[],
   skills: ISkill[]
 }
+
+export interface ApiResponse {
+  success: boolean;
+  message: string;
+  // other properties as needed
+}

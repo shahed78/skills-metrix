@@ -16,7 +16,7 @@ export class UploadSkillsComponent implements OnInit {
   private importedUserData: ExcelData[];
   private skills: ISkill[] = [];
   private currentUsers: IUser[] = [];
-  public isFileSelected: boolean = false;
+  public isFileSelected = false;
 
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
@@ -110,7 +110,6 @@ export class UploadSkillsComponent implements OnInit {
         throw new Error('No data to upload.'); // Handle the case when no data is selected.
       }
       
-      // this.dialogRef.close();
     } catch (error) {
       console.error('Error:', error);
       // Handle any errors that may occur during removal or addition

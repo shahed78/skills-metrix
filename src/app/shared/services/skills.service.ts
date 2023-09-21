@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, ISkill } from 'src/app/shared/interfaces/data.interface';
+import { IUser, ISkill, ApiResponse } from 'src/app/shared/interfaces/data.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -21,16 +21,16 @@ export class SkillsService {
     return this.http.get<ISkill[]>(`${this.skillsUrl}`);
   }
 
-  public addSkills(data: IUser): Observable<any> {
-    return this.http.post(`${this.usersUrl}/add`, data);
+  public addSkills(data: IUser): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${this.usersUrl}/add`, data);
   }
 
-  public editSkills(id: number, data: IUser): Observable<any> {
-    return this.http.put(`${this.usersUrl}/edit/${id}`, data);
+  public editSkills(id: number, data: IUser): Observable<ApiResponse> {
+    return this.http.put<ApiResponse>(`${this.usersUrl}/edit/${id}`, data);
   }
 
-  public deleteUser(id: number): Observable<any> { //here
-    return this.http.delete(`${this.usersUrl}/delete/${id}`);
+  public deleteUser(id: number): Observable<ApiResponse> { //here
+    return this.http.delete<ApiResponse>(`${this.usersUrl}/delete/${id}`);
   }
 
   public notification(msg: string) {
