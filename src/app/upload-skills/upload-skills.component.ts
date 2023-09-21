@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx';
 import { ExcelData, ISkill, IUser, UserInfo } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { firstValueFrom } from 'rxjs';
+import { DisplaySkillsComponent } from '../display-skills/display-skills.component';
 
 @Component({
   selector: 'app-upload-skills',
@@ -20,6 +21,7 @@ export class UploadSkillsComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<UploadSkillsComponent>, 
     private skillsService: SkillsService,
+    private displaySkillsComponent: DisplaySkillsComponent,
     @Inject(MAT_DIALOG_DATA) public dialogUserData: UserInfo ){ }
 
   ngOnInit(): void {
@@ -92,6 +94,7 @@ export class UploadSkillsComponent implements OnInit {
   public async onUploadExcel(): Promise<void> {
 
     const convertedExcelData: IUser[] = this.formatChange(this.importedUserData) as IUser[]; 
+    this.dialogRef.close();
 
     try {
       if (this.currentUsers.length > 0) {
@@ -102,11 +105,12 @@ export class UploadSkillsComponent implements OnInit {
       if(convertedExcelData.length > 0){
         await this.processUsersInSequence(convertedExcelData, this.addUser.bind(this));
         console.log('Addition task completed');
+        this.displaySkillsComponent.getUsers();
       } else {
         throw new Error('No data to upload.'); // Handle the case when no data is selected.
       }
       
-      this.dialogRef.close();
+      // this.dialogRef.close();
     } catch (error) {
       console.error('Error:', error);
       // Handle any errors that may occur during removal or addition

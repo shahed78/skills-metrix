@@ -8,6 +8,7 @@ import { SkillsService } from '../shared/services/skills.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-display-skills',
@@ -21,14 +22,12 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   public users: IUser[] = [];
   public userInfo: any;
   public skills: ISkill[] = [];
-
-  displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
-  dataSource: MatTableDataSource<IUser>;
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  public displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
+  public dataSource: MatTableDataSource<IUser>;
 
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
-  
+   
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -39,7 +38,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getUsers();
 
-    // get skills // pass skills to add - edit // think
     this.skillsService.getSkills().subscribe({
       next: skills => {
         this.skills = skills;
@@ -50,31 +48,34 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
 
   }
 
+
   public formatSkills(skillsMultiCtrl: any[]): string { // type
     return skillsMultiCtrl.map(skill => skill.name).join(', ');
   }
 
   public getUsers(): void {
-  //unsubscribe // check and put correct names 
-  this.userInfo= this.skillsService.getUsers().subscribe({
-    next: userdata =>{
-      this.users = userdata;
-      console.log(this.users);
-      this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator; // Set the paginator
-      this.paginator.length = this.users.length; // Set the length property
-    },
-    error: err => {
-      console.log(err);
-    }
-  });
+
+    this.userInfo= this.skillsService.getUsers()
+    .subscribe({
+      next: userdata =>{
+        this.users = userdata;
+        if(this.paginator ){
+          this.dataSource = new MatTableDataSource(this.users);
+          this.dataSource.paginator = this.paginator; // Set the paginator
+          this.paginator.length = this.users.length; // Set the length property
+        }
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
   public addUser(): void {
     //name
     const dialogRef = this.dialog.open(AddSkillsComponent);
     // r
-    dialogRef.afterClosed().subscribe(r=>this.getUsers());
+    dialogRef.afterClosed().subscribe(()=>this.getUsers());
   }
 
   public editUser(user: any): void {
@@ -83,7 +84,7 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
       data: user
     });
     //improve
-    dialogRef.afterClosed().subscribe(r=>this.getUsers());
+    dialogRef.afterClosed().subscribe(()=>this.getUsers());
   }
 
   public deleteUser(id: number): void {
@@ -116,7 +117,6 @@ export class DisplaySkillsComponent implements OnInit, OnDestroy {
       data: { users: this.users, skills: this.skills},
     });
 
-    dialogRef.afterClosed().subscribe(r=>this.getUsers());
   }
 
   ngOnDestroy(): void {

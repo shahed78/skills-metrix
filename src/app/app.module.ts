@@ -64,7 +64,7 @@ import { SkillsService } from './shared/services/skills.service';
     MatPaginatorModule,
     
   ],
-  providers: [SkillsService,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [SkillsService, DisplaySkillsComponent,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
