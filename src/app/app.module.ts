@@ -26,7 +26,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 
@@ -62,7 +62,7 @@ import { SkillsService } from './shared/services/skills.service';
     MatSnackBarModule,
     MatTooltipModule,
     MatPaginatorModule,
-    
+    MatProgressSpinnerModule
   ],
   providers: [SkillsService, DisplaySkillsComponent,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]

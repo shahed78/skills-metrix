@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
 import { ExcelData, ISkill, IUser, UserInfo } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
-import { firstValueFrom } from 'rxjs';
 import { DisplaySkillsComponent } from '../display-skills/display-skills.component';
 
 @Component({

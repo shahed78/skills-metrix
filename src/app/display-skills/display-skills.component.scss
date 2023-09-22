@@ -26,3 +26,16 @@
   padding: 10px;
   text-align: left;
 }
+
+.spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  z-index: 9999; /* Make sure it's above other content */
+}

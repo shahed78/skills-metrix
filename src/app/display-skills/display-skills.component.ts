@@ -22,6 +22,7 @@ export class DisplaySkillsComponent implements OnInit {
   public skills: ISkill[] = [];
   public displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
   public dataSource: MatTableDataSource<IUser>;
+  public showSpinner = false;
 
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
@@ -114,6 +115,7 @@ export class DisplaySkillsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(async (ExcelData) => {
       if (ExcelData ) {
+        this.showSpinner = true;
         // User confirmed deletion, perform the delete action
            try {
               if (this.users.length > 0) {
@@ -134,6 +136,8 @@ export class DisplaySkillsComponent implements OnInit {
               console.error('Error:', error);
               // Handle any errors that may occur during removal or addition
               throw error;
+            } finally {
+              this.showSpinner = false;
             }
       }
     });

@@ -20,7 +20,11 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter" #input>
   </mat-form-field>
 
-
+  <!-- <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner> -->
+  <div class="spinner-container" *ngIf="showSpinner">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+  
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
     <ng-container matColumnDef="serial">
