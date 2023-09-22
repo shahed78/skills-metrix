@@ -7,6 +7,7 @@ import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-display-skills',
@@ -106,10 +107,79 @@ export class DisplaySkillsComponent implements OnInit {
   }
 
   public openUploadDialog(): void {
-    this.dialog.open(UploadSkillsComponent, {
+    const dialogRef = this.dialog.open(UploadSkillsComponent, {
       width: '400px',
       data: { users: this.users, skills: this.skills},
     });
 
+    dialogRef.afterClosed().subscribe(async (ExcelData) => {
+      if (ExcelData ) {
+        // User confirmed deletion, perform the delete action
+           try {
+              if (this.users.length > 0) {
+                await this.processUsersInSequence(this.users, this.deleteStoredUser.bind(this));
+                console.log('Removal task completed');
+              }
+          
+              if(ExcelData.length > 0){
+                await this.processUsersInSequence(ExcelData, this.addImportedUser.bind(this));
+                
+                this.getUsers();
+                console.log('Addition task completed');
+              } else {
+                throw new Error('No data to upload.'); // Handle the case when no data is selected.
+              }
+              
+            } catch (error) {
+              console.error('Error:', error);
+              // Handle any errors that may occur during removal or addition
+              throw error;
+            }
+      }
+    });
+
+  }
+
+  private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ): Promise<void> {
+
+    try {
+      const BATCH_SIZE = 5; // Adjust the batch size as needed
+      const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
+
+      for (let i = 0; i < users.length; i += BATCH_SIZE) {
+        const userBatch = users.slice(i, i + BATCH_SIZE);
+        await this.processBatch(userBatch, actionFunction);
+        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
+      }
+      
+    } catch (error) {
+      console.log('error in processing sequence')
+    }
+  }
+
+  private async processBatch(users: IUser[], actionFunction: (user: IUser) => Promise<void>): Promise<void> {
+    try {
+      for (const user of users) {
+        await actionFunction(user);
+      }
+    } catch (error) {
+     console.log('error in processing batch')
+    }
+  }
+
+  private async addImportedUser(user: IUser): Promise<void> {
+    try {
+      await firstValueFrom(this.skillsService.addSkills(user));
+    } catch (error) {
+      console.log('problem in adding user');
+    }
+  }
+
+  private async deleteStoredUser(user: IUser): Promise<void> {
+    try {
+      await firstValueFrom(this.skillsService.deleteUser(user.id));
+    } catch (error) {
+      console.log('problem in deleting user');
+    }
   }
 }
