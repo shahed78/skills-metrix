@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -30,9 +31,24 @@ export class DisplaySkillsComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.filterPredicate) {
+    this.dataSource.filterPredicate = (data: IUser, filter: string) => {
+      const skillsString = this.formatSkills(data.skillsMultiCtrl).toLowerCase();
+      const startDate = this.dateToTransform(data.start_time);
+      const comPLetionDate = this.dateToTransform(data.completion_time);
+ 
+      return data.name.toLowerCase().includes(filter) || 
+             data.email.toLowerCase().includes(filter) || 
+             startDate.includes(filter) || 
+             comPLetionDate.includes(filter) ||
+             data.id.toString().includes(filter) ||
+             skillsString.includes(filter);
+    };
+  }
   }
 
-  constructor(public dialog: MatDialog, private skillsService: SkillsService ) {}
+  constructor(public dialog: MatDialog, private skillsService: SkillsService, private datePipe: DatePipe ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -47,6 +63,9 @@ export class DisplaySkillsComponent implements OnInit {
 
   }
 
+  private dateToTransform(dateString: any) {
+    return  dateString ? this.datePipe.transform(new Date(dateString), 'dd/MM/yyyy HH:mm:ss') || '' : ''
+  }
 
   public formatSkills(skillsMultiCtrl: ISkill[]): string { // type
     return skillsMultiCtrl.map(skill => skill.name).join(', ');
@@ -62,6 +81,19 @@ export class DisplaySkillsComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.users);
           this.dataSource.paginator = this.paginator; // Set the paginator
           this.paginator.length = this.users.length; // Set the length property
+
+          this.dataSource.filterPredicate = (data: IUser, filter: string) => {
+            const skillsString = this.formatSkills(data.skillsMultiCtrl).toLowerCase();
+            const startDate = this.dateToTransform(data.start_time);
+            const comPLetionDate = this.dateToTransform(data.completion_time);
+            
+            return data.name.toLowerCase().includes(filter) || 
+                   data.email.toLowerCase().includes(filter) || 
+                   startDate.includes(filter) || 
+                   comPLetionDate.includes(filter) ||
+                   data.id.toString().includes(filter) || 
+                   skillsString.includes(filter);
+          };
         }
       },
       error: err => {

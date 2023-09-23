@@ -224,11 +224,10 @@
       ]
     },
     {
-      "id": 5,
       "name": "Kyle Hepple",
       "email": "Kyle.Hepple@leighton.com",
       "start_time": "2023-04-26T07:28:39.000Z",
-      "completion_time": "2023-04-26T07:38:26.999Z",
+      "completion_time": "2031-12-13T00:00:00.000Z",
       "skillsMultiCtrl": [
         {
           "name": "JavaScript",
@@ -310,7 +309,9 @@
           "type": "Version Control",
           "id": 27
         }
-      ]
+      ],
+      "skillsMultiFilterCtrl": "",
+      "id": 5
     },
     {
       "id": 6,
@@ -1623,11 +1624,10 @@
       ]
     },
     {
-      "id": 25,
       "name": "Chris McGreevy",
       "email": "Chris.McGreevy@leighton.com",
       "start_time": "2023-04-28T08:30:02.000Z",
-      "completion_time": "2023-04-28T08:33:19.000Z",
+      "completion_time": "2023-05-10T23:00:00.000Z",
       "skillsMultiCtrl": [
         {
           "name": "JavaScript",
@@ -1709,7 +1709,9 @@
           "type": "Version Control",
           "id": 27
         }
-      ]
+      ],
+      "skillsMultiFilterCtrl": "",
+      "id": 25
     },
     {
       "id": 26,
@@ -3483,11 +3485,10 @@
       ]
     },
     {
-      "id": 54,
       "name": "Gail Phillips",
       "email": "gail.phillips@leighton.com",
       "start_time": "2023-05-03T19:37:58.000Z",
-      "completion_time": "2023-05-03T19:39:09.999Z",
+      "completion_time": "2023-10-11T23:00:00.000Z",
       "skillsMultiCtrl": [
         {
           "name": "JavaScript",
@@ -3524,7 +3525,9 @@
           "type": "Version Control",
           "id": 25
         }
-      ]
+      ],
+      "skillsMultiFilterCtrl": "",
+      "id": 54
     },
     {
       "id": 55,

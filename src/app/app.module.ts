@@ -29,6 +29,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -64,7 +65,7 @@ import { SkillsService } from './shared/services/skills.service';
     MatPaginatorModule,
     MatProgressSpinnerModule
   ],
-  providers: [SkillsService, DisplaySkillsComponent,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
+  providers: [SkillsService, DisplaySkillsComponent, DatePipe,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
