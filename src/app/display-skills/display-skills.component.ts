@@ -61,18 +61,6 @@ export class DisplaySkillsComponent implements OnInit {
               this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(filter);
   }
 
-  // // Helper function to convert a date to a formatted string or return an empty string if it's not a valid date
-  // private formatDate(date: string | Date): string {
-  //   if (date instanceof Date && !isNaN(date.getTime())) {
-  //     return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm:ss') || '';
-  //   }
-  //   return '';
-  // }
-
-  // // Helper function to perform case-insensitive filtering on a string
-  // private filterString(text: string, filter: string): boolean {
-  //   return text.toLowerCase().includes(filter);
-  // }
 
   private dateToTransform(dateString: string) {
     return  dateString ? this.datePipe.transform(new Date(dateString), 'dd/MM/yyyy HH:mm:ss') || '' : ''
@@ -82,7 +70,7 @@ export class DisplaySkillsComponent implements OnInit {
     return skillsMultiCtrl.map(skill => skill.name).join(', ');
   }
 
-  public getUsers(): void {
+  private getUsers(): void {
 
     this.skillsService.getUsers()
     .subscribe({
