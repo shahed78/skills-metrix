@@ -32,20 +32,9 @@ export class DisplaySkillsComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
-  if (this.dataSource.filterPredicate) {
-    this.dataSource.filterPredicate = (data: IUser, filter: string) => {
-      const skillsString = this.formatSkills(data.skillsMultiCtrl).toLowerCase();
-      const startDate = this.dateToTransform(data.start_time);
-      const comPLetionDate = this.dateToTransform(data.completion_time);
- 
-      return data.name.toLowerCase().includes(filter) || 
-             data.email.toLowerCase().includes(filter) || 
-             startDate.includes(filter) || 
-             comPLetionDate.includes(filter) ||
-             data.id.toString().includes(filter) ||
-             skillsString.includes(filter);
-    };
-  }
+    if (this.dataSource.filterPredicate) {
+        this.dataSource.filterPredicate = (data: IUser, filter: string) => this.tableFilter(data, filter);
+    }
   }
 
   constructor(public dialog: MatDialog, private skillsService: SkillsService, private datePipe: DatePipe ) {}
@@ -60,7 +49,29 @@ export class DisplaySkillsComponent implements OnInit {
       },
       error: err => console.error('An error occurred', err)
     });
+  }
 
+  private tableFilter(tableDdata: IUser, filter: string){
+ 
+      return tableDdata.name.toLowerCase().includes(filter) || 
+              tableDdata.email.toLowerCase().includes(filter) || 
+              this.dateToTransform(tableDdata.start_time).includes(filter) || 
+              this.dateToTransform(tableDdata.completion_time).includes(filter) ||
+              tableDdata.id.toString().includes(filter) ||
+              this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(filter);
+  }
+
+  // Helper function to convert a date to a formatted string or return an empty string if it's not a valid date
+  private formatDate(date: string | Date): string {
+    if (date instanceof Date && !isNaN(date.getTime())) {
+      return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm:ss') || '';
+    }
+    return '';
+  }
+
+  // Helper function to perform case-insensitive filtering on a string
+  private filterString(text: string, filter: string): boolean {
+    return text.toLowerCase().includes(filter);
   }
 
   private dateToTransform(dateString: any) {
@@ -77,23 +88,13 @@ export class DisplaySkillsComponent implements OnInit {
     .subscribe({
       next: userdata =>{
         this.users = userdata;
-        if(this.paginator ){
+
+        if (this.paginator) {
           this.dataSource = new MatTableDataSource(this.users);
           this.dataSource.paginator = this.paginator; // Set the paginator
           this.paginator.length = this.users.length; // Set the length property
 
-          this.dataSource.filterPredicate = (data: IUser, filter: string) => {
-            const skillsString = this.formatSkills(data.skillsMultiCtrl).toLowerCase();
-            const startDate = this.dateToTransform(data.start_time);
-            const comPLetionDate = this.dateToTransform(data.completion_time);
-            
-            return data.name.toLowerCase().includes(filter) || 
-                   data.email.toLowerCase().includes(filter) || 
-                   startDate.includes(filter) || 
-                   comPLetionDate.includes(filter) ||
-                   data.id.toString().includes(filter) || 
-                   skillsString.includes(filter);
-          };
+          this.dataSource.filterPredicate = (data: IUser, filter: string) => this.tableFilter(data, filter);
         }
       },
       error: err => {
