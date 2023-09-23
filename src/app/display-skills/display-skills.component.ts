@@ -51,7 +51,7 @@ export class DisplaySkillsComponent implements OnInit {
     });
   }
 
-  private tableFilter(tableDdata: IUser, filter: string){
+  private tableFilter(tableDdata: IUser, filter: string) {
  
       return tableDdata.name.toLowerCase().includes(filter) || 
               tableDdata.email.toLowerCase().includes(filter) || 
@@ -61,20 +61,20 @@ export class DisplaySkillsComponent implements OnInit {
               this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(filter);
   }
 
-  // Helper function to convert a date to a formatted string or return an empty string if it's not a valid date
-  private formatDate(date: string | Date): string {
-    if (date instanceof Date && !isNaN(date.getTime())) {
-      return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm:ss') || '';
-    }
-    return '';
-  }
+  // // Helper function to convert a date to a formatted string or return an empty string if it's not a valid date
+  // private formatDate(date: string | Date): string {
+  //   if (date instanceof Date && !isNaN(date.getTime())) {
+  //     return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm:ss') || '';
+  //   }
+  //   return '';
+  // }
 
-  // Helper function to perform case-insensitive filtering on a string
-  private filterString(text: string, filter: string): boolean {
-    return text.toLowerCase().includes(filter);
-  }
+  // // Helper function to perform case-insensitive filtering on a string
+  // private filterString(text: string, filter: string): boolean {
+  //   return text.toLowerCase().includes(filter);
+  // }
 
-  private dateToTransform(dateString: any) {
+  private dateToTransform(dateString: string) {
     return  dateString ? this.datePipe.transform(new Date(dateString), 'dd/MM/yyyy HH:mm:ss') || '' : ''
   }
 
@@ -93,7 +93,6 @@ export class DisplaySkillsComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.users);
           this.dataSource.paginator = this.paginator; // Set the paginator
           this.paginator.length = this.users.length; // Set the length property
-
           this.dataSource.filterPredicate = (data: IUser, filter: string) => this.tableFilter(data, filter);
         }
       },
