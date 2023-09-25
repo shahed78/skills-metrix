@@ -21,11 +21,15 @@ export class SkillsService {
     return this.http.get<ISkill[]>(`${this.skillsUrl}`);
   }
 
-  public addSkills(data: IUser): Observable<ApiResponse> {
+  public addSkills(skill:any): Observable<any> {
+    return this.http.post<any>(`${this.skillsUrl}`, skill);
+  }
+
+  public addUser(data: IUser): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.usersUrl}/add`, data);
   }
 
-  public editSkills(id: number, data: IUser): Observable<ApiResponse> {
+  public editUser(id: number, data: IUser): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(`${this.usersUrl}/edit/${id}`, data);
   }
 

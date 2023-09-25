@@ -25,6 +25,11 @@
       "completion_time": "2023-04-25T20:54:52.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -38,6 +43,11 @@
           "name": "HTML",
           "type": "Languages",
           "id": 4
+        },
+        {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
         },
         {
           "name": "SASS/LESS",
@@ -133,9 +143,19 @@
       "completion_time": "2023-04-26T07:12:40.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
         },
         {
           "name": "CSS",
@@ -183,6 +203,11 @@
           "id": 16
         },
         {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
+        },
+        {
           "name": "Postman",
           "type": "Test Tools",
           "id": 22
@@ -224,15 +249,21 @@
       ]
     },
     {
+      "id": 5,
       "name": "Kyle Hepple",
       "email": "Kyle.Hepple@leighton.com",
       "start_time": "2023-04-26T07:28:39.000Z",
-      "completion_time": "2031-12-13T00:00:00.000Z",
+      "completion_time": "2023-04-26T07:38:26.999Z",
       "skillsMultiCtrl": [
         {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
         },
         {
           "name": "CSS",
@@ -309,9 +340,7 @@
           "type": "Version Control",
           "id": 27
         }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 5
+      ]
     },
     {
       "id": 6,
@@ -326,6 +355,11 @@
           "id": 1
         },
         {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "CSS",
           "type": "Languages",
           "id": 3
@@ -334,6 +368,11 @@
           "name": "HTML",
           "type": "Languages",
           "id": 4
+        },
+        {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
         },
         {
           "name": "SASS/LESS",
@@ -351,6 +390,11 @@
           "id": 8
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
@@ -359,6 +403,11 @@
           "name": "Bootstrap",
           "type": "Frameworks",
           "id": 11
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Agile",
@@ -379,6 +428,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "PostGreSQL",
@@ -448,6 +502,11 @@
           "id": 8
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -488,6 +547,11 @@
           "id": 22
         },
         {
+          "name": "TestNG",
+          "type": "Test Tools",
+          "id": 32
+        },
+        {
           "name": "Git",
           "type": "Version Control",
           "id": 25
@@ -512,6 +576,11 @@
       "completion_time": "2023-04-26T08:34:06.000Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -520,6 +589,11 @@
           "name": "CSS",
           "type": "Languages",
           "id": 3
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
         },
         {
           "name": "HTML",
@@ -547,6 +621,11 @@
           "id": 9
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
@@ -555,6 +634,11 @@
           "name": "Bootstrap",
           "type": "Frameworks",
           "id": 11
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Agile",
@@ -631,6 +715,11 @@
           "id": 1
         },
         {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "Java",
           "type": "Languages",
           "id": 5
@@ -644,6 +733,11 @@
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Azure",
@@ -690,9 +784,19 @@
       "completion_time": "2023-04-26T09:17:41.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
         },
         {
           "name": "CSS",
@@ -725,6 +829,11 @@
           "id": 8
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -743,6 +852,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Jasmine",
@@ -764,6 +878,11 @@
       "completion_time": "2023-04-26T09:24:53.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -784,6 +903,11 @@
           "id": 5
         },
         {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
@@ -797,6 +921,11 @@
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Azure",
@@ -817,6 +946,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "PostGreSQL",
@@ -857,6 +991,11 @@
           "name": "NPM",
           "type": "Version Control",
           "id": 27
+        },
+        {
+          "name": "Log Monitoring (Datadog, Log Analytics, Splunk).",
+          "type": "Other technologies",
+          "id": 34
         }
       ]
     },
@@ -971,6 +1110,11 @@
           "id": 8
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
@@ -1040,6 +1184,16 @@
           "id": 4
         },
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
@@ -1099,6 +1253,11 @@
       "completion_time": "2023-04-26T13:30:39.000Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -1139,6 +1298,11 @@
           "id": 11
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -1157,6 +1321,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Jasmine",
@@ -1223,6 +1392,11 @@
           "id": 16
         },
         {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
+        },
+        {
           "name": "MySQL",
           "type": "Databases",
           "id": 17
@@ -1272,6 +1446,16 @@
           "id": 4
         },
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
+        },
+        {
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
@@ -1295,6 +1479,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Jasmine",
@@ -1346,9 +1535,19 @@
           "id": 6
         },
         {
+          "name": "TyepScript",
+          "type": "Languages",
+          "id": 30
+        },
+        {
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
         },
         {
           "name": "jQuery",
@@ -1459,6 +1658,11 @@
           "id": 6
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
@@ -1482,6 +1686,11 @@
           "name": "Kanban",
           "type": "Delivery Methodologies",
           "id": 16
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Jasmine",
@@ -1522,6 +1731,11 @@
       "start_time": "2023-04-28T08:29:58.000Z",
       "completion_time": "2023-04-28T08:31:39.000Z",
       "skillsMultiCtrl": [
+        {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
         {
           "name": "JavaScript",
           "type": "Languages",
@@ -1620,15 +1834,26 @@
           "name": "Kanban",
           "type": "Delivery Methodologies",
           "id": 16
+        },
+        {
+          "name": " as well as Angular App delivery, and exposure to cypress tests",
+          "type": "Other technologies",
+          "id": 37
         }
       ]
     },
     {
+      "id": 25,
       "name": "Chris McGreevy",
       "email": "Chris.McGreevy@leighton.com",
       "start_time": "2023-04-28T08:30:02.000Z",
-      "completion_time": "2023-05-10T23:00:00.000Z",
+      "completion_time": "2023-04-28T08:33:19.000Z",
       "skillsMultiCtrl": [
+        {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
         {
           "name": "JavaScript",
           "type": "Languages",
@@ -1648,6 +1873,11 @@
           "name": "HTML",
           "type": "Languages",
           "id": 4
+        },
+        {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
         },
         {
           "name": "SASS/LESS",
@@ -1709,9 +1939,7 @@
           "type": "Version Control",
           "id": 27
         }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 25
+      ]
     },
     {
       "id": 26,
@@ -1720,6 +1948,11 @@
       "start_time": "2023-04-28T08:31:55.999Z",
       "completion_time": "2023-04-28T08:33:28.999Z",
       "skillsMultiCtrl": [
+        {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
         {
           "name": "JavaScript",
           "type": "Languages",
@@ -1744,6 +1977,11 @@
           "name": "jQuery",
           "type": "Frameworks",
           "id": 10
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
         },
         {
           "name": "Agile",
@@ -1805,6 +2043,11 @@
           "id": 2
         },
         {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
+        },
+        {
           "name": "SASS/LESS",
           "type": "Languages",
           "id": 6
@@ -1820,6 +2063,11 @@
           "id": 11
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -1833,6 +2081,11 @@
           "name": "Kanban",
           "type": "Delivery Methodologies",
           "id": 16
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "MySQL",
@@ -1889,6 +2142,11 @@
           "id": 10
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -1936,6 +2194,11 @@
           "name": "Java",
           "type": "Languages",
           "id": 5
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Azure",
@@ -2007,9 +2270,19 @@
           "id": 7
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
           "name": "Bootstrap",
           "type": "Frameworks",
           "id": 11
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Azure",
@@ -2061,6 +2334,11 @@
           "id": 1
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -2108,6 +2386,16 @@
           "name": "Bootstrap",
           "type": "Frameworks",
           "id": 11
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Scrum",
@@ -2199,6 +2487,11 @@
           "id": 17
         },
         {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
+        },
+        {
           "name": "Selenium",
           "type": "Test Tools",
           "id": 24
@@ -2268,6 +2561,16 @@
           "id": 6
         },
         {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -2330,6 +2633,11 @@
           "name": "Java",
           "type": "Languages",
           "id": 5
+        },
+        {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
         },
         {
           "name": "Angular",
@@ -2426,6 +2734,11 @@
       "completion_time": "2023-04-28T14:42:59.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -2505,6 +2818,11 @@
       "completion_time": "2023-04-28T15:22:26.000Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -2538,6 +2856,11 @@
           "name": "Bootstrap",
           "type": "Frameworks",
           "id": 11
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Scrum",
@@ -2587,6 +2910,11 @@
           "name": "HTML",
           "type": "Languages",
           "id": 4
+        },
+        {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
         },
         {
           "name": "SASS/LESS",
@@ -2781,6 +3109,11 @@
           "id": 8
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -2838,6 +3171,11 @@
           "name": "Spring",
           "type": "Frameworks",
           "id": 9
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Agile",
@@ -2924,6 +3262,11 @@
           "id": 11
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Scrum",
           "type": "Delivery Methodologies",
           "id": 15
@@ -2937,6 +3280,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "PostGreSQL",
@@ -3008,6 +3356,11 @@
           "id": 11
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -3026,6 +3379,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Selenium",
@@ -3082,6 +3440,16 @@
           "id": 3
         },
         {
+          "name": "Fortran with CUDA, OpenACL, OpenMP, MPI (these are all for parallel programming of Fortran or C++)",
+          "type": "Languages",
+          "id": 40
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -3126,6 +3494,11 @@
           "id": 7
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -3144,6 +3517,11 @@
           "name": "MySQL",
           "type": "Databases",
           "id": 17
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Postman",
@@ -3273,6 +3651,11 @@
           "id": 1
         },
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "TypeScript",
           "type": "Languages",
           "id": 2
@@ -3303,6 +3686,11 @@
           "id": 11
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -3316,6 +3704,11 @@
           "name": "Kanban",
           "type": "Delivery Methodologies",
           "id": 16
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Jasmine",
@@ -3393,6 +3786,11 @@
       "completion_time": "2023-05-03T15:17:26.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "XSLT",
+          "type": "Languages",
+          "id": 35
+        },
+        {
           "name": "JavaScript",
           "type": "Languages",
           "id": 1
@@ -3428,6 +3826,11 @@
           "id": 8
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Agile",
           "type": "Delivery Methodologies",
           "id": 14
@@ -3446,6 +3849,11 @@
           "name": "PostGreSQL",
           "type": "Databases",
           "id": 18
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "MySQL",
@@ -3485,10 +3893,11 @@
       ]
     },
     {
+      "id": 54,
       "name": "Gail Phillips",
       "email": "gail.phillips@leighton.com",
       "start_time": "2023-05-03T19:37:58.000Z",
-      "completion_time": "2023-10-11T23:00:00.000Z",
+      "completion_time": "2023-05-03T19:39:09.999Z",
       "skillsMultiCtrl": [
         {
           "name": "JavaScript",
@@ -3525,9 +3934,7 @@
           "type": "Version Control",
           "id": 25
         }
-      ],
-      "skillsMultiFilterCtrl": "",
-      "id": 54
+      ]
     },
     {
       "id": 55,
@@ -3569,6 +3976,11 @@
           "name": "TypeScript",
           "type": "Languages",
           "id": 2
+        },
+        {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
         },
         {
           "name": "Azure",
@@ -3635,6 +4047,11 @@
           "id": 4
         },
         {
+          "name": "PHP",
+          "type": "Languages",
+          "id": 31
+        },
+        {
           "name": "SASS/LESS",
           "type": "Languages",
           "id": 6
@@ -3643,6 +4060,11 @@
           "name": "Angular",
           "type": "Frameworks",
           "id": 8
+        },
+        {
+          "name": "Vue",
+          "type": "Frameworks",
+          "id": 38
         },
         {
           "name": "Scrum",
@@ -3679,6 +4101,11 @@
       "completion_time": "2023-05-10T14:44:31.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -3697,6 +4124,11 @@
           "name": "Kanban",
           "type": "Delivery Methodologies",
           "id": 16
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "MySQL",
@@ -3757,6 +4189,11 @@
       "completion_time": "2023-05-17T10:10:52.999Z",
       "skillsMultiCtrl": [
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -3791,6 +4228,11 @@
           "id": 7
         },
         {
+          "name": "AWS",
+          "type": "Cloud",
+          "id": 39
+        },
+        {
           "name": "Azure",
           "type": "Cloud",
           "id": 12
@@ -3814,6 +4256,11 @@
           "name": "PostGreSQL",
           "type": "Databases",
           "id": 18
+        },
+        {
+          "name": "MongoDB",
+          "type": "Databases",
+          "id": 36
         },
         {
           "name": "Selenium",
@@ -4180,6 +4627,61 @@
       "name": "Hibernate, MyBatis",
       "type": "Other technologies",
       "id": 29
+    },
+    {
+      "name": "TyepScript",
+      "type": "Languages",
+      "id": 30
+    },
+    {
+      "name": "PHP",
+      "type": "Languages",
+      "id": 31
+    },
+    {
+      "name": "TestNG",
+      "type": "Test Tools",
+      "id": 32
+    },
+    {
+      "name": "Node.JS",
+      "type": "Frameworks",
+      "id": 33
+    },
+    {
+      "name": "Log Monitoring (Datadog, Log Analytics, Splunk).",
+      "type": "Other technologies",
+      "id": 34
+    },
+    {
+      "name": "XSLT",
+      "type": "Languages",
+      "id": 35
+    },
+    {
+      "name": "MongoDB",
+      "type": "Databases",
+      "id": 36
+    },
+    {
+      "name": " as well as Angular App delivery, and exposure to cypress tests",
+      "type": "Other technologies",
+      "id": 37
+    },
+    {
+      "name": "Vue",
+      "type": "Frameworks",
+      "id": 38
+    },
+    {
+      "name": "AWS",
+      "type": "Cloud",
+      "id": 39
+    },
+    {
+      "name": "Fortran with CUDA, OpenACL, OpenMP, MPI (these are all for parallel programming of Fortran or C++)",
+      "type": "Languages",
+      "id": 40
     }
   ]
 }

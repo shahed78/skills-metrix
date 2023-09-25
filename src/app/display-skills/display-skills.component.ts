@@ -193,7 +193,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   private async addImportedUser(user: IUser): Promise<void> {
     try {
-      await firstValueFrom(this.skillsService.addSkills(user));
+      await firstValueFrom(this.skillsService.addUser(user));
     } catch (error) {
       console.log('problem in adding user');
     }

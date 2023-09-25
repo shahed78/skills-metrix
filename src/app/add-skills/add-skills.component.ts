@@ -121,7 +121,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.dialogdata) {
       // Edit existing skills using the skillsService
-      this.skillsService.editSkills(this.dialogdata.id, this.skillsForm.value).subscribe({
+      this.skillsService.editUser(this.dialogdata.id, this.skillsForm.value).subscribe({
         next: () => {
           this.dialogRef.close();
           this.skillsService.notification('Skill updated successfully');
@@ -134,7 +134,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     } else {
       // Add new skills using the skillsService
-      this.skillsService.addSkills(this.skillsForm.value).subscribe({
+      this.skillsService.addUser(this.skillsForm.value).subscribe({
         next: () => {
           // Close the dialog upon successful addition
           this.dialogRef.close();
