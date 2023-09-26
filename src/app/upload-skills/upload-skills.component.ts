@@ -59,7 +59,7 @@ export class UploadSkillsComponent implements OnInit {
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
       for (const key in item) {
         
-          if (key !== "ID" && key !== "Start time" && key !== "Completion time" && key !== "Email" && key !== "Name") {
+          if (key !== "ID" && key !== "Start time" && key !== "Completion time" && key !== "Email" && key !== "Name" && key !== "Location" && key !== "Role" ) {
             const values = (item[key] as string).split(';').filter((value: string) => value.trim() !== '');
 
             values.map(skill => {
@@ -74,10 +74,6 @@ export class UploadSkillsComponent implements OnInit {
                 });
               } else {
                 console.log("Object or 'id' property not found.");
-                skillsNotMatched.push({
-                  name: skill as string,
-                  type: key as string,
-              });
             }
             });
 
@@ -90,8 +86,8 @@ export class UploadSkillsComponent implements OnInit {
           email: item.Email as string,
           start_time: item["Start time"] as string,
           completion_time: item["Completion time"] as string,
-          location: '',
-          role: '',
+          location: item.Location as string,
+          role: item.Role as string,
           skillsMultiCtrl: skillsMultiCtrl as ISkill[]
       };
 

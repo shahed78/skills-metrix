@@ -27,6 +27,8 @@ export interface ExcelData {
   Languages: string;
   "Test Tools": string;
   "Version Control": string;
+  Location: string;
+  Role: string;
   [key: string]: string | number; // Allow any additional string or number properties
 }
 
