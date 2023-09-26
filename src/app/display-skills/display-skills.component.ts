@@ -48,9 +48,8 @@ export class DisplaySkillsComponent implements OnInit {
  
       return tableDdata.name.toLowerCase().includes(filter) || 
               tableDdata.email.toLowerCase().includes(filter) || 
-              this.dateToTransform(tableDdata.start_time).includes(filter) || 
-              this.dateToTransform(tableDdata.completion_time).includes(filter) ||
-              tableDdata.id.toString().includes(filter) ||
+              tableDdata.location.toLowerCase().includes(filter) ||
+              tableDdata.role.toLowerCase().includes(filter) ||
               this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(filter);
   }
 

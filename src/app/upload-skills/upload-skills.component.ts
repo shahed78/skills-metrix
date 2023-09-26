@@ -49,8 +49,12 @@ export class UploadSkillsComponent implements OnInit {
   }
 
   private formatChange(excelData: ExcelData[]): IUser[] {
+
+    const skillsNotMatched: any[] = [];
+    
     const formattedData = excelData.map((item: ExcelData) => {
     const skillsMultiCtrl: ISkill[] = []; 
+    
 
       // Iterate over object properties dynamically and add them to skillsMultiCtrl
       for (const key in item) {
@@ -67,9 +71,13 @@ export class UploadSkillsComponent implements OnInit {
                   name: skill as string,
                   type: key as string,
                   id: foundSkills[0].id as number 
-              });
-            } else {
+                });
+              } else {
                 console.log("Object or 'id' property not found.");
+                skillsNotMatched.push({
+                  name: skill as string,
+                  type: key as string,
+              });
             }
             });
 
