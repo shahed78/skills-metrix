@@ -41,14 +41,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-
-    this.skillsService.getSkills().subscribe({
-      next: skills => {
-        this.skills = skills;
-
-      },
-      error: err => console.error('An error occurred', err)
-    });
+    this.getSkills();
   }
 
   private tableFilter(tableDdata: IUser, filter: string) {
@@ -75,7 +68,7 @@ export class DisplaySkillsComponent implements OnInit {
     this.skillsService.getUsers()
     .subscribe({
       next: userdata =>{
-        this.users = userdata;
+        this.users = userdata.sort((a, b) => a.id - b.id);
 
         if (this.paginator) {
           this.dataSource = new MatTableDataSource(this.users);
@@ -87,6 +80,16 @@ export class DisplaySkillsComponent implements OnInit {
       error: err => {
         console.log(err);
       }
+    });
+  }
+
+  private getSkills(): void {
+    this.skillsService.getSkills().subscribe({
+      next: skills => {
+        this.skills = skills;
+
+      },
+      error: err => console.error('An error occurred', err)
     });
   }
 
@@ -133,28 +136,30 @@ export class DisplaySkillsComponent implements OnInit {
       data: { users: this.users, skills: this.skills},
     });
 
-    dialogRef.afterClosed().subscribe(async (ExcelData) => {
-      if (ExcelData ) {
+    dialogRef.afterClosed().subscribe(async (convertedExcelData: IUser[]) => {
+      if (convertedExcelData ) {
         this.showSpinner = true;
-        // User confirmed deletion, perform the delete action
+        const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
+        const updateNewExcelDataRecordDifferance = convertedExcelData.filter(item2 => this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2)));
+
            try {
-              if (this.users.length > 0) {
-                await this.processUsersInSequence(this.users, this.deleteStoredUser.bind(this));
-                console.log('Removal task completed');
-              }
-          
-              if(ExcelData.length > 0){
-                await this.processUsersInSequence(ExcelData, this.addImportedUser.bind(this));
-                
+
+              if(newUserToInsert.length > 0){
+                await this.processUsersInSequence(newUserToInsert, this.addImportedUser.bind(this));
                 this.getUsers();
                 console.log('Addition task completed');
-              } else {
-                throw new Error('No data to upload.'); // Handle the case when no data is selected.
+               }
+
+              if(updateNewExcelDataRecordDifferance.length > 0){
+
+                await this.processUsersInSequence(updateNewExcelDataRecordDifferance, this.editImportedUser.bind(this));
+                this.getUsers();
+                console.log('Edit task completed');
               }
               
             } catch (error) {
               console.error('Error:', error);
-              // Handle any errors that may occur during removal or addition
+              // Handle any errors that may occur during eddit or addition
               throw error;
             } finally {
               this.showSpinner = false;
@@ -162,6 +167,35 @@ export class DisplaySkillsComponent implements OnInit {
       }
     });
 
+  }
+
+  private isUserDataDifferent(userA: IUser, userB: IUser): boolean {
+    return (
+      userA.name !== userB.name ||
+      userA.email !== userB.email ||
+      this.dateToTransform(userA.start_time) !== this.dateToTransform(userB.start_time) || 
+      this.dateToTransform(userA.completion_time) !== this.dateToTransform(userB.completion_time) || 
+      !this.areSkillsEqual(userA.skillsMultiCtrl, userB.skillsMultiCtrl)
+    );
+  }
+
+  // Function to check if two arrays of skills are equal
+  private areSkillsEqual(skillsA: ISkill[], skillsB: ISkill[]): boolean {
+    if (skillsA.length !== skillsB.length) {
+      return false;
+    }
+
+    for (let i = 0; i < skillsA.length; i++) {
+      if (
+        skillsA[i].name !== skillsB[i].name ||
+        skillsA[i].type !== skillsB[i].type ||
+        skillsA[i].id !== skillsB[i].id
+      ) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ): Promise<void> {
@@ -199,11 +233,12 @@ export class DisplaySkillsComponent implements OnInit {
     }
   }
 
-  private async deleteStoredUser(user: IUser): Promise<void> {
+  private async editImportedUser(user: IUser): Promise<void> {
     try {
-      await firstValueFrom(this.skillsService.deleteUser(user.id));
+      await firstValueFrom(this.skillsService.editUser(user.id, user));
     } catch (error) {
-      console.log('problem in deleting user');
+      console.log('problem in adding user');
     }
   }
+
 }
