@@ -34,27 +34,35 @@
 
         </div>
 
+        <div class="row" >
+            <mat-form-field class="full-width">
+                <input matInput type="text" formControlName="location" placeholder="Location">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input matInput type="text" formControlName="role" placeholder="Role">
+            </mat-form-field>
+        </div>
+
         <div class="row">
-            <p>
-                <mat-form-field>
-                    <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
-                          <mat-select-trigger>
-                            {{ selectedSkills.length > 0 ? selectedSkills[0].name : '' }}
-                            <span *ngIf="(selectedSkills.length || 0) > 1">
-                              (+{{selectedSkills.length - 1}} {{selectedSkills.length === 2 ? 'other' : 'others'}})
-                            </span>
-                          </mat-select-trigger>
-                        <mat-option>
-                            <ngx-mat-select-search formControlName="skillsMultiFilterCtrl"
-                                placeholderLabel="Choose skills..."
-                                noEntriesFoundLabel="No match found"></ngx-mat-select-search>
-                        </mat-option>
-                        <mat-option *ngFor="let skill of filteredSkillsMulti | async" [value]="skill">
-                            {{skill.name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </p>
+            <mat-form-field class="full-width">
+                <mat-select formControlName="skillsMultiCtrl" placeholder="Skills" multiple #multiSelect>
+                        <mat-select-trigger>
+                        {{ selectedSkills.length > 0 ? selectedSkills[0].name : '' }}
+                        <span *ngIf="(selectedSkills.length || 0) > 1">
+                            (+{{selectedSkills.length - 1}} {{selectedSkills.length === 2 ? 'other' : 'others'}})
+                        </span>
+                        </mat-select-trigger>
+                    <mat-option>
+                        <ngx-mat-select-search formControlName="skillsMultiFilterCtrl"
+                            placeholderLabel="Choose skills..."
+                            noEntriesFoundLabel="No match found"></ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option *ngFor="let skill of filteredSkillsMulti | async" [value]="skill">
+                        {{skill.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
 
         <mat-dialog-actions align="end">

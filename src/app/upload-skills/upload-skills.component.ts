@@ -82,6 +82,8 @@ export class UploadSkillsComponent implements OnInit {
           email: item.Email as string,
           start_time: item["Start time"] as string,
           completion_time: item["Completion time"] as string,
+          location: '',
+          role: '',
           skillsMultiCtrl: skillsMultiCtrl as ISkill[]
       };
 

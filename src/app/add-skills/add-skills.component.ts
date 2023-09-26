@@ -48,6 +48,8 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
       email: ['', [Validators.required, Validators.email]],
       start_time: ['', Validators.required],
       completion_time: ['', Validators.required],
+      location: [''],
+      role: [''],
       skillsMultiCtrl: [],
       skillsMultiFilterCtrl: ['']
     });

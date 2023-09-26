@@ -4,6 +4,8 @@ export interface IUser {
   email: string;
   start_time: string;
   completion_time: string;
+  location: string;
+  role: string;
   skillsMultiCtrl: ISkill[],
   
 }

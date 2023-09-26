@@ -21,7 +21,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   public users: IUser[] = [];
   public skills: ISkill[] = [];
-  public displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' ,'butons'];
+  public displayeColumns = ['serial', 'name', 'email', 'start_time','completion_time', 'skills' , 'location', 'role', 'butons'];
   public dataSource: MatTableDataSource<IUser>;
   public showSpinner = false;
 
