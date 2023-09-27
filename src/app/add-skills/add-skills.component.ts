@@ -7,6 +7,7 @@ import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { MatSelect } from '@angular/material/select';
 import { UsersService } from '../shared/services/users.service';
+import { UtilityService } from '../shared/services/utility.service';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private skillsService: SkillsService,
     private usersService: UsersService,
+    private utilityService: UtilityService,
     private dialogRef: DialogRef<AddSkillsComponent>,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public dialogdata: IUser
@@ -128,11 +130,11 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
       this.usersService.editUser(this.dialogdata.id, this.skillsForm.value).subscribe({
         next: () => {
           this.dialogRef.close();
-          this.skillsService.notification('Skill updated successfully');
+          this.utilityService.notification('Skill updated successfully');
         },
         error: err => {
           console.error('An error occurred', err);
-          this.skillsService.notification('Failed to update skill. Please try again later.');
+          this.utilityService.notification('Failed to update skill. Please try again later.');
         }
       });
 
@@ -142,11 +144,11 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
         next: () => {
           // Close the dialog upon successful addition
           this.dialogRef.close();
-          this.skillsService.notification('Skill added successfully!');
+          this.utilityService.notification('Skill added successfully!');
         },
         error: err => {
           console.error('An error occurred', err);
-          this.skillsService.notification('Failed to add skill. Please try again later.');
+          this.utilityService.notification('Failed to add skill. Please try again later.');
         }
       });
     }

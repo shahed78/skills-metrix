@@ -10,6 +10,7 @@ import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confi
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
 import { concatMap, firstValueFrom } from 'rxjs';
 import { UsersService } from '../shared/services/users.service';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-display-skills',
@@ -28,7 +29,11 @@ export class DisplaySkillsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
-    constructor(public dialog: MatDialog, private skillsService: SkillsService, private usersService: UsersService, private datePipe: DatePipe ) {}
+    constructor(public dialog: MatDialog, 
+      private skillsService: SkillsService, 
+      private usersService: UsersService, 
+      private utilityService: UtilityService,
+      private datePipe: DatePipe ) {}
 
     ngOnInit(): void {
       this.getUsers();
@@ -118,11 +123,11 @@ export class DisplaySkillsComponent implements OnInit {
           this.usersService.deleteUser(id).subscribe({
             next: () => {
               this.getUsers();
-              this.skillsService.notification('Skill removed successfully');
+              this.utilityService.notification('User removed successfully');
             },
             error: (err) => {
               console.log(err);
-              this.skillsService.notification('Failed to remove skill. Please try again later.');
+              this.utilityService.notification('Failed to remove skill. Please try again later.');
             },
           });
         }
@@ -300,7 +305,7 @@ export class DisplaySkillsComponent implements OnInit {
     try {
       await firstValueFrom(this.skillsService.addSkills(skills));
     } catch (error) {
-      console.log('problem in adding user');
+      console.log('problem in adding skills');
     }
   }
 
