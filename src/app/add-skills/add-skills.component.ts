@@ -6,6 +6,7 @@ import { SkillsService } from '../shared/services/skills.service';
 import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { MatSelect } from '@angular/material/select';
+import { UsersService } from '../shared/services/users.service';
 
 
 @Component({
@@ -38,6 +39,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
  
   constructor(
     private skillsService: SkillsService,
+    private usersService: UsersService,
     private dialogRef: DialogRef<AddSkillsComponent>,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public dialogdata: IUser
@@ -123,7 +125,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.dialogdata) {
       // Edit existing skills using the skillsService
-      this.skillsService.editUser(this.dialogdata.id, this.skillsForm.value).subscribe({
+      this.usersService.editUser(this.dialogdata.id, this.skillsForm.value).subscribe({
         next: () => {
           this.dialogRef.close();
           this.skillsService.notification('Skill updated successfully');
@@ -136,7 +138,7 @@ export class AddSkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     } else {
       // Add new skills using the skillsService
-      this.skillsService.addUser(this.skillsForm.value).subscribe({
+      this.usersService.addUser(this.skillsForm.value).subscribe({
         next: () => {
           // Close the dialog upon successful addition
           this.dialogRef.close();

@@ -9,6 +9,7 @@ import { SkillsService } from '../shared/services/skills.service';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
 import { concatMap, firstValueFrom } from 'rxjs';
+import { UsersService } from '../shared/services/users.service';
 
 @Component({
   selector: 'app-display-skills',
@@ -27,7 +28,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator : MatPaginator;
 
-    constructor(public dialog: MatDialog, private skillsService: SkillsService, private datePipe: DatePipe ) {}
+    constructor(public dialog: MatDialog, private skillsService: SkillsService, private usersService: UsersService, private datePipe: DatePipe ) {}
 
     ngOnInit(): void {
       this.getUsers();
@@ -63,7 +64,7 @@ export class DisplaySkillsComponent implements OnInit {
 
     private getUsers(): void {
 
-      this.skillsService.getUsers()
+      this.usersService.getUsers()
       .subscribe({
         next: userdata =>{
           this.users = userdata.sort((a, b) => a.id - b.id);
@@ -114,7 +115,7 @@ export class DisplaySkillsComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === true) {
           // User confirmed deletion, perform the delete action
-          this.skillsService.deleteUser(id).subscribe({
+          this.usersService.deleteUser(id).subscribe({
             next: () => {
               this.getUsers();
               this.skillsService.notification('Skill removed successfully');
@@ -171,6 +172,7 @@ export class DisplaySkillsComponent implements OnInit {
     public async addExcelSkills(excelSkills: IKnowladge[]): Promise<void> {
       try {
         const excelSkillsToAdd = this.skillsToAdd(excelSkills);
+
         if(excelSkillsToAdd.length > 0){
           await this.processInSequence(excelSkills, this.addSkills.bind(this));
           this.getUsers();
@@ -280,7 +282,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   private async addImportedUser(user: IUser): Promise<void> {
     try {
-      await firstValueFrom(this.skillsService.addUser(user));
+      await firstValueFrom(this.usersService.addUser(user));
     } catch (error) {
       console.log('problem in adding user');
     }
@@ -288,7 +290,7 @@ export class DisplaySkillsComponent implements OnInit {
 
   private async editImportedUser(user: IUser): Promise<void> {
     try {
-      await firstValueFrom(this.skillsService.editUser(user.id, user));
+      await firstValueFrom(this.usersService.editUser(user.id, user));
     } catch (error) {
       console.log('problem in adding user');
     }
