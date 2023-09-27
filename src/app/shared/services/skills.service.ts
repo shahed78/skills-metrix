@@ -21,7 +21,7 @@ export class SkillsService {
     return this.http.get<ISkill[]>(`${this.skillsUrl}`);
   }
 
-  public addSkills(skill: ISkill): Observable<ApiResponse> {
+  public addSkills(skill: {name: string, type: string }): Observable<ApiResponse> {
     return this.http.post<ApiResponse>(`${this.skillsUrl}`, skill);
   }
 

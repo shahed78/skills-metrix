@@ -48,57 +48,74 @@ export class UploadSkillsComponent implements OnInit {
     }
   }
 
-  private formatChange(excelData: ExcelData[]): IUser[] {
 
-    const skillsNotMatched: any[] = [];
-    
-    const formattedData = excelData.map((item: ExcelData) => {
-    const skillsMultiCtrl: ISkill[] = []; 
-    
-
-      // Iterate over object properties dynamically and add them to skillsMultiCtrl
+  private extractSkills(excelData: ExcelData[]): { name: string; key: string }[] {
+    const skills: { name: string; key: string }[] = [];
+  
+    excelData.forEach((item: ExcelData) => {
       for (const key in item) {
-        
-          if (key !== "ID" && key !== "Start time" && key !== "Completion time" && key !== "Email" && key !== "Name" && key !== "Location" && key !== "Role" ) {
-            const values = (item[key] as string).split(';').filter((value: string) => value.trim() !== '');
-
-            values.map(skill => {
-              //type of this.skills implement later
-              const foundSkills = this.skills.filter((items: { name: string; type: string; id: number })=> items.name === skill && items.type === key);
-              // const foundSkills = this.skills.filter((skill: ISkill) => skill.name === skills && skill.type === key); //check later
-              if (foundSkills.length > 0 && foundSkills[0].id !== undefined) {
-                skillsMultiCtrl.push({
-                  name: skill as string,
-                  type: key as string,
-                  id: foundSkills[0].id as number 
-                });
-              } else {
-                console.log("Object or 'id' property not found.");
+        if (!["ID", "Start time", "Completion time", "Email", "Name", "Location", "Role"].includes(key)) {
+          const values = (item[key] as string).split(';').filter((value: string) => value.trim() !== '');
+  
+          values.forEach(skill => {
+            const notfound = skills.every((itemInSkills) => itemInSkills.key !== key || itemInSkills.name !== skill);
+            if (notfound) {
+              skills.push({
+                name: skill as string,
+                key: key as string,
+              });
             }
-            });
-
-          }
-         
+          });
+        }
       }
-      return {
-          id: item.ID as number,
-          name: item.Name as string,
-          email: item.Email as string,
-          start_time: item["Start time"] as string,
-          completion_time: item["Completion time"] as string,
-          location: item.Location as string,
-          role: item.Role as string,
-          skillsMultiCtrl: skillsMultiCtrl as ISkill[]
-      };
-
-  });
-
-  return formattedData
+    });
+  
+    return skills;
   }
+  
+  private formatChange(excelData: ExcelData[]): IUser[] {
+    const formattedData = excelData.map((item: ExcelData) => {
+      const skillsMultiCtrl: ISkill[] = [];
+  
+      // Extract skills using the common function
+      const extractedSkills = this.extractSkills([item]);
+  
+      extractedSkills.forEach(({ name, key }) => {
+        const foundSkills = this.skills.filter((skill: ISkill) => skill.name === name && skill.type === key);
+        if (foundSkills.length > 0 && foundSkills[0].id !== undefined) {
+          skillsMultiCtrl.push({
+            name: name,
+            type: key,
+            id: foundSkills[0].id as number,
+          });
+        }
+      });
+  
+      return {
+        id: item.ID as number,
+        name: item.Name as string,
+        email: item.Email as string,
+        start_time: item["Start time"] as string,
+        completion_time: item["Completion time"] as string,
+        location: item.Location as string,
+        role: item.Role as string,
+        skillsMultiCtrl: skillsMultiCtrl as ISkill[],
+      };
+    });
+  
+    return formattedData;
+  }
+  
+  private getExcellSkills(excelData: ExcelData[]) {
+    // Extract skills using the common function
+    return this.extractSkills(excelData);
+  }
+  
 
   public onUploadExcel(): void {
     const convertedExcelData: IUser[] = this.formatChange(this.importedUserData) as IUser[]; 
-    this.dialogRef.close(convertedExcelData);
+    const excelSkills =  this.getExcellSkills(this.importedUserData);
+    this.dialogRef.close({convertedExcelData, excelSkills});
   }
 
 }

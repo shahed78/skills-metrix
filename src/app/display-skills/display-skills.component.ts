@@ -4,11 +4,11 @@ import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { ISkill, IUser } from '../shared/interfaces/data.interface';
+import { IKnowladge, ISkill, IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
-import { firstValueFrom } from 'rxjs';
+import { concatMap, firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-display-skills',
@@ -129,42 +129,85 @@ export class DisplaySkillsComponent implements OnInit {
     });
   }
 
+
+
   public openUploadDialog(): void {
     const dialogRef = this.dialog.open(UploadSkillsComponent, {
       width: '400px',
-      data: { users: this.users, skills: this.skills},
+      data: { users: this.users, skills: this.skills },
     });
+  
+    dialogRef
+      .afterClosed()
+      .pipe(
+        concatMap(async (result: { convertedExcelData: IUser[], excelSkills: { name: string, type: string }[] }) => {
+          const { convertedExcelData, excelSkills } = result;
+  
+          this.showSpinner = true;
+  
+          if (excelSkills) {
+            console.log('skills');
+            await this.addExcelSkills(excelSkills);
+          }
+  
+          if (convertedExcelData ) {
+            const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
+            const updateNewExcelDataRecordDifference = convertedExcelData.filter(item2 =>
+              this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2))
+            );
+            console.log(newUserToInsert);
+            console.log(updateNewExcelDataRecordDifference);
+  
+            await this.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
+          }
+  
+          this.showSpinner = false;
+        })
+      )
+      .subscribe();
+  }
 
-    dialogRef.afterClosed().subscribe(async (convertedExcelData: IUser[]) => {
-      if (convertedExcelData ) {
-        this.showSpinner = true;
-        const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
-        const updateNewExcelDataRecordDifferance = convertedExcelData.filter(item2 => this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2)));
+  private skillsToAdd(excelSkills: IKnowladge[]) {
+    return excelSkills.filter((excelSkill: IKnowladge) => !this.skills.some((skill: IKnowladge) => skill.name === excelSkill.name));
+  }
 
-           try {
+    public async addExcelSkills(excelSkills: IKnowladge[]): Promise<void> {
+      try {
+        const excelSkillsToAdd = this.skillsToAdd(excelSkills);
+        if(excelSkillsToAdd.length > 0){
+          await this.processInSequence(excelSkills, this.addSkills.bind(this));
+          this.getUsers();
+          console.log('Skill addition task completed');
+        }
 
-              if(newUserToInsert.length > 0){
-                await this.processUsersInSequence(newUserToInsert, this.addImportedUser.bind(this));
-                this.getUsers();
-                console.log('Addition task completed');
-               }
-
-              if(updateNewExcelDataRecordDifferance.length > 0){
-
-                await this.processUsersInSequence(updateNewExcelDataRecordDifferance, this.editImportedUser.bind(this));
-                this.getUsers();
-                console.log('Edit task completed');
-              }
-              
-            } catch (error) {
-              console.error('Error:', error);
-              // Handle any errors that may occur during eddit or addition
-              throw error;
-            } finally {
-              this.showSpinner = false;
-            }
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle any errors that may occur during eddit or addition
+        throw error;
       }
-    });
+  }
+
+  public async addExcelUser(addUsers: IUser[], editUsers: IUser[]): Promise<void> {
+
+    try {
+      if(addUsers.length > 0){
+        await this.processInSequence(addUsers, this.addImportedUser.bind(this));
+        this.getUsers();
+        console.log('Addition task completed');
+       }
+
+      if(editUsers.length > 0){
+
+        await this.processInSequence(editUsers, this.editImportedUser.bind(this));
+        this.getUsers();
+        console.log('Edit task completed');
+      }
+      
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle any errors that may occur during eddit or addition
+      throw error;
+    }
 
   }
 
@@ -214,10 +257,24 @@ export class DisplaySkillsComponent implements OnInit {
     }
   }
 
-  private async processBatch(users: IUser[], actionFunction: (user: IUser) => Promise<void>): Promise<void> {
+  private async processInSequence<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
+    const BATCH_SIZE = 5; // Adjust the batch size as needed
+    const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
     try {
-      for (const user of users) {
-        await actionFunction(user);
+      for (let i = 0; i < items.length; i += BATCH_SIZE) {
+        const batch = items.slice(i, i + BATCH_SIZE);
+        await this.processBatch(batch, actionFunction);
+        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
+      }
+    } catch (error) {
+      console.log('Error in processing sequence:', error);
+    }
+  }
+
+  private async processBatch<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
+    try {
+      for (const item of items) {
+        await actionFunction(item);
       }
     } catch (error) {
      console.log('error in processing batch')
@@ -235,6 +292,14 @@ export class DisplaySkillsComponent implements OnInit {
   private async editImportedUser(user: IUser): Promise<void> {
     try {
       await firstValueFrom(this.skillsService.editUser(user.id, user));
+    } catch (error) {
+      console.log('problem in adding user');
+    }
+  }
+
+  private async addSkills(skills:IKnowladge): Promise<void> {
+    try {
+      await firstValueFrom(this.skillsService.addSkills(skills));
     } catch (error) {
       console.log('problem in adding user');
     }

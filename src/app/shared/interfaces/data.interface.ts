@@ -16,6 +16,11 @@ export  interface ISkill {
     id: number;
   }
 
+export interface IKnowladge {
+  name: string;
+  type: string;
+}
+
 export interface ExcelData {
   ID: number;
   "Start time": string;
