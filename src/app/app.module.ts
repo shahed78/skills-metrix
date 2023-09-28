@@ -8,11 +8,9 @@ import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { UploadSkillsComponent } from './upload-skills/upload-skills.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -30,8 +28,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsService } from './shared/services/skills.service';
 import { UsersService } from './shared/services/users.service';
-
 import { DatePipe } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -65,7 +63,9 @@ import { DatePipe } from '@angular/common';
     MatSnackBarModule,
     MatTooltipModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ButtonModule
+
   ],
   providers: [SkillsService, UsersService, DisplaySkillsComponent, DatePipe,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent]
