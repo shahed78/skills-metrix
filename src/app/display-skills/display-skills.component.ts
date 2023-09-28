@@ -147,20 +147,18 @@ export class DisplaySkillsComponent implements OnInit {
             const { convertedExcelData, excelSkills } = result;
     
             this.showSpinner = true;
-    
-            if (excelSkills) {
-              console.log('skills');
-              await this.addExcelSkills(excelSkills);
+            const excelSkillsToAdd = this.skillsToAdd(excelSkills);
+
+            if (excelSkillsToAdd.length > 0) {
+              await this.addExcelSkills(excelSkillsToAdd);
             }
-    
-            if (convertedExcelData ) {
-              const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
-              const updateNewExcelDataRecordDifference = convertedExcelData.filter(item2 =>
+
+            const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
+            const updateNewExcelDataRecordDifference = convertedExcelData.filter(item2 =>
                 this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2))
               );
-              console.log(newUserToInsert);
-              console.log(updateNewExcelDataRecordDifference);
     
+            if (newUserToInsert.length > 0 || updateNewExcelDataRecordDifference.length > 0 ) {
               await this.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
             }
     
@@ -174,16 +172,11 @@ export class DisplaySkillsComponent implements OnInit {
       return excelSkills.filter((excelSkill: IKnowladge) => !this.skills.some((skill: IKnowladge) => skill.name === excelSkill.name));
     }
 
-    public async addExcelSkills(excelSkills: IKnowladge[]): Promise<void> {
+    public async addExcelSkills(excelSkillsToAdd: IKnowladge[]): Promise<void> {
       try {
-        const excelSkillsToAdd = this.skillsToAdd(excelSkills);
-
-        if(excelSkillsToAdd.length > 0){
-          await this.processInSequence(excelSkills, this.addSkills.bind(this));
-          this.getUsers();
+          await this.utilityService.processInSequence(excelSkillsToAdd, this.addSkills.bind(this));
+          this.getSkills();
           console.log('Skill addition task completed');
-        }
-
       } catch (error) {
         console.error('Error:', error);
         // Handle any errors that may occur during eddit or addition
@@ -195,14 +188,13 @@ export class DisplaySkillsComponent implements OnInit {
 
     try {
       if(addUsers.length > 0){
-        await this.processInSequence(addUsers, this.addImportedUser.bind(this));
+        await this.utilityService.processInSequence(addUsers, this.addImportedUser.bind(this));
         this.getUsers();
         console.log('Addition task completed');
         }
 
       if(editUsers.length > 0){
-
-        await this.processInSequence(editUsers, this.editImportedUser.bind(this));
+        await this.utilityService.processInSequence(editUsers, this.editImportedUser.bind(this));
         this.getUsers();
         console.log('Edit task completed');
       }
@@ -244,46 +236,29 @@ export class DisplaySkillsComponent implements OnInit {
     return true;
   }
 
-  private async processUsersInSequence(users: IUser[], actionFunction: (user: IUser) => Promise<void> ): Promise<void> {
+  // private async processInSequence<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
+  //   const BATCH_SIZE = 5; // Adjust the batch size as needed
+  //   const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
+  //   try {
+  //     for (let i = 0; i < items.length; i += BATCH_SIZE) {
+  //       const batch = items.slice(i, i + BATCH_SIZE);
+  //       await this.processBatch(batch, actionFunction);
+  //       await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
+  //     }
+  //   } catch (error) {
+  //     console.log('Error in processing sequence:', error);
+  //   }
+  // }
 
-    try {
-      const BATCH_SIZE = 5; // Adjust the batch size as needed
-      const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
-
-      for (let i = 0; i < users.length; i += BATCH_SIZE) {
-        const userBatch = users.slice(i, i + BATCH_SIZE);
-        await this.processBatch(userBatch, actionFunction);
-        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
-      }
-      
-    } catch (error) {
-      console.log('error in processing sequence')
-    }
-  }
-
-  private async processInSequence<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
-    const BATCH_SIZE = 5; // Adjust the batch size as needed
-    const DELAY_BETWEEN_BATCHES_MS = 2000; // Adjust the delay (in milliseconds) between batches as needed
-    try {
-      for (let i = 0; i < items.length; i += BATCH_SIZE) {
-        const batch = items.slice(i, i + BATCH_SIZE);
-        await this.processBatch(batch, actionFunction);
-        await new Promise(resolve => setTimeout(resolve, DELAY_BETWEEN_BATCHES_MS));
-      }
-    } catch (error) {
-      console.log('Error in processing sequence:', error);
-    }
-  }
-
-  private async processBatch<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
-    try {
-      for (const item of items) {
-        await actionFunction(item);
-      }
-    } catch (error) {
-     console.log('error in processing batch')
-    }
-  }
+  // private async processBatch<T>(items: T[], actionFunction: (item: T) => Promise<void>): Promise<void> {
+  //   try {
+  //     for (const item of items) {
+  //       await actionFunction(item);
+  //     }
+  //   } catch (error) {
+  //    console.log('error in processing batch')
+  //   }
+  // }
 
   private async addImportedUser(user: IUser): Promise<void> {
     try {
