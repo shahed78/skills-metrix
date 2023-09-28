@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^16.2.7",
     "@angular/router": "^16.2.7",
     "ngx-mat-select-search": "^7.0.3",
+    "primeng": "^16.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
