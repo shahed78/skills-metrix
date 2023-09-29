@@ -1,8 +1,7 @@
-<p>
+<!-- <p>
     <mat-toolbar color="primary">
       <span>Skill Matrix</span>
       <span class="toolbar-space"></span>
-      <!-- <button mat-raised-button color="primary" (click)="addSkills()">Add Skills</button> -->
       <button mat-icon-button (click)="addUser()" matTooltip="Add skills">
         <mat-icon aria-hidden="false" fontIcon="my_library_add"></mat-icon>
       </button>
@@ -11,7 +10,8 @@
         <mat-icon aria-hidden="false" fontIcon="file_upload"></mat-icon>
       </button>
     </mat-toolbar>
-</p>
+</p> -->
+<!-- <app-toolbar></app-toolbar> -->
 
 <div class="content" id="content">
   <mat-form-field>
@@ -19,10 +19,8 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter" #input>
   </mat-form-field>
   
-  <!-- <mat-spinner *ngIf="showSpinner" color="primary"></mat-spinner> -->
-  <div class="spinner-container" *ngIf="showSpinner">
-    <mat-spinner color="primary"></mat-spinner>
-  </div>
+  <app-spinner></app-spinner>
+
   <div class="table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     

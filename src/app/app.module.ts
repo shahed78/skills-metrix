@@ -30,6 +30,8 @@ import { SkillsService } from './shared/services/skills.service';
 import { UsersService } from './shared/services/users.service';
 import { DatePipe } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { AppToolbarComponent } from './shared/partials/app-toolbar/app-toolbar.component';
+import { SpinnerComponent } from './shared/partials/spinner/spinner.component';
 
 
 
@@ -39,7 +41,9 @@ import { ButtonModule } from 'primeng/button';
     DisplaySkillsComponent,
     AddSkillsComponent,
     DeleteConfirmationComponent,
-    UploadSkillsComponent
+    UploadSkillsComponent,
+    AppToolbarComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
