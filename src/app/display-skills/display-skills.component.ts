@@ -11,6 +11,7 @@ import { UploadSkillsComponent } from '../upload-skills/upload-skills.component'
 import { concatMap, firstValueFrom } from 'rxjs';
 import { UsersService } from '../shared/services/users.service';
 import { UtilityService } from '../shared/services/utility.service';
+import { DataService } from '../shared/services/data.service';
 
 @Component({
   selector: 'app-display-skills',
@@ -33,11 +34,26 @@ export class DisplaySkillsComponent implements OnInit {
       private skillsService: SkillsService, 
       private usersService: UsersService, 
       private utilityService: UtilityService,
+      private dataService: DataService,
       private datePipe: DatePipe ) {}
 
     ngOnInit(): void {
-      this.getUsers();
-      this.getSkills();
+      // this.getUsers();
+      // this.getSkills();
+
+       // Subscribe to the users and skills data from the DataService
+    this.dataService.users$.subscribe(users => {
+      this.users = users.sort((a, b) => a.id - b.id);
+      this.setupPaginator(); // Call a method to set up the paginator
+    });
+
+    this.dataService.skills$.subscribe(skills => {
+      this.skills = skills;
+    });
+
+    // Fetch the initial data
+    this.dataService.fetchUsers();
+    this.dataService.fetchSkills();
     }
 
     public applyFilter(event: Event) {
@@ -67,40 +83,19 @@ export class DisplaySkillsComponent implements OnInit {
       return skillsMultiCtrl.map(skill => skill.name).join(', ');
     }
 
-    private getUsers(): void {
-
-      this.usersService.getUsers()
-      .subscribe({
-        next: userdata =>{
-          this.users = userdata.sort((a, b) => a.id - b.id);
-
-          if (this.paginator) {
-            this.dataSource = new MatTableDataSource(this.users);
-            this.dataSource.paginator = this.paginator; // Set the paginator
-            this.paginator.length = this.users.length; // Set the length property
-            this.dataSource.filterPredicate = (data: IUser, filter: string) => this.tableFilter(data, filter);
-          }
-        },
-        error: err => {
-          console.log(err);
-        }
-      });
-    }
-
-    private getSkills(): void {
-      this.skillsService.getSkills().subscribe({
-        next: skills => {
-          this.skills = skills;
-
-        },
-        error: err => console.error('An error occurred', err)
-      });
+    private setupPaginator(): void {
+      if (this.paginator) {
+        this.dataSource = new MatTableDataSource(this.users);
+        this.dataSource.paginator = this.paginator;
+        this.paginator.length = this.users.length;
+        this.dataSource.filterPredicate = (data: IUser, filter: string) => this.tableFilter(data, filter);
+      }
     }
 
     public addUser(): void {
       //name
       const dialogRef = this.dialog.open(AddSkillsComponent);
-      dialogRef.afterClosed().subscribe(()=>this.getUsers());
+      dialogRef.afterClosed().subscribe(()=>this.dataService.fetchUsers());
     }
 
     public editUser(user: IUser): void {
@@ -109,7 +104,7 @@ export class DisplaySkillsComponent implements OnInit {
         data: user
       });
       //improve
-      dialogRef.afterClosed().subscribe(()=>this.getUsers());
+      dialogRef.afterClosed().subscribe(()=>this.dataService.fetchUsers());
     }
 
     public deleteUser(id: number): void {
@@ -122,7 +117,8 @@ export class DisplaySkillsComponent implements OnInit {
           // User confirmed deletion, perform the delete action
           this.usersService.deleteUser(id).subscribe({
             next: () => {
-              this.getUsers();
+              // this.getUsers();
+              this.dataService.fetchUsers();
               this.utilityService.notification('User removed successfully');
             },
             error: (err) => {
@@ -145,24 +141,25 @@ export class DisplaySkillsComponent implements OnInit {
         .pipe(
           concatMap(async (result: { convertedExcelData: IUser[], excelSkills: { name: string, type: string }[] }) => {
             const { convertedExcelData, excelSkills } = result;
-    
-            this.showSpinner = true;
-            const excelSkillsToAdd = this.skillsToAdd(excelSkills);
+            if(convertedExcelData || excelSkills) {
+              this.showSpinner = true;
+              const excelSkillsToAdd = this.skillsToAdd(excelSkills);
 
-            if (excelSkillsToAdd.length > 0) {
-              await this.addExcelSkills(excelSkillsToAdd);
-            }
+              if (excelSkillsToAdd.length > 0) {
+                await this.addExcelSkills(excelSkillsToAdd);
+              }
 
-            const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
-            const updateNewExcelDataRecordDifference = convertedExcelData.filter(item2 =>
-                this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2))
-              );
-    
-            if (newUserToInsert.length > 0 || updateNewExcelDataRecordDifference.length > 0 ) {
-              await this.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
+              const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
+              const updateNewExcelDataRecordDifference = convertedExcelData.filter(item2 =>
+                  this.users.some(item1 => item1.id === item2.id && this.isUserDataDifferent(item1, item2))
+                );
+      
+              if (newUserToInsert.length > 0 || updateNewExcelDataRecordDifference.length > 0 ) {
+                await this.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
+              }
+      
+              this.showSpinner = false;
             }
-    
-            this.showSpinner = false;
           })
         )
         .subscribe();
@@ -175,7 +172,8 @@ export class DisplaySkillsComponent implements OnInit {
     public async addExcelSkills(excelSkillsToAdd: IKnowladge[]): Promise<void> {
       try {
           await this.utilityService.processInSequence(excelSkillsToAdd, this.addSkills.bind(this));
-          this.getSkills();
+          // this.getSkills();
+          this.dataService.fetchSkills()
           console.log('Skill addition task completed');
       } catch (error) {
         console.error('Error:', error);
@@ -189,13 +187,15 @@ export class DisplaySkillsComponent implements OnInit {
     try {
       if(addUsers.length > 0){
         await this.utilityService.processInSequence(addUsers, this.addImportedUser.bind(this));
-        this.getUsers();
+        // this.getUsers();
+        this.dataService.fetchUsers()
         console.log('Addition task completed');
         }
 
       if(editUsers.length > 0){
         await this.utilityService.processInSequence(editUsers, this.editImportedUser.bind(this));
-        this.getUsers();
+        // this.getUsers();
+        this.dataService.fetchUsers()
         console.log('Edit task completed');
       }
       
