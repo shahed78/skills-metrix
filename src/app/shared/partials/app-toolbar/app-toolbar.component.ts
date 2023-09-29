@@ -3,13 +3,12 @@ import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddSkillsComponent } from '../../../add-skills/add-skills.component';
 import { UploadSkillsComponent } from '../../../upload-skills/upload-skills.component';
-import { DataService } from '../../../shared/services/data.service';
 import { UsersService } from '../../../shared/services/users.service';
 import { SkillsService } from '../../../shared/services/skills.service';
 import { UtilityService } from '../../../shared/services/utility.service';
 import { SpinnerService } from '../../../shared/services/spinner.service';
-import { IKnowladge, ISkill, IUser } from '../../interfaces/data.interface';
-import { concatMap, firstValueFrom } from 'rxjs';
+import { ISkill, IUser } from '../../interfaces/data.interface';
+import { concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
@@ -23,7 +22,6 @@ export class AppToolbarComponent implements OnInit {
   public showSpinner = false;
 
   constructor(public dialog: MatDialog, 
-              public dataService: DataService, 
               public utilityService: UtilityService,
               public usersService: UsersService,
               public skillsService: SkillsService,
@@ -34,22 +32,22 @@ export class AppToolbarComponent implements OnInit {
   ngOnInit(): void {
 
     // Subscribe to the users and skills data from the DataService
-    this.dataService.users$.subscribe(users => {
+    this.usersService.users$.subscribe(users => {
       this.users = users.sort((a, b) => a.id - b.id);
     });
 
-    this.dataService.skills$.subscribe(skills => {
+    this.skillsService.skills$.subscribe(skills => {
       this.skills = skills;
     });
 
     // Fetch the initial data
-    this.dataService.fetchUsers();
-    this.dataService.fetchSkills();
+    this.usersService.fetchUsers();
+    this.skillsService.fetchSkills();
     }
 
     public addUser(): void {
       const dialogRef = this.dialog.open(AddSkillsComponent);
-      dialogRef.afterClosed().subscribe(()=>this.dataService.fetchUsers());
+      dialogRef.afterClosed().subscribe(()=>this.usersService.fetchUsers());
     }
 
     public openUploadDialog(): void {
@@ -64,13 +62,13 @@ export class AppToolbarComponent implements OnInit {
           concatMap(async (result: { convertedExcelData: IUser[], excelSkills: { name: string, type: string }[] }) => {
             const { convertedExcelData, excelSkills } = result;
             if(convertedExcelData || excelSkills) {
-              // this.showSpinner = true;
               
               this.spinnerService.toggleSpinner(true);
-              const excelSkillsToAdd = this.skillsToAdd(excelSkills);
+
+              const excelSkillsToAdd = this.skillsService.skillsToAdd(excelSkills, this.skills);
 
               if (excelSkillsToAdd.length > 0) {
-                await this.addExcelSkills(excelSkillsToAdd);
+                await this.skillsService.addExcelSkills(excelSkillsToAdd);
               }
 
               const newUserToInsert = convertedExcelData.filter(user1 => !this.users.some(user2 => user2.id === user1.id));
@@ -79,11 +77,9 @@ export class AppToolbarComponent implements OnInit {
                 );
       
               if (newUserToInsert.length > 0 || updateNewExcelDataRecordDifference.length > 0 ) {
-                await this.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
+                await this.usersService.addExcelUser(newUserToInsert, updateNewExcelDataRecordDifference);
               }
       
-              // this.showSpinner = false;
-              
               this.spinnerService.toggleSpinner(false);
             }
           })
@@ -91,55 +87,6 @@ export class AppToolbarComponent implements OnInit {
         .subscribe();
     }
 
-    private skillsToAdd(excelSkills: IKnowladge[]) {
-      return excelSkills.filter((excelSkill: IKnowladge) => !this.skills.some((skill: IKnowladge) => skill.name === excelSkill.name));
-    }
-
-    public async addExcelSkills(excelSkillsToAdd: IKnowladge[]): Promise<void> {
-      try {
-          await this.utilityService.processInSequence(excelSkillsToAdd, this.addSkills.bind(this));
-          // this.getSkills();
-          this.dataService.fetchSkills()
-          console.log('Skill addition task completed');
-      } catch (error) {
-        console.error('Error:', error);
-        // Handle any errors that may occur during eddit or addition
-        throw error;
-      }
-  }
-
-  private async addSkills(skills:IKnowladge): Promise<void> {
-    try {
-      await firstValueFrom(this.skillsService.addSkills(skills));
-    } catch (error) {
-      console.log('problem in adding skills');
-    }
-  }
-
-  public async addExcelUser(addUsers: IUser[], editUsers: IUser[]): Promise<void> {
-
-    try {
-      if(addUsers.length > 0){
-        await this.utilityService.processInSequence(addUsers, this.addImportedUser.bind(this));
-        // this.getUsers();
-        this.dataService.fetchUsers()
-        console.log('Addition task completed');
-        }
-
-      if(editUsers.length > 0){
-        await this.utilityService.processInSequence(editUsers, this.editImportedUser.bind(this));
-        // this.getUsers();
-        this.dataService.fetchUsers()
-        console.log('Edit task completed');
-      }
-      
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle any errors that may occur during eddit or addition
-      throw error;
-    }
-
-  }
 
   private isUserDataDifferent(userA: IUser, userB: IUser): boolean {
     return (
@@ -171,22 +118,6 @@ export class AppToolbarComponent implements OnInit {
 
   private dateToTransform(dateString: string) {
     return  dateString ? this.datePipe.transform(new Date(dateString), 'dd/MM/yyyy HH:mm:ss') || '' : ''
-  }
-
-  private async addImportedUser(user: IUser): Promise<void> {
-    try {
-      await firstValueFrom(this.usersService.addUser(user));
-    } catch (error) {
-      console.log('problem in adding user');
-    }
-  }
-
-  private async editImportedUser(user: IUser): Promise<void> {
-    try {
-      await firstValueFrom(this.usersService.editUser(user.id, user));
-    } catch (error) {
-      console.log('problem in adding user');
-    }
   }
 
 }

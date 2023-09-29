@@ -4,14 +4,11 @@ import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { IKnowladge, ISkill, IUser } from '../shared/interfaces/data.interface';
+import { ISkill, IUser } from '../shared/interfaces/data.interface';
 import { SkillsService } from '../shared/services/skills.service';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
-import { UploadSkillsComponent } from '../upload-skills/upload-skills.component';
-import { concatMap, firstValueFrom } from 'rxjs';
 import { UsersService } from '../shared/services/users.service';
 import { UtilityService } from '../shared/services/utility.service';
-import { DataService } from '../shared/services/data.service';
 
 @Component({
   selector: 'app-display-skills',
@@ -34,24 +31,23 @@ export class DisplaySkillsComponent implements OnInit {
       private skillsService: SkillsService, 
       private usersService: UsersService, 
       private utilityService: UtilityService,
-      private dataService: DataService,
       private datePipe: DatePipe ) {}
 
     ngOnInit(): void {
 
     // Subscribe to the users and skills data from the DataService
-    this.dataService.users$.subscribe(users => {
+    this.usersService.users$.subscribe(users => {
       this.users = users.sort((a, b) => a.id - b.id);
       this.setupPaginator(); // Call a method to set up the paginator
     });
 
-    this.dataService.skills$.subscribe(skills => {
+    this.skillsService.skills$.subscribe(skills => {
       this.skills = skills;
     });
 
     // Fetch the initial data
-    this.dataService.fetchUsers();
-    this.dataService.fetchSkills();
+    this.usersService.fetchUsers();
+    this.skillsService.fetchSkills();
     }
 
     public applyFilter(event: Event) {
@@ -65,11 +61,18 @@ export class DisplaySkillsComponent implements OnInit {
 
     private tableFilter(tableDdata: IUser, filter: string) {
   
-        return tableDdata.name.toLowerCase().includes(filter) || 
-                tableDdata.email.toLowerCase().includes(filter) || 
-                tableDdata.location.toLowerCase().includes(filter) ||
-                tableDdata.role.toLowerCase().includes(filter) ||
-                this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(filter);
+
+        if (!filter) {
+          return true; // No filter applied, show all data
+        }
+
+        const lowerCaseFilter = filter.toLowerCase();
+
+        return (tableDdata.name && tableDdata.name.toLowerCase().includes(lowerCaseFilter)) ||
+        (tableDdata.email && tableDdata.email.toLowerCase().includes(lowerCaseFilter)) ||
+        (tableDdata.location && tableDdata.location.toLowerCase().includes(lowerCaseFilter)) ||
+        (tableDdata.role && tableDdata.role.toLowerCase().includes(lowerCaseFilter)) ||
+        (tableDdata.skillsMultiCtrl && this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(lowerCaseFilter))
     }
 
     public formatSkills(skillsMultiCtrl: ISkill[]): string { // type
@@ -91,7 +94,7 @@ export class DisplaySkillsComponent implements OnInit {
         data: user
       });
 
-      dialogRef.afterClosed().subscribe(()=>this.dataService.fetchUsers());
+      dialogRef.afterClosed().subscribe(()=>this.usersService.fetchUsers());
     }
 
     public deleteUser(id: number): void {
@@ -103,7 +106,7 @@ export class DisplaySkillsComponent implements OnInit {
         if (result === true) {
           this.usersService.deleteUser(id).subscribe({
             next: () => {
-              this.dataService.fetchUsers();
+              this.usersService.fetchUsers();
               this.utilityService.notification('User removed successfully');
             },
             error: (err) => {
