@@ -75,7 +75,7 @@ export class DisplaySkillsComponent implements OnInit {
         (tableDdata.skillsMultiCtrl && this.formatSkills(tableDdata.skillsMultiCtrl).toLowerCase().includes(lowerCaseFilter))
     }
 
-    public formatSkills(skillsMultiCtrl: ISkill[]): string { // type
+    public formatSkills(skillsMultiCtrl: ISkill[]): string { 
       return skillsMultiCtrl.map(skill => skill.name).join(', ');
     }
 
