@@ -10,6 +10,8 @@ import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confi
 import { UsersService } from '../shared/services/users.service';
 import { UtilityService } from '../shared/services/utility.service';
 
+import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-display-skills',
   templateUrl: './display-skills.component.html',
@@ -116,5 +118,52 @@ export class DisplaySkillsComponent implements OnInit {
           });
         }
       });
+    }
+
+
+    exportToExcel(user: any) {
+      const groupedSkills = this.groupByNameType(user.skillsMultiCtrl);
+      console.log('groupedSkills', groupedSkills);
+      const arrayForExport = this.fromMultiToOneDimentalArray(groupedSkills);
+      console.log('arrayForExport', arrayForExport);
+      this.appendExcel(arrayForExport, user.name);
+      
+    }
+
+    private appendExcel(data: any, name: string){
+      //  const transposedData = this.transposeData(data);
+      const transformArray = data.map((item: any) => [item]);
+      console.log(transformArray);
+
+      const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(transformArray);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+      XLSX.writeFile(wb, `${name}.xlsx`);
+    }
+
+
+    private fromMultiToOneDimentalArray(multi: any) {
+      const arr = [];
+    
+      for (const type in multi) {
+        if (type in multi) {
+          arr.push(type,'', ...multi[type], ''); 
+        }
+      }
+
+      return arr;
+    }
+    
+    public groupByNameType(skillsArray: { name: string; type: string; id: number }[]) {
+      const groupedSkills: { [key: string]: string[] } = {};
+
+      skillsArray.forEach(skill => {
+          const { name, type } = skill;
+          if (!groupedSkills[type]) {
+              groupedSkills[type] = [];
+          }
+          groupedSkills[type].push(name);
+      });
+      return groupedSkills;
     }
 }
