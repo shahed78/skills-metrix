@@ -120,14 +120,13 @@ export class DisplaySkillsComponent implements OnInit {
       });
     }
 
-
+    // revise later
     exportToExcel(user: any) {
       const groupedSkills = this.groupByNameType(user.skillsMultiCtrl);
       console.log('groupedSkills', groupedSkills);
       const arrayForExport = this.fromMultiToOneDimentalArray(groupedSkills);
       console.log('arrayForExport', arrayForExport);
       this.appendExcel(arrayForExport, user.name);
-      
     }
 
     private appendExcel(data: any, name: string){

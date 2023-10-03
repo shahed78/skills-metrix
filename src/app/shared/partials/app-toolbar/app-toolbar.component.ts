@@ -7,6 +7,8 @@ import { UsersService } from '../../../shared/services/users.service';
 import { SkillsService } from '../../../shared/services/skills.service';
 import { UtilityService } from '../../../shared/services/utility.service';
 import { SpinnerService } from '../../../shared/services/spinner.service';
+import { DataService } from '../../../shared/services/data.service';
+import { Router } from '@angular/router';
 import { ISkill, IUser } from '../../interfaces/data.interface';
 import { concatMap } from 'rxjs';
 
@@ -26,7 +28,9 @@ export class AppToolbarComponent implements OnInit {
               public usersService: UsersService,
               public skillsService: SkillsService,
               public spinnerService: SpinnerService,
-              private datePipe: DatePipe
+              private dataSharingService: DataService,
+              private datePipe: DatePipe,
+              private router: Router
               ){}
 
   ngOnInit(): void {
@@ -118,6 +122,11 @@ export class AppToolbarComponent implements OnInit {
 
   private dateToTransform(dateString: string) {
     return  dateString ? this.datePipe.transform(new Date(dateString), 'dd/MM/yyyy HH:mm:ss') || '' : ''
+  }
+
+  public openReport(){
+    this.dataSharingService.setSharedData(this.users);
+    this.router.navigate(["data-analytics"]);
   }
 
 }

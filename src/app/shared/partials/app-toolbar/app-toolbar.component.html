@@ -1,7 +1,14 @@
 <p>
     <mat-toolbar color="primary">
+      
       <span>Skill Matrix</span>
+
       <span class="toolbar-space"></span>
+
+      <button mat-icon-button [routerLink]="['/skills']" matTooltip="Home">
+        <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+      </button>
+
       <button mat-icon-button (click)="addUser()" matTooltip="Add skills">
         <mat-icon aria-hidden="false" fontIcon="my_library_add"></mat-icon>
       </button>
@@ -9,5 +16,10 @@
       <button mat-icon-button (click)="openUploadDialog()" matTooltip="Skills Upload">
         <mat-icon aria-hidden="false" fontIcon="file_upload"></mat-icon>
       </button>
+
+      <button mat-icon-button (click)="openReport()" matTooltip="Skills Report">
+        <mat-icon aria-hidden="false" fontIcon="bar_chart"></mat-icon>
+      </button>
+      
     </mat-toolbar>
 </p>

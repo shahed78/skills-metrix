@@ -32,6 +32,7 @@ import { DatePipe } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { AppToolbarComponent } from './shared/partials/app-toolbar/app-toolbar.component';
 import { SpinnerComponent } from './shared/partials/spinner/spinner.component';
+import { DataAnalyticsComponent } from './data-analytics/data-analytics.component';
 
 
 
@@ -43,7 +44,8 @@ import { SpinnerComponent } from './shared/partials/spinner/spinner.component';
     DeleteConfirmationComponent,
     UploadSkillsComponent,
     AppToolbarComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DataAnalyticsComponent
   ],
   imports: [
     BrowserModule,
