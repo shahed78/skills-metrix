@@ -125,7 +125,7 @@ export class AppToolbarComponent implements OnInit {
   }
 
   public openReport(){
-    this.dataSharingService.setSharedData(this.users);
+    // this.dataSharingService.setSharedData(this.users);
     this.router.navigate(["data-analytics"]);
   }
 

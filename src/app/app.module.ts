@@ -33,6 +33,7 @@ import { ButtonModule } from 'primeng/button';
 import { AppToolbarComponent } from './shared/partials/app-toolbar/app-toolbar.component';
 import { SpinnerComponent } from './shared/partials/spinner/spinner.component';
 import { DataAnalyticsComponent } from './data-analytics/data-analytics.component';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -70,7 +71,8 @@ import { DataAnalyticsComponent } from './data-analytics/data-analytics.componen
     MatTooltipModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    ButtonModule
+    ButtonModule,
+    ChartModule
 
   ],
   providers: [SkillsService, UsersService, DisplaySkillsComponent, DatePipe,  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
