@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DatePipe } from '@angular/common';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -32,12 +31,12 @@ export class DisplaySkillsComponent implements OnInit {
     constructor(public dialog: MatDialog, 
       private skillsService: SkillsService, 
       private usersService: UsersService, 
-      private utilityService: UtilityService,
-      private datePipe: DatePipe ) {}
+      private utilityService: UtilityService
+      ) {}
 
     ngOnInit(): void {
 
-    // Subscribe to the users and skills data from the DataService
+    // Subscribe to the users and skills data from service
     this.usersService.users$.subscribe(users => {
       this.users = users.sort((a, b) => a.id - b.id);
       this.setupPaginator(); // Call a method to set up the paginator
