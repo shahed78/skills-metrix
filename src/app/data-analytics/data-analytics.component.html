@@ -2,8 +2,12 @@
     <h1>Data Analytics Report</h1>
 </header>
 <content>
-<div class="small-chart" >
-    <p-chart type="bar" [data]="versionControlData"></p-chart>
-</div>
+    <div class="chart-container">
+        <ng-container *ngFor="let type of types">
+          <div class="small-chart">
+            <p-chart type="bar" [data]="chartData[type]"></p-chart>
+          </div>
+        </ng-container>
+      </div>
 </content>  
 

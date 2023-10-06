@@ -1,7 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
-import { DataService } from '../shared/services/data.service';
 import { UsersService } from '../shared/services/users.service';
-import { IUser } from '../shared/interfaces/data.interface';
+import { ChartData, IUser } from '../shared/interfaces/data.interface';
 
 
 @Component({
@@ -11,54 +10,73 @@ import { IUser } from '../shared/interfaces/data.interface';
 })
 export class DataAnalyticsComponent implements OnInit {
 
-  public users:any;
-  versionControlData: { labels: string[]; datasets: { label: string, data: unknown[]; backgroundColor: string[]; }[]; };
+  public users:IUser[] = [];
+  public chartData: ChartData = {};
+  public types: string[];
   
-  constructor(private dataService: DataService,  private usersService: UsersService, ) {}
+  constructor(private usersService: UsersService, ) {}
 
 
   ngOnInit(): void {
     this.usersService.users$.subscribe(users => {
-      console.log('sd')
-      console.log(users);
       this.users = users.sort((a, b) => a.id - b.id);
-      // const arr = this.users.filter((_: any, index: number) => index < 5);
-      // console.log(arr);
-      // this.createChart(arr);
-      this.createChart(this.users);
+      this.types = this.getTypes(users);
+      this.types.forEach(type => {
+        this.createChart(type, users);
+      });
     });
-
-   
   }
 
+  public getTypes(users: IUser[]): string[]{
+    const types: string[] = [];
 
-  public createChart(users: IUser[]) {
+      // Loop through the data and extract the "type" from each skill
+      for (const item of users) {
+        for (const skill of item.skillsMultiCtrl) {
+          if (!types.includes(skill.type)) {
+          types.push(skill.type);
+          }
+        }
+      }
+      return types
+  }
+
+  public createChart(chartType: string, users: IUser[]) {
     const data = users;
+    const chartDataCounts: { [key: string]: number } = {};
 
-      // Specify the type of versionControlCounts
-    const versionControlCounts: { [key: string]: number } = {};
-
-    data.forEach((person: { skillsMultiCtrl: any[]; }) => {
+    data.forEach(person => {
       person.skillsMultiCtrl
-        .filter(skill => skill.type === 'Version Control')
+        .filter(skill => skill.type === chartType)
         .forEach(skill => {
-          versionControlCounts[skill.name] = (versionControlCounts[skill.name] || 0) + 1;
+          chartDataCounts[skill.name] = (chartDataCounts[skill.name] || 0) + 1;
         });
     });
-
-    // Create the chart data
-    this.versionControlData = {
-      labels: Object.keys(versionControlCounts),
+    delete chartDataCounts["Fortran with CUDA, OpenACL, OpenMP, MPI (these are all for parallel programming of Fortran or C++)"];
+    this.chartData[chartType] = {
+      labels: Object.keys(chartDataCounts),
       datasets: [
         {
-          label: 'Version Control',
-          data: Object.values(versionControlCounts),
-          backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+          label: chartType,
+          data: Object.values(chartDataCounts),
+          backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 0, 0, 0.2)',
+          'rgba(0, 255, 0, 0.2)',
+          'rgba(0, 0, 255, 0.2)',
+          'rgba(255, 255, 0, 0.2)',
+          'rgba(255, 0, 255, 0.2)',
+          'rgba(0, 255, 255, 0.2)',
+          'rgba(128, 0, 0, 0.2)',
+          'rgba(0, 128, 0, 0.2)',
+          'rgba(0, 0, 128, 0.2)',
+          'rgba(128, 128, 0, 0.2)',
+          'rgba(128, 0, 128, 0.2)',
+          'rgba(0, 128, 128, 0.2)',
+          'rgba(64, 64, 0, 0.2)',
+          'rgba(64, 0, 64, 0.2)',
+          'rgba(0, 64, 64, 0.2)'],
         }
       ]
     };
-
-    console.log(this.versionControlData);
   }
-
 }

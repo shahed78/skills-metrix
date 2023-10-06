@@ -47,3 +47,16 @@ export interface ApiResponse {
   message: string;
   // other properties as needed
 }
+
+export interface ChartDataItem {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    backgroundColor: string[];
+  }[];
+}
+
+export interface ChartData {
+  [key: string]: ChartDataItem;
+}
